@@ -67,63 +67,24 @@ bb.tl.lines['Northern'].strings.push("M596.48,160.665\
 		V97.196c0-4.871-2.811-11.674-6.261-15.115l-0.76-0.766c-3.44-3.441-6.26-10.246-6.26-15.115V47.884\
 		c0-4.875,2.819-11.678,6.26-15.118l63.24-63.248c3.45-3.445,6.27-10.244,6.27-15.115v-342.98");
 
-bb.tl.lines['Northern'].strings.push(convert("M530.79,847.16\
+bb.tl.lines['Northern'].strings.push("M530.79,847.16\
 			c3.44-3.44,6.26-10.25,6.26-15.12V215.597c0-4.872,2.82-11.672,6.261-15.116l20.35-20.357c3.449-3.442,6.26-10.047,6.26-14.68\
 			V97.196c0-4.871,2.82-11.674,6.26-15.115l0.76-0.766c3.451-3.441,6.261-10.246,6.261-15.115V47.884\
 			c0-4.875-2.81-11.678-6.261-15.118C573.41,29.239,273.38-270.8,273.38-270.8 M222.33,1155.6L794.75,583.2\
 			c3.439-3.45,6.26-10.25,6.26-15.12V206.151c0-5.965-2.42-11.371-6.33-15.279c-3.91-3.916-9.33-6.334-15.29-6.334H617.77\
 			c-11.75,0-21.289-9.531-21.289-21.289V97.196c0-4.871-2.811-11.674-6.261-15.115l-0.76-0.766c-3.44-3.441-6.26-10.246-6.26-15.115\
-			V47.884c0-4.875,2.819-11.678,6.26-15.118"));
+			V47.884c0-4.875,2.819-11.678,6.26-15.118");
 
-function convert(string) {
-	string = string.replace(/(\r\n|\n|\r)/gm,"");
-	string = string.replace("\t","");
-	return string;
-}
 
 bb.tl.lines['Circle'] = { strings: [], color: "#FFD200", paths: [], tx: 645, ty: 433, stations: [] };
 
 bb.tl.lines['Circle'].strings.push("M19.953,522.89V304.934c-0.024-1.17,0.453-3.461,1.334-5.541c0.849-2.101,2.136-4.052,2.98-4.865l73.527-73.531c4.125-4.106,9.456-6.317,15.274-6.324l611.362-0.014c5.971,0,11.37,2.418,15.29,6.332l78.25,78.248c3.92,3.91,9.32,6.324,15.29,6.324h149.75c5.971,0,11.37,2.42,15.28,6.334c3.91,3.916,6.33,9.317,6.33,15.283v102.284c0,5.961-2.42,11.371-6.33,15.283s-9.31,6.328-15.28,6.328H827.08c-5.97,0-11.37,2.42-15.28,6.326l-91.83,91.839c-2.829,2.819-6.59,4.38-10.579,4.38H205.564c-5.961,0-11.371-2.42-15.279-6.32c-4.217-4.229-6.33-9.76-6.33-15.29V253.757c0-5.971,2.416-11.371,6.33-15.28c3.908-3.916,9.318-6.334,15.279-6.334h56.626");
 	
 
-bb.tl.lines['Victoria'] = { strings: [], color: "#009CDB", paths: [], stations: [] };
 
-bb.tl.lines['Victoria'].strings.push("M1220.47,1388.78L1049.24,1217.55");
 
-//curve rx,ry,x-axis-rotation,large-arc-flag,sweepflag,x,y
-//bb.tl.lines['Victoria'].strings.push("M1049.24,1217.55A5,5,0,0,1,1042.98,1202.441");
-bb.tl.lines['Victoria'].strings.push("M1049.24,1217.55C1045.8,1214.110,1042.98,1207.31,1042.98,1202.441");
 
-//straight
-bb.tl.lines['Victoria'].strings.push("M1042.98,1202.441V860.995");
 
-//curve
-bb.tl.lines['Victoria'].strings.push("M1042.98,860.995C1042.98,856.124");
-bb.tl.lines['Victoria'].strings.push("M1042.98,856.124,1045.8,849.321");
-bb.tl.lines['Victoria'].strings.push("M1045.8,849.321,1049.24,845.886");
-
-bb.tl.lines['Victoria'].strings.push("M1049.24,845.886L1285.8,609.329");
-
-bb.tl.lines['Victoria'].strings.push("M1285.8,609.329C1289.24,605.8879");
-bb.tl.lines['Victoria'].strings.push("M1289.24,605.8879,1296.04,603.063");
-bb.tl.lines['Victoria'].strings.push("M1296.04,603.063,1300.9099,603.063");
-bb.tl.lines['Victoria'].strings.push("M1300.9099,603.063H1514.36");
-bb.tl.lines['Victoria'].strings.push("M1514.36,603.063C1519.2298,603.063");
-bb.tl.lines['Victoria'].strings.push("M1519.2298,603.063,1526.03,600.247");
-bb.tl.lines['Victoria'].strings.push("M1526.03,600.247,1529.4798,596.805");
-bb.tl.lines['Victoria'].strings.push("M1529.4798,596.805L1565.7298,560.559");
-bb.tl.lines['Victoria'].strings.push("M1565.7298,560.559C1569.1689,557.12")
-bb.tl.lines['Victoria'].strings.push("M1569.1689,557.12,1571.9798,550.3209");
-bb.tl.lines['Victoria'].strings.push("M1571.9798,550.3209,1571.9798,545.4459");
-bb.tl.lines['Victoria'].strings.push("M1571.9798,545.4459V430.3989");
-bb.tl.lines['Victoria'].strings.push("M1571.9798,430.3989C1571.9798,425.52986");
-bb.tl.lines['Victoria'].strings.push("M1571.9798,425.52986,1574.7989999999998,418.7309");
-bb.tl.lines['Victoria'].strings.push("M1574.7989999999998,418.7309,1578.2398,415.289");
-bb.tl.lines['Victoria'].strings.push("M1578.2398,415.2899L1645.9198,347.6259");
-bb.tl.lines['Victoria'].strings.push("M1645.9198,347.6259C1649.36,344.1789");
-bb.tl.lines['Victoria'].strings.push("M1649.36,344.1789,1656.1599,341.3599");
-bb.tl.lines['Victoria'].strings.push("M1656.1599,341.3599,1661.0297,341.3599");
-bb.tl.lines['Victoria'].strings.push("M1661.0297,341.3599H1918.4798");
 
 
 bb.tl.lines['District'] = { strings: [], color: "#00843F", paths: [], tx: 857, ty: 475, stations: [] };
@@ -177,7 +138,6 @@ bb.tl.lines['EastLondon'].strings.push("M129.85,10.561\
 
 
 
-
 bb.tl.lines['Hammersmith'] = { strings: [], color: "#F285A0", paths: [], tx: 1215, ty: 577, stations: [] };
 
 bb.tl.lines['Hammersmith'].strings.push("M-554.709,378.89\
@@ -201,8 +161,6 @@ bb.tl.lines['DLR'].strings.push("M-70.64,110.688\
 		l12.45,12.452c3.439,3.439,10.25,6.263,15.12,6.263h465.76c4.87,0,11.67,2.813,15.11,6.259L598.57,304.62 M107.84,110.688\
 		c4.391,0,10.811,2.813,14.25,6.259l9.44,9.443c3.45,3.44,6.26,10.24,6.26,15.11 M334.49,110.694c4.87,0,11.67,2.814,15.12,6.254\
 		L664.17,431.52");
-		
-		
 		
 		
 bb.tl.lines['Jubilee'] = { strings: [], color: "#939BA0", paths: [], tx: 1196, ty: 445, stations: [] };

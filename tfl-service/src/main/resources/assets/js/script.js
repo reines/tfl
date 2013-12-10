@@ -23,6 +23,13 @@
 // 
 //}, false);
 
+document.onmousemove = function(e)
+{
+    var x = e.pageX;
+    var y = e.pageY;
+    //console.log(x +", " + y);
+    // do what you want with x and y
+};
 
 var bb = bb || {};
 bb.tl = bb.tl || {};
@@ -38,7 +45,7 @@ bb.tl.init = function() {
 	bb.tl.addTubeStations();
 	bb.tl.setupListeners();
 	
-	console.log(bb.tl.lines["Central"].paths[0].getSubpath(40,80).attr("stroke", "#000000"));
+	//console.log(bb.tl.lines["Central"].paths[0].getSubpath(40,80).attr("stroke", "#000000"));
 	// bb.tl.vars.map.attr('opacity':0);
 };
 
@@ -57,7 +64,8 @@ bb.tl.addTubeLines = function() {
 				c.attr({"stroke-width": 3, "stroke-dasharray": "-", stroke: line.color, opacity: 1, 'stroke-linecap':'round'});
 			}
 			else if (p == "Victoria") {
-				c.attr({"stroke-width": 10, stroke: line.color, opacity: 1, 'stroke-linecap':'round'});
+				$(c.node).attr("class", line.classes[i]);
+				c.attr({"stroke-width": 1, stroke: line.color, opacity: 1, 'stroke-linecap':'round'});
 			}
 			else {
 				c.attr({"stroke-width": 5, stroke: line.color, opacity: 1, 'stroke-linecap':'round'});
@@ -69,7 +77,8 @@ bb.tl.addTubeLines = function() {
 			bb.tl.vars.tubelines.push(c);
 		};
 	}
-	
+//	<path fill="none" stroke="#009cdb" d="M1773,341L1826,341" class="" stroke-width="1" opacity="1" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-width: 1px; opacity: 1; stroke-linecap: round;"></path>
+	$(".Victoria_TottenhamHale.Victoria_BlackhorseRoad").attr("stroke-dasharray", "-");
 	bb.tl.vars.map = bb.tl.vars.paper.image("img/map-artifacts.png", 0, 0, 2426, 1615).attr({"cursor": "move", opacity:1});
 };
 
