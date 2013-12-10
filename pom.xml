@@ -15,5 +15,23 @@
         <dropwizard.version>0.6.2</dropwizard.version>
         <joda-money.version>0.9</joda-money.version>
         <jcsv.version>1.4.0</jcsv.version>
+
+        <junit.version>4.11</junit.version>
+
+        <jdk.version>1.7</jdk.version>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
