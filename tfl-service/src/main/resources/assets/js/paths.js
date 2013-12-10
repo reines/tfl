@@ -3,215 +3,433 @@ bb.tl = bb.tl || {};
 bb.tl.lines = bb.tl.lines || {};
 
 // TUBE PATH DATA
-bb.tl.lines['Central'] = { strings: [], color: "#ED3024", paths: [], tx: 1005, ty: 226, stations: [] };
+bb.tl.lines['Central'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Central'].strings.push('M 222.76 174.79 L 222.76 513.22'); 
+bb.tl.lines['Central'].strings.push('M 222.76 513.22 C 222.76 518.09 225.58 524.9 229.02 528.34'); 
+bb.tl.lines['Central'].strings.push('M 229.02 528.34 L 486.28 785.59'); 
+bb.tl.lines['Central'].strings.push('M 486.28 785.59 C 489.72 789.04 496.53 791.85 501.39 791.85'); 
+bb.tl.lines['Central'].strings.push('M 501.39 791.85'); 
+bb.tl.lines['Central'].strings.push('M 2034.1 394.45 C 2034.1 386.84 2040.26 380.68 2047.87 380.68'); 
+bb.tl.lines['Central'].strings.push('M 2047.87 380.68 L 2174.94 380.68'); 
+bb.tl.lines['Central'].strings.push('M 2174.94 380.68 C 2182.54 380.68 2188.71 374.51 2188.71 366.9'); 
+bb.tl.lines['Central'].strings.push('M 2188.71 366.9 L 2188.71 211.99'); 
+bb.tl.lines['Central'].strings.push('M 2188.71 211.99 C 2188.71 204.39 2182.54 198.22 2174.94 198.22'); 
+bb.tl.lines['Central'].strings.push('M 2174.94 198.22 L 2047.87 198.22'); 
+bb.tl.lines['Central'].strings.push('M 2047.87 198.22 C 2040.26 198.22 2034.1 204.39 2034.1 211.99'); 
+bb.tl.lines['Central'].strings.push('M 2034.1 211.99'); 
+bb.tl.lines['Central'].strings.push('M 2034.1 12.35 L 2034.1 529.16'); 
+bb.tl.lines['Central'].strings.push('M 2034.1 529.16 C 2034.1 531.97 2031.28 538.79 2027.84 542.22'); 
+bb.tl.lines['Central'].strings.push('M 2027.84 542.22 L 1880.1 689.97'); 
+bb.tl.lines['Central'].strings.push('M 1880.1 689.97 C 1876.66 693.41 1869.86 696.23 1864.99 696.23'); 
 
-bb.tl.lines['Central'].strings.push("M-782.239-51.21\
-	v338.43c0,4.869,2.819,11.679,6.264,15.121l257.258,257.252c3.445,3.451,10.25,6.263,15.113,6.263 M1029.1,168.446\
-	c0-7.607,6.16-13.771,13.771-13.771h127.069c7.601,0,13.771-6.166,13.771-13.776V-14.007c0-7.604-6.17-13.775-13.771-13.775H1042.87\
-	c-7.61,0-13.771,6.171-13.771,13.775 M1029.1-213.652v516.811c0,2.813-2.819,9.627-6.26,13.065L875.1,463.966\
-	c-3.439,3.445-10.239,6.257-15.109,6.257");
-	
-bb.tl.lines['Central'].strings.push("M859.98,470.223\
-		H659.97c-4.87,0-11.67,2.823-15.12,6.269L515.99,605.364c-3.45,3.44-10.25,6.258-15.12,6.258h-79.49\
-		c-4.87,0-11.66-2.817-15.11-6.258l-33.239-33.236c-3.44-3.448-10.24-6.264-15.11-6.264H-686.959");
-		
-		
-bb.tl.lines['Picadilly'] = { strings: [], color: "#1C3E93", paths: [], tx: 320, ty: 296, stations: [] };
+bb.tl.lines['Central'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Central'].strings.push('M 1864.98 696.22 L 1664.97 696.22'); 
+bb.tl.lines['Central'].strings.push('M 1664.97 696.22 C 1660.1 696.22 1653.3 699.04 1649.85 702.49'); 
+bb.tl.lines['Central'].strings.push('M 1649.85 702.49 L 1520.99 831.36'); 
+bb.tl.lines['Central'].strings.push('M 1520.99 831.36 C 1517.54 834.8 1510.74 837.62 1505.87 837.62'); 
+bb.tl.lines['Central'].strings.push('M 1505.87 837.62 L 1426.38 837.62'); 
+bb.tl.lines['Central'].strings.push('M 1426.38 837.62 C 1421.51 837.62 1414.72 834.8 1411.27 831.36'); 
+bb.tl.lines['Central'].strings.push('M 1411.27 831.36 L 1378.03 798.12'); 
+bb.tl.lines['Central'].strings.push('M 1378.03 798.12 C 1374.59 794.67 1367.79 791.86 1362.92 791.86'); 
+bb.tl.lines['Central'].strings.push('M 1362.92 791.86 L 318.04 791.86'); 
 
-bb.tl.lines['Picadilly'].strings.push("M-188.668,896.97\
-	c-4.659,4.66-6.995,10.761-6.993,16.88v47.75c0,6.11-2.33,12.221-6.99,16.881c-0.232,0.239,0,0,0,0\
-	c-4.322,4.31-10.289,6.989-16.873,6.989c-6.109,0-12.223-2.34-16.875-6.989c-4.318-4.341-6.984-10.301-6.984-16.881\
-	c0-6.6,2.67-12.58,7.006-16.899l47.826-47.83 M-289.829,998.13L20.734,687.57c3.439-3.45,10.244-6.261,15.115-6.261h132.006");
+bb.tl.lines['Circle'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Circle'].strings.push('M 664.95 955.89 L 664.95 737.93'); 
+bb.tl.lines['Circle'].strings.push('M 664.95 737.93 C 664.93 736.76 665.4 734.47 666.28 732.39'); 
+bb.tl.lines['Circle'].strings.push('M 666.28 732.39 C 667.13 730.29 668.42 728.34 669.26 727.53'); 
+bb.tl.lines['Circle'].strings.push('M 669.26 727.53 L 742.79 654'); 
+bb.tl.lines['Circle'].strings.push('M 742.79 654 C 746.91 649.89 752.25 647.68 758.06 647.68'); 
+bb.tl.lines['Circle'].strings.push('M 758.06 647.68 L 1369.42 647.67'); 
+bb.tl.lines['Circle'].strings.push('M 1369.42 647.67 C 1375.39 647.67 1380.79 650.09 1384.71 654'); 
+bb.tl.lines['Circle'].strings.push('M 1384.71 654 L 1462.96 732.25'); 
+bb.tl.lines['Circle'].strings.push('M 1462.96 732.25 C 1466.88 736.16 1472.28 738.57 1478.25 738.57'); 
+bb.tl.lines['Circle'].strings.push('M 1478.25 738.57 L 1628 738.57'); 
+bb.tl.lines['Circle'].strings.push('M 1628 738.57 C 1633.97 738.57 1639.37 740.99 1643.28 744.9'); 
+bb.tl.lines['Circle'].strings.push('M 1643.28 744.9 C 1647.19 748.82 1649.61 754.22 1649.61 760.18'); 
+bb.tl.lines['Circle'].strings.push('M 1649.61 760.18 L 1649.61 862.46'); 
+bb.tl.lines['Circle'].strings.push('M 1649.61 862.46 C 1649.61 868.42 1647.19 873.83 1643.28 877.74'); 
+bb.tl.lines['Circle'].strings.push('M 1643.28 877.74 S 1633.97 884.07 1628 884.07'); 
+bb.tl.lines['Circle'].strings.push('M 1628 884.07 L 1472.08 884.07'); 
+bb.tl.lines['Circle'].strings.push('M 1472.08 884.07 C 1466.11 884.07 1460.71 886.49 1456.8 890.4'); 
+bb.tl.lines['Circle'].strings.push('M 1456.8 890.4 L 1364.97 982.24'); 
+bb.tl.lines['Circle'].strings.push('M 1364.97 982.24 C 1362.14 985.06 1358.38 986.62 1354.39 986.62'); 
+bb.tl.lines['Circle'].strings.push('M 1354.39 986.62 L 850.56 986.62'); 
+bb.tl.lines['Circle'].strings.push('M 850.56 986.62 C 844.6 986.62 839.19 984.2 835.28 980.3'); 
+bb.tl.lines['Circle'].strings.push('M 835.28 980.3 C 831.06 976.07 828.95 970.54 828.95 965.01'); 
+bb.tl.lines['Circle'].strings.push('M 828.95 965.01 L 828.95 686.76'); 
+bb.tl.lines['Circle'].strings.push('M 828.95 686.76 C 828.95 680.79 831.37 675.39 835.28 671.48'); 
+bb.tl.lines['Circle'].strings.push('M 835.28 671.48 C 839.19 667.56 844.6 665.15 850.56 665.15'); 
+bb.tl.lines['Circle'].strings.push('M 850.56 665.15 L 907.19 665.15'); 
 
-bb.tl.lines['Picadilly'].strings.push("M1313.34-232.552\
-		V18.151c0,4.867-2.81,11.674-6.26,15.119l-321.5,321.508c-3.45,3.442-6.27,10.242-6.27,15.111v98.739\
-		c0,4.869-2.82,11.668-6.261,15.113L886.9,569.893c-3.44,3.442-10.24,6.263-15.12,6.263H714.83c-4.87,0-11.67,2.816-15.12,6.262\
-		l-92.63,92.623c-3.439,3.44-10.25,6.27-15.12,6.27H67.083");
-	
+bb.tl.lines['Picadilly'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Picadilly'].strings.push('M 131.33 1092.97 C 126.67 1097.63 124.34 1103.73 124.34 1109.85'); 
+bb.tl.lines['Picadilly'].strings.push('M 124.34 1109.85 L 124.34 1157.6'); 
+bb.tl.lines['Picadilly'].strings.push('M 124.34 1157.6 C 124.34 1163.71 122.01 1169.82 117.35 1174.48'); 
+bb.tl.lines['Picadilly'].strings.push('M 117.35 1174.48 C 117.12 1174.72 117.35 1174.48 117.35 1174.48'); 
+bb.tl.lines['Picadilly'].strings.push('M 117.35 1174.48 C 113.03 1178.79 107.06 1181.47 100.48 1181.47'); 
+bb.tl.lines['Picadilly'].strings.push('M 100.48 1181.47 C 94.37 1181.47 88.26 1179.13 83.61 1174.48'); 
+bb.tl.lines['Picadilly'].strings.push('M 83.61 1174.48 C 79.29 1170.14 76.63 1164.18 76.63 1157.6'); 
+bb.tl.lines['Picadilly'].strings.push('M 76.63 1157.6 C 76.63 1151 79.3 1145.02 83.64 1140.7'); 
+bb.tl.lines['Picadilly'].strings.push('M 83.64 1140.7 L 131.47 1092.87'); 
+bb.tl.lines['Picadilly'].strings.push('M 131.47 1092.87'); 
+bb.tl.lines['Picadilly'].strings.push('M 30.17 1194.13 L 340.73 883.57'); 
+bb.tl.lines['Picadilly'].strings.push('M 340.73 883.57 C 344.17 880.12 350.97 877.31 355.84 877.31'); 
+bb.tl.lines['Picadilly'].strings.push('M 355.84 877.31 L 487.85 877.31'); 
 
-bb.tl.lines['Picadilly'].strings.push("M77.677,681.31\
-			c-7.498-0.02-14.875-2.829-20.603-8.54l-6.973-6.96c-2.717-2.729-4.377-6.42-4.383-10.579V22.194c0-4.867-2.826-11.662-6.273-15.099\
-			c0,0-68.414-68.073-71.307-70.967c-2.803-2.803-8.34-5.819-12.896-5.819c-5.565,0-248.11,0-248.11,0");
-		
-bb.tl.lines['Metropolitan'] = { strings: [], color: "#96005E", paths: [], tx: 635, ty: 230, stations: [] };
+bb.tl.lines['Picadilly'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Picadilly'].strings.push('M 1633.34 -36.55 L 1633.34 214.15'); 
+bb.tl.lines['Picadilly'].strings.push('M 1633.34 214.15 C 1633.34 219.02 1630.53 225.82 1627.08 229.27'); 
+bb.tl.lines['Picadilly'].strings.push('M 1627.08 229.27 L 1305.58 550.78'); 
+bb.tl.lines['Picadilly'].strings.push('M 1305.58 550.78 C 1302.13 554.22 1299.31 561.02 1299.31 565.89'); 
+bb.tl.lines['Picadilly'].strings.push('M 1299.31 565.89 L 1299.31 664.63'); 
+bb.tl.lines['Picadilly'].strings.push('M 1299.31 664.63 C 1299.31 669.5 1296.49 676.3 1293.05 679.74'); 
+bb.tl.lines['Picadilly'].strings.push('M 1293.05 679.74 L 1206.9 765.89'); 
+bb.tl.lines['Picadilly'].strings.push('M 1206.9 765.89 C 1203.46 769.33 1196.66 772.15 1191.78 772.15'); 
+bb.tl.lines['Picadilly'].strings.push('M 1191.78 772.15 L 1034.83 772.15'); 
+bb.tl.lines['Picadilly'].strings.push('M 1034.83 772.15 C 1029.96 772.15 1023.16 774.97 1019.71 778.41'); 
+bb.tl.lines['Picadilly'].strings.push('M 1019.71 778.41 L 927.08 871.03'); 
+bb.tl.lines['Picadilly'].strings.push('M 927.08 871.03 C 923.64 874.47 916.83 877.3 911.96 877.3'); 
+bb.tl.lines['Picadilly'].strings.push('M 911.96 877.3 L 387.08 877.3'); 
 
-bb.tl.lines['Metropolitan'].strings.push("M-309.049-95.165\
-	c-3.446-3.446-6.264-10.248-6.264-15.115v-55.252 M-510.01-164.187c-4.869,0-11.674-2.818-15.115-6.263l-31.877-31.881");
+bb.tl.lines['Picadilly'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Picadilly'].strings.push('M 397.68 877.31 C 390.18 877.29 382.81 874.48 377.08 868.77'); 
+bb.tl.lines['Picadilly'].strings.push('M 377.08 868.77 L 370.11 861.81'); 
+bb.tl.lines['Picadilly'].strings.push('M 370.11 861.81 C 367.39 859.08 365.73 855.39 365.73 851.23'); 
+bb.tl.lines['Picadilly'].strings.push('M 365.73 851.23 L 365.73 218.19'); 
+bb.tl.lines['Picadilly'].strings.push('M 365.73 218.19 C 365.73 213.32 362.9 206.53 359.46 203.09'); 
+bb.tl.lines['Picadilly'].strings.push('M 359.46 203.09 C 359.46 203.09 291.05 135.02 288.15 132.12'); 
+bb.tl.lines['Picadilly'].strings.push('M 288.15 132.12 C 285.35 129.32 279.81 126.3 275.25 126.3'); 
+bb.tl.lines['Picadilly'].strings.push('M 275.25 126.3 C 269.68 126.3 27.14 126.3 27.14 126.3'); 
 
-bb.tl.lines['Metropolitan'].strings.push("M-609.704-9.343\
-		h254.946c5.974,0,13.289,3.461,17.511,7.678l78.764,78.76c3.44,3.447,10.244,6.265,15.115,6.265h147.379");
+bb.tl.lines['Metropolitan'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Metropolitan'].strings.push('M 325.95 134.83 C 322.5 131.38 319.69 124.58 319.69 119.72'); 
+bb.tl.lines['Metropolitan'].strings.push('M 319.69 119.72 L 319.69 64.47'); 
+bb.tl.lines['Metropolitan'].strings.push('M 319.69 64.47'); 
+bb.tl.lines['Metropolitan'].strings.push('M 124.99 65.81 C 120.12 65.81 113.32 62.99 109.88 59.55'); 
+bb.tl.lines['Metropolitan'].strings.push('M 109.88 59.55 L 78 27.67'); 
 
-bb.tl.lines['Metropolitan'].strings.push("M442.23,426.282\
-			l294.199,0.026c4,0,7.76,1.551,10.58,4.383 M-613.1-164.187h226.164c4.873,0,11.674,2.813,15.119,6.262l234.932,235.02\
-			c3.441,3.447,10.238,6.265,15.113,6.265l195.195,0.012c4.869,0,11.672,2.818,15.118,6.264L418.92,420.014\
-			c3.45,3.442,10.24,6.269,15.11,6.269l302.399,0.026c4,0,7.76,1.551,10.58,4.383l78.26,78.248c5.351,5.336,12.44,8.28,19.99,8.28\
-			h149.75c3.99,0,7.76,1.554,10.58,4.378c2.82,2.829,4.38,6.584,4.38,10.582v73.303");
+bb.tl.lines['Metropolitan'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Metropolitan'].strings.push('M 25.3 220.66 L 280.25 220.66'); 
+bb.tl.lines['Metropolitan'].strings.push('M 280.25 220.66 C 286.22 220.66 293.54 224.12 297.76 228.34'); 
+bb.tl.lines['Metropolitan'].strings.push('M 297.76 228.34 L 376.52 307.1'); 
+bb.tl.lines['Metropolitan'].strings.push('M 376.52 307.1 C 379.96 310.55 386.76 313.36 391.63 313.36'); 
+bb.tl.lines['Metropolitan'].strings.push('M 391.63 313.36 L 539.01 313.36'); 
 
-		
-		
-bb.tl.lines['Bakerloo'] = { strings: [], color: "#AF6010", paths: [], tx: 450, ty: 345, stations: [] };
+bb.tl.lines['Metropolitan'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Metropolitan'].strings.push('M 1077.23 656.28 L 1371.43 656.31'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1371.43 656.31 C 1375.43 656.31 1379.19 657.86 1382.01 660.69'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1382.01 660.69'); 
+bb.tl.lines['Metropolitan'].strings.push('M 21.9 65.81 L 248.06 65.81'); 
+bb.tl.lines['Metropolitan'].strings.push('M 248.06 65.81 C 252.93 65.81 259.73 68.62 263.18 72.07'); 
+bb.tl.lines['Metropolitan'].strings.push('M 263.18 72.07 L 498.11 307.09'); 
+bb.tl.lines['Metropolitan'].strings.push('M 498.11 307.09 C 501.55 310.54 508.35 313.35 513.22 313.35'); 
+bb.tl.lines['Metropolitan'].strings.push('M 513.22 313.35 L 708.42 313.36'); 
+bb.tl.lines['Metropolitan'].strings.push('M 708.42 313.36 C 713.29 313.36 720.09 316.18 723.54 319.62'); 
+bb.tl.lines['Metropolitan'].strings.push('M 723.54 319.62 L 1053.92 650.01'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1053.92 650.01 C 1057.37 653.45 1064.16 656.28 1069.03 656.28'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1069.03 656.28 L 1371.43 656.31'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1371.43 656.31 C 1375.43 656.31 1379.19 657.86 1382.01 660.69'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1382.01 660.69 L 1460.27 738.94'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1460.27 738.94 C 1465.62 744.28 1472.71 747.22 1480.26 747.22'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1480.26 747.22 L 1630.01 747.22'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1630.01 747.22 C 1634 747.22 1637.77 748.77 1640.59 751.6'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1640.59 751.6 C 1643.41 754.43 1644.97 758.18 1644.97 762.18'); 
+bb.tl.lines['Metropolitan'].strings.push('M 1644.97 762.18 L 1644.97 835.48'); 
 
-bb.tl.lines['Bakerloo'].strings.push("M213.115,222.005\
-	c-3.821-3.828-6.264-9.557-6.264-15.121 M818.689,890.05l-23.81-23.819c-3.44-3.45-6.26-10.25-6.26-15.12V617.8\
-	c0-4.859-2.82-11.67-6.271-15.109L657.59,477.917c-3.439-3.444-6.26-10.244-6.26-15.115v-48.562c0-4.869-2.811-11.668-6.26-15.113\
-	l-115.2-115.199c-3.44-3.438-10.24-6.26-15.11-6.26l-237.124-0.006c-4.871,0-11.679-2.82-15.115-6.256l-49.406-49.4\
-	c-3.821-3.828-6.264-9.557-6.264-15.121v-6.508c0-4.871,0-12.84,0-17.711v-306.328");
-	
+bb.tl.lines['Bakerloo'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Bakerloo'].strings.push('M 663.12 567.01 C 659.3 563.18 656.86 557.45 656.86 551.89'); 
+bb.tl.lines['Bakerloo'].strings.push('M 656.86 551.89'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1268.69 1235.05 L 1244.88 1211.23'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1244.88 1211.23 C 1241.44 1207.78 1238.62 1200.98 1238.62 1196.11'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1238.62 1196.11 L 1238.62 962.8'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1238.62 962.8 C 1238.62 957.94 1235.8 951.13 1232.35 947.69'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1232.35 947.69 L 1107.59 822.92'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1107.59 822.92 C 1104.15 819.48 1101.33 812.68 1101.33 807.81'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1101.33 807.81 L 1101.33 759.25'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1101.33 759.25 C 1101.33 754.38 1098.52 747.58 1095.07 744.14'); 
+bb.tl.lines['Bakerloo'].strings.push('M 1095.07 744.14 L 979.87 628.94'); 
+bb.tl.lines['Bakerloo'].strings.push('M 979.87 628.94 C 976.43 625.5 969.63 622.68 964.76 622.68'); 
+bb.tl.lines['Bakerloo'].strings.push('M 964.76 622.68 L 727.64 622.67'); 
+bb.tl.lines['Bakerloo'].strings.push('M 727.64 622.67 C 722.77 622.67 715.96 619.85 712.53 616.41'); 
+bb.tl.lines['Bakerloo'].strings.push('M 712.53 616.41 L 663.12 567.01'); 
+bb.tl.lines['Bakerloo'].strings.push('M 663.12 567.01 C 659.3 563.18 656.86 557.45 656.86 551.89'); 
+bb.tl.lines['Bakerloo'].strings.push('M 656.86 551.89 L 656.86 545.38'); 
+bb.tl.lines['Bakerloo'].strings.push('M 656.86 545.38 C 656.86 540.51 656.86 532.54 656.86 527.67'); 
+bb.tl.lines['Bakerloo'].strings.push('M 656.86 527.67 L 656.86 221.34'); 
 
-bb.tl.lines['Northern'] = { strings: [], color: "#231F20", paths: [], tx: 682, ty: 438, stations: [] };
+bb.tl.lines['Northern'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Northern'].strings.push('M 1340.95 188.45 C 1340.95 183.58 1338.14 176.78 1334.69 173.34'); 
+bb.tl.lines['Northern'].strings.push('M 1334.69 173.34 C 1332.33 170.98 1332.45 171.09 1295.9 134.54'); 
 
-bb.tl.lines['Northern'].strings.push("M658.95-249.546\
-	c0-4.869-2.81-11.668-6.261-15.115c-2.359-2.362-2.239-2.246-38.789-38.799");
+bb.tl.lines['Northern'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Northern'].strings.push('M 1278.48 598.66 L 1278.48 535.2'); 
+bb.tl.lines['Northern'].strings.push('M 1278.48 535.2 C 1278.48 530.33 1275.67 523.53 1272.22 520.09'); 
+bb.tl.lines['Northern'].strings.push('M 1272.22 520.09 L 1271.46 519.32'); 
+bb.tl.lines['Northern'].strings.push('M 1271.46 519.32 C 1268.02 515.88 1265.2 509.07 1265.2 504.21'); 
+bb.tl.lines['Northern'].strings.push('M 1265.2 504.21 L 1265.2 485.88'); 
+bb.tl.lines['Northern'].strings.push('M 1265.2 485.88 C 1265.2 481 1268.02 474.2 1271.46 470.76'); 
+bb.tl.lines['Northern'].strings.push('M 1271.46 470.76 L 1334.7 407.51'); 
+bb.tl.lines['Northern'].strings.push('M 1334.7 407.51 C 1338.15 404.07 1340.97 397.27 1340.97 392.4'); 
+bb.tl.lines['Northern'].strings.push('M 1340.97 392.4 L 1340.97 49.42'); 
 
-bb.tl.lines['Northern'].strings.push("M596.48,160.665\
-		V97.196c0-4.871-2.811-11.674-6.261-15.115l-0.76-0.766c-3.44-3.441-6.26-10.246-6.26-15.115V47.884\
-		c0-4.875,2.819-11.678,6.26-15.118l63.24-63.248c3.45-3.445,6.27-10.244,6.27-15.115v-342.98");
+bb.tl.lines['Northern'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Northern'].strings.push('M 1212.79 1285.16 C 1216.23 1281.72 1219.05 1274.91 1219.05 1270.04'); 
+bb.tl.lines['Northern'].strings.push('M 1219.05 1270.04 L 1219.05 653.6'); 
+bb.tl.lines['Northern'].strings.push('M 1219.05 653.6 C 1219.05 648.73 1221.87 641.93 1225.31 638.48'); 
+bb.tl.lines['Northern'].strings.push('M 1225.31 638.48 L 1245.66 618.12'); 
+bb.tl.lines['Northern'].strings.push('M 1245.66 618.12 C 1249.11 614.68 1251.92 608.07 1251.92 603.44'); 
+bb.tl.lines['Northern'].strings.push('M 1251.92 603.44 L 1251.92 535.2'); 
+bb.tl.lines['Northern'].strings.push('M 1251.92 535.2 C 1251.92 530.33 1254.74 523.53 1258.18 520.09'); 
+bb.tl.lines['Northern'].strings.push('M 1258.18 520.09 L 1258.94 519.32'); 
+bb.tl.lines['Northern'].strings.push('M 1258.94 519.32 C 1262.39 515.88 1265.2 509.07 1265.2 504.21'); 
+bb.tl.lines['Northern'].strings.push('M 1265.2 504.21 L 1265.2 485.88'); 
+bb.tl.lines['Northern'].strings.push('M 1265.2 485.88 C 1265.2 481 1262.39 474.2 1258.94 470.76'); 
+bb.tl.lines['Northern'].strings.push('M 1258.94 470.76 C 1255.41 467.24 955.38 167.2 955.38 167.2'); 
+bb.tl.lines['Northern'].strings.push('M 955.38 167.2'); 
+bb.tl.lines['Northern'].strings.push('M 904.33 1593.6 L 1476.75 1021.2'); 
+bb.tl.lines['Northern'].strings.push('M 1476.75 1021.2 C 1480.19 1017.75 1483.01 1010.95 1483.01 1006.08'); 
+bb.tl.lines['Northern'].strings.push('M 1483.01 1006.08 L 1483.01 644.15'); 
+bb.tl.lines['Northern'].strings.push('M 1483.01 644.15 C 1483.01 638.18 1480.59 632.78 1476.68 628.87'); 
+bb.tl.lines['Northern'].strings.push('M 1476.68 628.87 C 1472.77 624.95 1467.35 622.54 1461.39 622.54'); 
+bb.tl.lines['Northern'].strings.push('M 1461.39 622.54 L 1299.77 622.54'); 
+bb.tl.lines['Northern'].strings.push('M 1299.77 622.54 C 1288.02 622.54 1278.48 613.01 1278.48 601.25'); 
+bb.tl.lines['Northern'].strings.push('M 1278.48 601.25 L 1278.48 535.2'); 
+bb.tl.lines['Northern'].strings.push('M 1278.48 535.2 C 1278.48 530.33 1275.67 523.53 1272.22 520.09'); 
+bb.tl.lines['Northern'].strings.push('M 1272.22 520.09 L 1271.46 519.32'); 
+bb.tl.lines['Northern'].strings.push('M 1271.46 519.32 C 1268.02 515.88 1265.2 509.07 1265.2 504.21'); 
+bb.tl.lines['Northern'].strings.push('M 1265.2 504.21 L 1265.2 485.88'); 
+bb.tl.lines['Northern'].strings.push('M 1265.2 485.88 C 1265.2 481 1268.02 474.2 1271.46 470.76'); 
 
-bb.tl.lines['Northern'].strings.push(convert("M530.79,847.16\
-			c3.44-3.44,6.26-10.25,6.26-15.12V215.597c0-4.872,2.82-11.672,6.261-15.116l20.35-20.357c3.449-3.442,6.26-10.047,6.26-14.68\
-			V97.196c0-4.871,2.82-11.674,6.26-15.115l0.76-0.766c3.451-3.441,6.261-10.246,6.261-15.115V47.884\
-			c0-4.875-2.81-11.678-6.261-15.118C573.41,29.239,273.38-270.8,273.38-270.8 M222.33,1155.6L794.75,583.2\
-			c3.439-3.45,6.26-10.25,6.26-15.12V206.151c0-5.965-2.42-11.371-6.33-15.279c-3.91-3.916-9.33-6.334-15.29-6.334H617.77\
-			c-11.75,0-21.289-9.531-21.289-21.289V97.196c0-4.871-2.811-11.674-6.261-15.115l-0.76-0.766c-3.44-3.441-6.26-10.246-6.26-15.115\
-			V47.884c0-4.875,2.819-11.678,6.26-15.118"));
+bb.tl.lines['Victoria'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Victoria'].strings.push('M 1220.47 1388.78 L 1049.24 1217.55'); 
+bb.tl.lines['Victoria'].strings.push('M 1049.24 1217.55 C 1045.8 1214.11 1042.98 1207.31 1042.98 1202.44'); 
+bb.tl.lines['Victoria'].strings.push('M 1042.98 1202.44 L 1042.98 860.99'); 
+bb.tl.lines['Victoria'].strings.push('M 1042.98 860.99 C 1042.98 856.12 1045.8 849.32 1049.24 845.88'); 
+bb.tl.lines['Victoria'].strings.push('M 1049.24 845.88 L 1285.8 609.33'); 
+bb.tl.lines['Victoria'].strings.push('M 1285.8 609.33 C 1289.24 605.89 1296.04 603.06 1300.91 603.06'); 
+bb.tl.lines['Victoria'].strings.push('M 1300.91 603.06 L 1514.36 603.06'); 
+bb.tl.lines['Victoria'].strings.push('M 1514.36 603.06 C 1519.23 603.06 1526.03 600.24 1529.48 596.8'); 
+bb.tl.lines['Victoria'].strings.push('M 1529.48 596.8 L 1565.73 560.55'); 
+bb.tl.lines['Victoria'].strings.push('M 1565.73 560.55 C 1569.17 557.11 1571.98 550.31 1571.98 545.44'); 
+bb.tl.lines['Victoria'].strings.push('M 1571.98 545.44 L 1571.98 430.4'); 
+bb.tl.lines['Victoria'].strings.push('M 1571.98 430.4 C 1571.98 425.53 1574.8 418.73 1578.24 415.29'); 
+bb.tl.lines['Victoria'].strings.push('M 1578.24 415.29 L 1645.92 347.63'); 
+bb.tl.lines['Victoria'].strings.push('M 1645.92 347.63 C 1649.36 344.18 1656.16 341.36 1661.03 341.36'); 
+bb.tl.lines['Victoria'].strings.push('M 1661.03 341.36 L 1918.48 341.36'); 
 
-function convert(string) {
-	string = string.replace(/(\r\n|\n|\r)/gm,"");
-	string = string.replace("\t","");
-	return string;
-}
+bb.tl.lines['District'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['District'].strings.push('M 478.27 996.27 C 472.3 996.27 466.89 998.69 462.99 1002.6'); 
+bb.tl.lines['District'].strings.push('M 462.99 1002.6 C 459.08 1006.51 456.66 1011.91 456.66 1017.89'); 
+bb.tl.lines['District'].strings.push('M 456.66 1017.89 L 456.66 1177.98'); 
 
-bb.tl.lines['Circle'] = { strings: [], color: "#FFD200", paths: [], tx: 645, ty: 433, stations: [] };
+bb.tl.lines['District'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['District'].strings.push('M 2408.41 377.53 L 2067.13 718.81'); 
+bb.tl.lines['District'].strings.push('M 2067.13 718.81 C 2063.69 722.26 2056.89 725.08 2052.02 725.08'); 
+bb.tl.lines['District'].strings.push('M 2052.02 725.08 L 1830.59 725.07'); 
+bb.tl.lines['District'].strings.push('M 1830.59 725.07 C 1825.73 725.07 1818.92 727.88 1815.48 731.33'); 
+bb.tl.lines['District'].strings.push('M 1815.48 731.33 L 1661.38 885.44'); 
+bb.tl.lines['District'].strings.push('M 1661.38 885.44 C 1656.04 890.78 1648.94 893.72 1641.39 893.72'); 
+bb.tl.lines['District'].strings.push('M 1641.39 893.72 L 1476.08 893.72'); 
+bb.tl.lines['District'].strings.push('M 1476.08 893.72 C 1472.09 893.72 1468.33 895.27 1465.5 898.1'); 
+bb.tl.lines['District'].strings.push('M 1465.5 898.1 L 1373.67 989.93'); 
+bb.tl.lines['District'].strings.push('M 1373.67 989.93 C 1369.76 993.84 1364.36 996.26 1358.39 996.26'); 
+bb.tl.lines['District'].strings.push('M 1358.39 996.26 L 409.21 996.26'); 
+bb.tl.lines['District'].strings.push('M 409.21 996.26 C 403.24 996.26 397.84 993.84 393.93 989.93'); 
+bb.tl.lines['District'].strings.push('M 393.93 989.93 L 372.4 968.41'); 
+bb.tl.lines['District'].strings.push('M 372.4 968.41 C 368.49 964.51 366.07 959.1 366.07 953.13'); 
+bb.tl.lines['District'].strings.push('M 366.07 953.13 L 366.07 822.13'); 
+bb.tl.lines['District'].strings.push('M 366.07 822.13 C 366.07 816.16 363.65 810.76 359.74 806.85'); 
+bb.tl.lines['District'].strings.push('M 359.74 806.85 C 355.83 802.94 350.43 800.52 344.46 800.52'); 
+bb.tl.lines['District'].strings.push('M 344.46 800.52 C 339 800.52 327.16 800.52 327.16 800.52'); 
+bb.tl.lines['District'].strings.push('M 327.16 800.52'); 
+bb.tl.lines['District'].strings.push('M 804.1 996.39 C 798.13 996.39 792.73 998.81 788.82 1002.72'); 
+bb.tl.lines['District'].strings.push('M 788.82 1002.72 S 782.49 1012.03 782.49 1018.01'); 
+bb.tl.lines['District'].strings.push('M 782.49 1018.01 C 782.49 1023.81 782.49 1343.07 782.49 1343.07'); 
+bb.tl.lines['District'].strings.push('M 782.49 1343.07'); 
+bb.tl.lines['District'].strings.push('M 804.1 996.39 C 798.13 996.39 792.73 993.97 788.82 990.06'); 
+bb.tl.lines['District'].strings.push('M 788.82 990.06 C 784.91 986.15 782.49 980.74 782.49 974.78'); 
+bb.tl.lines['District'].strings.push('M 782.49 974.78 C 782.49 968.97 782.49 909.04 782.49 909.04'); 
 
-bb.tl.lines['Circle'].strings.push("M19.953,522.89V304.934c-0.024-1.17,0.453-3.461,1.334-5.541c0.849-2.101,2.136-4.052,2.98-4.865l73.527-73.531c4.125-4.106,9.456-6.317,15.274-6.324l611.362-0.014c5.971,0,11.37,2.418,15.29,6.332l78.25,78.248c3.92,3.91,9.32,6.324,15.29,6.324h149.75c5.971,0,11.37,2.42,15.28,6.334c3.91,3.916,6.33,9.317,6.33,15.283v102.284c0,5.961-2.42,11.371-6.33,15.283s-9.31,6.328-15.28,6.328H827.08c-5.97,0-11.37,2.42-15.28,6.326l-91.83,91.839c-2.829,2.819-6.59,4.38-10.579,4.38H205.564c-5.961,0-11.371-2.42-15.279-6.32c-4.217-4.229-6.33-9.76-6.33-15.29V253.757c0-5.971,2.416-11.371,6.33-15.28c3.908-3.916,9.318-6.334,15.279-6.334h56.626");
-	
+bb.tl.lines['District'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['District'].strings.push('M 804.69 996.39 C 810.65 996.39 816.52 993.5 819.97 990.06'); 
+bb.tl.lines['District'].strings.push('M 819.97 990.06 C 823.42 986.6 826.3 980.74 826.3 974.78'); 
+bb.tl.lines['District'].strings.push('M 826.3 974.78 L 826.3 689.76'); 
+bb.tl.lines['District'].strings.push('M 826.3 689.76 C 826.3 682.21 829.24 675.11 834.58 669.78'); 
+bb.tl.lines['District'].strings.push('M 834.58 669.78 C 839.92 664.44 847.02 661.5 854.56 661.5'); 
+bb.tl.lines['District'].strings.push('M 854.56 661.5 L 910.87 661.5'); 
 
-bb.tl.lines['Victoria'] = { strings: [], color: "#009CDB", paths: [], stations: [] };
+bb.tl.lines['Hammersmith'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Hammersmith'].strings.push('M 660.29 955.89 L 660.29 737.93'); 
+bb.tl.lines['Hammersmith'].strings.push('M 660.29 737.93 C 660.29 733.06 663.11 726.26 666.55 722.81'); 
+bb.tl.lines['Hammersmith'].strings.push('M 666.55 722.81 L 740.08 649.28'); 
+bb.tl.lines['Hammersmith'].strings.push('M 740.08 649.28 C 745.42 643.94 752.52 641.01 760.07 641.01'); 
+bb.tl.lines['Hammersmith'].strings.push('M 760.07 641.01 L 1371.43 641.01'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1371.43 641.01 C 1378.98 641.01 1386.08 643.95 1391.42 649.28'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1391.42 649.28 L 1469.68 727.53'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1469.68 727.53 C 1472.51 730.35 1476.26 731.9 1480.26 731.9'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1480.26 731.9 L 1630.01 731.9'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1630.01 731.9 C 1637.56 731.9 1644.66 734.85 1650 740.17'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1650 740.17 C 1655.34 745.52 1658.27 752.61 1658.27 760.16'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1658.27 760.16 C 1658.27 768.34 1658.27 806.11 1658.27 806.11'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1658.27 806.11 C 1658.27 811.64 1660.38 817.17 1664.6 821.38'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1664.6 821.38 L 1672.19 828.94'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1672.19 828.94 C 1676.93 833.68 1680.07 836.05 1686.28 836.05'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1686.28 836.05 S 1698.71 833.68 1703.45 828.94'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1703.45 828.94 L 1808.78 723.63'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1808.78 723.63 C 1811.41 721.03 1814.58 719.18 1817.96 717.76'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1817.96 717.76 C 1821.35 716.37 1824.9 715.43 1828.59 715.41'); 
+bb.tl.lines['Hammersmith'].strings.push('M 1828.59 715.41 L 2049.81 715.42'); 
+bb.tl.lines['Hammersmith'].strings.push('M 2049.81 715.42 C 2049.93 715.42 2050.04 715.42 2050.15 715.42'); 
+bb.tl.lines['Hammersmith'].strings.push('M 2050.15 715.42 C 2051.36 715.4 2053.56 714.94 2055.56 714.09'); 
+bb.tl.lines['Hammersmith'].strings.push('M 2055.56 714.09 C 2057.66 713.25 2059.61 711.96 2060.43 711.1'); 
+bb.tl.lines['Hammersmith'].strings.push('M 2060.43 711.1 L 2171.34 600.2'); 
 
-bb.tl.lines['Victoria'].strings.push("M1220.47,1388.78L1049.24,1217.55");
+bb.tl.lines['Jubilee'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Jubilee'].strings.push('M 1981.42 578.28 L 2026.52 623.39'); 
+bb.tl.lines['Jubilee'].strings.push('M 2026.52 623.39 C 2029.97 626.84 2032.79 633.64 2032.79 638.51'); 
+bb.tl.lines['Jubilee'].strings.push('M 2032.79 638.51 L 2032.79 920.6'); 
+bb.tl.lines['Jubilee'].strings.push('M 2032.79 920.6 C 2032.79 925.47 2029.97 932.27 2026.52 935.72'); 
+bb.tl.lines['Jubilee'].strings.push('M 2026.52 935.72 L 1967.14 995.11'); 
+bb.tl.lines['Jubilee'].strings.push('M 1967.14 995.11 C 1963.69 998.55 1956.9 1001.37 1952.03 1001.37'); 
+bb.tl.lines['Jubilee'].strings.push('M 1952.03 1001.37 L 1478.45 1001.37'); 
+bb.tl.lines['Jubilee'].strings.push('M 1478.45 1001.37 C 1473.59 1001.37 1466.78 1004.18 1463.33 1007.62'); 
 
-//curve rx,ry,x-axis-rotation,large-arc-flag,sweepflag,x,y
-//bb.tl.lines['Victoria'].strings.push("M1049.24,1217.55A5,5,0,0,1,1042.98,1202.441");
-bb.tl.lines['Victoria'].strings.push("M1049.24,1217.55C1045.8,1214.110,1042.98,1207.31,1042.98,1202.441");
+bb.tl.lines['Jubilee'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['Jubilee'].strings.push('M 1463.33 1007.62 L 1385.89 1085.08'); 
+bb.tl.lines['Jubilee'].strings.push('M 1385.89 1085.08 C 1382.44 1088.53 1375.64 1091.34 1370.77 1091.34'); 
+bb.tl.lines['Jubilee'].strings.push('M 1370.77 1091.34 L 1222.45 1091.34'); 
+bb.tl.lines['Jubilee'].strings.push('M 1222.45 1091.34 C 1210.75 1091.34 1201.27 1081.86 1201.27 1070.16'); 
+bb.tl.lines['Jubilee'].strings.push('M 1201.27 1070.16 L 1201.24 1033.49'); 
+bb.tl.lines['Jubilee'].strings.push('M 1201.24 1033.49 C 1201.24 1028.62 1198.43 1021.82 1194.99 1018.38'); 
+bb.tl.lines['Jubilee'].strings.push('M 1194.99 1018.38 L 1033.36 857.58'); 
+bb.tl.lines['Jubilee'].strings.push('M 1033.36 857.58 C 1029.92 854.14 1027.1 847.33 1027.1 842.47'); 
+bb.tl.lines['Jubilee'].strings.push('M 1027.1 842.47 L 1027.1 603.39'); 
+bb.tl.lines['Jubilee'].strings.push('M 1027.1 603.39 C 1027.1 598.52 1024.28 591.72 1020.84 588.28'); 
+bb.tl.lines['Jubilee'].strings.push('M 1020.84 588.28 L 766.6 334.04'); 
+bb.tl.lines['Jubilee'].strings.push('M 766.6 334.04 C 763.15 330.6 760.34 323.8 760.34 318.93'); 
+bb.tl.lines['Jubilee'].strings.push('M 760.34 318.93 L 760.34 196.08'); 
 
-//straight
-bb.tl.lines['Victoria'].strings.push("M1042.98,1202.441V860.995");
+bb.tl.lines['EastLondon'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['EastLondon'].strings.push('M 663.47 539.51 L 663.47 20.27'); 
+bb.tl.lines['EastLondon'].strings.push('M 663.47 20.27'); 
+bb.tl.lines['EastLondon'].strings.push('M 580.72 531.68 C 577.29 535.13 574.46 541.93 574.46 546.8'); 
+bb.tl.lines['EastLondon'].strings.push('M 574.46 546.8'); 
+bb.tl.lines['EastLondon'].strings.push('M 758.14 1081.09 C 758.14 1085.96 760.96 1092.76 764.41 1096.21'); 
+bb.tl.lines['EastLondon'].strings.push('M 764.41 1096.21 L 962.14 1293.94'); 
+bb.tl.lines['EastLondon'].strings.push('M 962.14 1293.94'); 
+bb.tl.lines['EastLondon'].strings.push('M 1982.16 585.92 L 1807.8 585.92'); 
+bb.tl.lines['EastLondon'].strings.push('M 1807.8 585.92 C 1802.93 585.92 1796.12 583.1 1792.69 579.66'); 
+bb.tl.lines['EastLondon'].strings.push('M 1792.69 579.66 L 1723.78 510.76'); 
+bb.tl.lines['EastLondon'].strings.push('M 1723.78 510.76 C 1720.34 507.32 1713.54 504.5 1708.67 504.5'); 
+bb.tl.lines['EastLondon'].strings.push('M 1708.67 504.5 L 1416.72 504.5'); 
+bb.tl.lines['EastLondon'].strings.push('M 1416.72 504.5 C 1411.85 504.5 1405.05 501.68 1401.6 498.24'); 
+bb.tl.lines['EastLondon'].strings.push('M 1401.6 498.24 L 1298.27 394.9'); 
+bb.tl.lines['EastLondon'].strings.push('M 1298.27 394.9 C 1294.82 391.45 1288.02 388.64 1283.14 388.64'); 
+bb.tl.lines['EastLondon'].strings.push('M 1283.14 388.64 L 1153.21 388.64'); 
+bb.tl.lines['EastLondon'].strings.push('M 1153.21 388.64 C 1148.35 388.64 1141.54 391.46 1138.1 394.9'); 
+bb.tl.lines['EastLondon'].strings.push('M 1138.1 394.9 L 1054.56 478.44'); 
+bb.tl.lines['EastLondon'].strings.push('M 1054.56 478.44 C 1051.12 481.89 1044.32 484.7 1039.45 484.7'); 
+bb.tl.lines['EastLondon'].strings.push('M 1039.45 484.7 L 636.55 484.7'); 
+bb.tl.lines['EastLondon'].strings.push('M 636.55 484.7 C 631.68 484.7 624.88 487.52 621.44 490.97'); 
+bb.tl.lines['EastLondon'].strings.push('M 621.44 490.97'); 
+bb.tl.lines['EastLondon'].strings.push('M 515.38 597.02 C 511.94 600.46 509.12 607.27 509.12 612.14'); 
+bb.tl.lines['EastLondon'].strings.push('M 509.12 612.14 L 509.12 931.18'); 
+bb.tl.lines['EastLondon'].strings.push('M 509.12 931.18 C 509.12 936.05 506.3 942.86 502.85 946.3'); 
+bb.tl.lines['EastLondon'].strings.push('M 502.85 946.3 L 451.28 997.91'); 
+bb.tl.lines['EastLondon'].strings.push('M 451.28 997.91 C 446.18 1002.99 443 1010.1 443 1017.89'); 
+bb.tl.lines['EastLondon'].strings.push('M 443 1017.89 C 443 1026.3 443 1177.98 443 1177.98'); 
+bb.tl.lines['EastLondon'].strings.push('M 443 1177.98'); 
+bb.tl.lines['EastLondon'].strings.push('M 2164.63 601.29 L 2164.63 544.53'); 
+bb.tl.lines['EastLondon'].strings.push('M 2164.63 544.53 C 2164.63 539.66 2161.82 532.86 2158.37 529.42'); 
+bb.tl.lines['EastLondon'].strings.push('M 2158.37 529.42 L 2141.21 512.26'); 
+bb.tl.lines['EastLondon'].strings.push('M 2141.21 512.26 C 2137.77 508.81 2130.96 505.99 2126.1 505.99'); 
+bb.tl.lines['EastLondon'].strings.push('M 2126.1 505.99 L 1908.86 505.99'); 
+bb.tl.lines['EastLondon'].strings.push('M 1908.86 505.99 C 1904 505.99 1897.19 503.17 1893.75 499.73'); 
+bb.tl.lines['EastLondon'].strings.push('M 1893.75 499.73 L 1854 459.98'); 
+bb.tl.lines['EastLondon'].strings.push('M 1854 459.98 C 1850.55 456.54 1847.73 449.73 1847.73 444.86'); 
+bb.tl.lines['EastLondon'].strings.push('M 1847.73 444.86 L 1847.73 372.39'); 
+bb.tl.lines['EastLondon'].strings.push('M 1847.73 372.39 C 1847.73 367.52 1844.92 360.72 1841.47 357.27'); 
+bb.tl.lines['EastLondon'].strings.push('M 1841.47 357.27 L 1776.37 292.17'); 
+bb.tl.lines['EastLondon'].strings.push('M 1776.37 292.17 C 1772.94 288.73 1766.13 285.91 1761.26 285.91'); 
+bb.tl.lines['EastLondon'].strings.push('M 1761.26 285.91 L 1531.3 285.91'); 
+bb.tl.lines['EastLondon'].strings.push('M 1531.3 285.91 C 1526.42 285.91 1519.62 288.73 1516.18 292.17'); 
+bb.tl.lines['EastLondon'].strings.push('M 1516.18 292.17 L 1444.59 363.76'); 
+bb.tl.lines['EastLondon'].strings.push('M 1444.59 363.76 C 1441.14 367.2 1434.35 370.02 1429.48 370.02'); 
+bb.tl.lines['EastLondon'].strings.push('M 1429.48 370.02 L 1270.6 370.02'); 
 
-//curve
-bb.tl.lines['Victoria'].strings.push("M1042.98,860.995C1042.98,856.124");
-bb.tl.lines['Victoria'].strings.push("M1042.98,856.124,1045.8,849.321");
-bb.tl.lines['Victoria'].strings.push("M1045.8,849.321,1049.24,845.886");
+bb.tl.lines['EastLondon'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['EastLondon'].strings.push('M 580.77 531.69 C 577.33 535.13 574.5 541.93 574.49 546.8'); 
+bb.tl.lines['EastLondon'].strings.push('M 574.49 546.8 L 574.33 667.68'); 
+bb.tl.lines['EastLondon'].strings.push('M 574.33 667.68 C 574.33 672.54 577.14 679.35 580.58 682.79'); 
+bb.tl.lines['EastLondon'].strings.push('M 580.58 682.79 L 751.91 854.12'); 
+bb.tl.lines['EastLondon'].strings.push('M 751.91 854.12 C 755.34 857.56 758.17 864.37 758.17 869.24'); 
+bb.tl.lines['EastLondon'].strings.push('M 758.17 869.24 L 758.17 1081.08'); 
+bb.tl.lines['EastLondon'].strings.push('M 758.17 1081.08 C 758.17 1085.95 760.99 1092.75 764.43 1096.19'); 
+bb.tl.lines['EastLondon'].strings.push('M 764.43 1096.19 L 962.16 1293.93'); 
+bb.tl.lines['EastLondon'].strings.push('M 962.16 1293.93'); 
+bb.tl.lines['EastLondon'].strings.push('M 1982.14 585.93 L 1807.79 585.93'); 
+bb.tl.lines['EastLondon'].strings.push('M 1807.79 585.93 C 1802.92 585.93 1796.12 583.11 1792.69 579.67'); 
+bb.tl.lines['EastLondon'].strings.push('M 1792.69 579.67 L 1723.78 510.77'); 
+bb.tl.lines['EastLondon'].strings.push('M 1723.78 510.77 C 1720.34 507.33 1713.54 504.51 1708.67 504.51'); 
+bb.tl.lines['EastLondon'].strings.push('M 1708.67 504.51 L 1416.72 504.51'); 
+bb.tl.lines['EastLondon'].strings.push('M 1416.72 504.51 C 1411.86 504.51 1405.06 501.69 1401.61 498.25'); 
+bb.tl.lines['EastLondon'].strings.push('M 1401.61 498.25 L 1298.28 394.91'); 
+bb.tl.lines['EastLondon'].strings.push('M 1298.28 394.91 C 1294.83 391.47 1288.03 388.65 1283.16 388.65'); 
+bb.tl.lines['EastLondon'].strings.push('M 1283.16 388.65 L 1153.24 388.65'); 
+bb.tl.lines['EastLondon'].strings.push('M 1153.24 388.65 C 1148.37 388.65 1141.57 391.47 1138.12 394.91'); 
+bb.tl.lines['EastLondon'].strings.push('M 1138.12 394.91 L 1054.58 478.45'); 
+bb.tl.lines['EastLondon'].strings.push('M 1054.58 478.45 C 1051.14 481.89 1044.34 484.71 1039.47 484.71'); 
+bb.tl.lines['EastLondon'].strings.push('M 1039.47 484.71 L 636.59 484.71'); 
+bb.tl.lines['EastLondon'].strings.push('M 636.59 484.71 C 631.71 484.71 624.91 487.53 621.47 490.97'); 
+bb.tl.lines['EastLondon'].strings.push('M 621.47 490.97 L 515.43 597.02'); 
+bb.tl.lines['EastLondon'].strings.push('M 515.43 597.02 C 511.99 600.46 509.16 607.27 509.16 612.14'); 
+bb.tl.lines['EastLondon'].strings.push('M 509.16 612.14 L 509.16 931.18'); 
+bb.tl.lines['EastLondon'].strings.push('M 509.16 931.18 C 509.16 936.04 506.35 942.84 502.9 946.29'); 
+bb.tl.lines['EastLondon'].strings.push('M 502.9 946.29 L 451.33 997.89'); 
+bb.tl.lines['EastLondon'].strings.push('M 451.33 997.89 C 446.23 1002.98 443.05 1010.1 443.05 1017.87'); 
+bb.tl.lines['EastLondon'].strings.push('M 443.05 1017.87 C 443.05 1026.29 443.05 1178.72 443.05 1178.72'); 
 
-bb.tl.lines['Victoria'].strings.push("M1049.24,845.886L1285.8,609.329");
+bb.tl.lines['EastLondon'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['EastLondon'].strings.push('M 1632.51 1477.4 C 1632.51 1482.94 1630.4 1488.47 1626.17 1492.69'); 
+bb.tl.lines['EastLondon'].strings.push('M 1626.17 1492.69 C 1605.06 1513.8 1567.9 1550.95 1567.9 1550.95'); 
+bb.tl.lines['EastLondon'].strings.push('M 1567.9 1550.95'); 
+bb.tl.lines['EastLondon'].strings.push('M 1734.56 1117.45 C 1734.56 1122.98 1732.44 1128.51 1728.22 1132.74'); 
+bb.tl.lines['EastLondon'].strings.push('M 1728.22 1132.74 C 1720.56 1140.4 1638.84 1222.12 1638.84 1222.12'); 
+bb.tl.lines['EastLondon'].strings.push('M 1638.84 1222.12 C 1634.62 1226.34 1632.51 1230.22 1632.51 1236.08'); 
+bb.tl.lines['EastLondon'].strings.push('M 1632.51 1236.08 L 1632.51 1592.25'); 
+bb.tl.lines['EastLondon'].strings.push('M 1632.51 1592.25'); 
+bb.tl.lines['EastLondon'].strings.push('M 1734.56 1260.3 C 1734.56 1246.48 1734.56 1224.99 1734.56 547.35'); 
 
-bb.tl.lines['Victoria'].strings.push("M1285.8,609.329C1289.24,605.8879");
-bb.tl.lines['Victoria'].strings.push("M1289.24,605.8879,1296.04,603.063");
-bb.tl.lines['Victoria'].strings.push("M1296.04,603.063,1300.9099,603.063");
-bb.tl.lines['Victoria'].strings.push("M1300.9099,603.063H1514.36");
-bb.tl.lines['Victoria'].strings.push("M1514.36,603.063C1519.2298,603.063");
-bb.tl.lines['Victoria'].strings.push("M1519.2298,603.063,1526.03,600.247");
-bb.tl.lines['Victoria'].strings.push("M1526.03,600.247,1529.4798,596.805");
-bb.tl.lines['Victoria'].strings.push("M1529.4798,596.805L1565.7298,560.559");
-bb.tl.lines['Victoria'].strings.push("M1565.7298,560.559C1569.1689,557.12")
-bb.tl.lines['Victoria'].strings.push("M1569.1689,557.12,1571.9798,550.3209");
-bb.tl.lines['Victoria'].strings.push("M1571.9798,550.3209,1571.9798,545.4459");
-bb.tl.lines['Victoria'].strings.push("M1571.9798,545.4459V430.3989");
-bb.tl.lines['Victoria'].strings.push("M1571.9798,430.3989C1571.9798,425.52986");
-bb.tl.lines['Victoria'].strings.push("M1571.9798,425.52986,1574.7989999999998,418.7309");
-bb.tl.lines['Victoria'].strings.push("M1574.7989999999998,418.7309,1578.2398,415.289");
-bb.tl.lines['Victoria'].strings.push("M1578.2398,415.2899L1645.9198,347.6259");
-bb.tl.lines['Victoria'].strings.push("M1645.9198,347.6259C1649.36,344.1789");
-bb.tl.lines['Victoria'].strings.push("M1649.36,344.1789,1656.1599,341.3599");
-bb.tl.lines['Victoria'].strings.push("M1656.1599,341.3599,1661.0297,341.3599");
-bb.tl.lines['Victoria'].strings.push("M1661.0297,341.3599H1918.4798");
+bb.tl.lines['EastLondon'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['EastLondon'].strings.push('M 1232.85 616.56 L 1190.34 574.05'); 
+bb.tl.lines['EastLondon'].strings.push('M 1190.34 574.05 C 1186.89 570.6 1180.09 567.79 1175.22 567.79'); 
+bb.tl.lines['EastLondon'].strings.push('M 1175.22 567.79 L 678.24 567.79'); 
+bb.tl.lines['EastLondon'].strings.push('M 678.24 567.79 C 674.72 567.84 670.35 566.08 667.82 563.47'); 
+bb.tl.lines['EastLondon'].strings.push('M 667.82 563.47 C 665.3 561.02 663.45 556.68 663.51 553.05'); 
+bb.tl.lines['EastLondon'].strings.push('M 663.51 553.05 L 663.51 20.31'); 
 
+bb.tl.lines['DLR'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['DLR'].strings.push('M 1985.08 588.48 L 1985.08 602.61'); 
+bb.tl.lines['DLR'].strings.push('M 1985.08 602.61 C 1985.08 607.48 1982.26 614.28 1978.82 617.72'); 
+bb.tl.lines['DLR'].strings.push('M 1978.82 617.72 L 1897.05 699.48'); 
+bb.tl.lines['DLR'].strings.push('M 1897.05 699.48 C 1893.6 702.92 1890.79 708.07 1890.79 713'); 
+bb.tl.lines['DLR'].strings.push('M 1890.79 713 L 1890.79 1355.53'); 
 
-bb.tl.lines['District'] = { strings: [], color: "#00843F", paths: [], tx: 857, ty: 475, stations: [] };
-
-bb.tl.lines['District'].strings.push("M-378.727,521.27\
-	c-5.973,0-11.375,2.421-15.285,6.33c-3.914,3.91-6.33,9.311-6.33,15.29V702.98");
-
-bb.tl.lines['District'].strings.push("M1551.41-97.466\
-	l-341.28,341.277c-3.44,3.446-10.24,6.266-15.11,6.266l-221.43-0.008c-4.859,0-11.67,2.813-15.109,6.262L804.38,410.442\
-	c-5.34,5.342-12.44,8.284-19.99,8.284H619.08c-3.99,0-7.75,1.552-10.58,4.384l-91.83,91.83c-3.91,3.909-9.31,6.329-15.28,6.329\
-	h-949.182c-5.97,0-11.373-2.42-15.285-6.329l-21.527-21.521c-3.908-3.9-6.328-9.31-6.328-15.28V347.13\
-	c0-5.975-2.42-11.371-6.33-15.285c-3.912-3.911-9.315-6.331-15.283-6.331c-5.463,0-17.303,0-17.303,0 M-52.903,521.39\
-	c-5.965,0-11.373,2.42-15.283,6.33s-6.33,9.311-6.33,15.29c0,5.8,0,325.061,0,325.061 M-52.903,521.39\
-	c-5.965,0-11.373-2.42-15.283-6.33c-3.91-3.909-6.33-9.319-6.33-15.279c0-5.811,0-65.74,0-65.74");
-	
-bb.tl.lines['District'].strings.push("M-52.305,521.39\
-		c5.961,0,11.828-2.89,15.277-6.33c3.453-3.46,6.326-9.319,6.326-15.279V214.757c0-7.547,2.944-14.647,8.284-19.983\
-		c5.339-5.344,12.435-8.279,19.982-8.279H53.87");
-		
-		
-bb.tl.lines['EastLondon'] = { strings: [], color: "#F7931E", paths: [], tx: 1103, ty: 606, stations: [] };
-
-bb.tl.lines['EastLondon'].strings.push("M-439.534-66.486\
-	v-519.236 M-522.278-74.323c-3.435,3.447-6.262,10.248-6.265,15.119 M-344.864,475.09c0,4.87,2.821,11.67,6.266,15.12\
-	l197.728,197.73 M879.16-20.081H704.8c-4.87,0-11.68-2.817-15.11-6.258L620.78-95.236c-3.44-3.445-10.24-6.259-15.11-6.259H313.72\
-	c-4.87,0-11.67-2.819-15.12-6.26L195.27-211.099c-3.45-3.447-10.25-6.262-15.13-6.262H50.21c-4.86,0-11.67,2.815-15.11,6.262\
-	l-83.54,83.539c-3.44,3.446-10.24,6.26-15.11,6.26h-402.9c-4.871,0-11.67,2.816-15.115,6.266 M-587.618-8.984\
-	c-3.441,3.44-6.259,10.248-6.259,15.12V325.18c0,4.87-2.821,11.681-6.266,15.12l-51.572,51.61c-5.104,5.08-8.284,12.189-8.28,19.979\
-	c0,8.41,0,160.091,0,160.091 M1061.63-4.708v-56.76c0-4.869-2.81-11.67-6.26-15.115l-17.16-17.162\
-	c-3.44-3.448-10.25-6.266-15.11-6.266H805.86c-4.86,0-11.671-2.82-15.11-6.256L751-146.021c-3.45-3.445-6.27-10.25-6.27-15.119\
-	v-72.472c0-4.868-2.811-11.668-6.261-15.116l-65.1-65.101c-3.431-3.44-10.24-6.26-15.11-6.26H428.3c-4.88,0-11.68,2.82-15.12,6.26\
-	l-71.59,71.59c-3.45,3.441-10.24,6.259-15.109,6.259H167.6");
-
-bb.tl.lines['EastLondon'].strings.push("M-522.233-74.314\
-		c-3.443,3.442-6.266,10.243-6.275,15.112l-0.159,120.879c-0.003,4.865,2.805,11.671,6.25,15.111l171.331,171.33\
-		c3.435,3.444,6.255,10.252,6.255,15.121V475.08c0,4.87,2.819,11.67,6.264,15.11L-140.84,687.93 M879.14-20.071H704.79\
-		c-4.87,0-11.67-2.823-15.101-6.264L620.78-95.226c-3.44-3.445-10.24-6.258-15.11-6.258H313.72c-4.859,0-11.659-2.824-15.109-6.265\
-		L195.28-211.085c-3.45-3.445-10.25-6.264-15.12-6.264H50.24c-4.87,0-11.67,2.819-15.12,6.264l-83.54,83.535\
-		c-3.44,3.445-10.24,6.26-15.11,6.26h-402.879c-4.881,0-11.677,2.82-15.119,6.265L-587.573-8.982\
-		c-3.445,3.44-6.267,10.246-6.267,15.118V325.18c0,4.86-2.813,11.66-6.258,15.11l-51.572,51.6c-5.1,5.091-8.28,12.21-8.28,19.98\
-		c0,8.42,0,160.85,0,160.85");
-
-bb.tl.lines['EastLondon'].strings.push("M529.51,871.4\
-			c0,5.54-2.109,11.069-6.34,15.29c-21.109,21.109-58.27,58.26-58.27,58.26 M631.561,511.45c0,5.53-2.121,11.06-6.341,15.29\
-			c-7.659,7.66-89.38,89.38-89.38,89.38c-4.22,4.22-6.33,8.1-6.33,13.96v356.17 M631.561,654.3c0-13.819,0-35.31,0-712.946");
-
-
-bb.tl.lines['EastLondon'].strings.push("M129.85,10.561\
-				L87.34-31.954c-3.45-3.446-10.25-6.264-15.12-6.264h-496.984c-3.516,0.049-7.893-1.713-10.42-4.318\
-				c-2.516-2.448-4.367-6.791-4.309-10.418v-532.741");
-
-
-
-
-bb.tl.lines['Hammersmith'] = { strings: [], color: "#F285A0", paths: [], tx: 1215, ty: 577, stations: [] };
-
-bb.tl.lines['Hammersmith'].strings.push("M-554.709,378.89\
-	V160.934c0-4.869,2.824-11.671,6.265-15.119l73.527-73.529c5.336-5.336,12.44-8.275,19.985-8.275H156.43\
-	c7.55,0,14.65,2.939,19.99,8.275l78.26,78.254c2.83,2.822,6.58,4.375,10.58,4.375h149.75c7.551,0,14.65,2.947,19.99,8.275\
-	c5.34,5.346,8.27,12.44,8.27,19.99c0,8.184,0,45.948,0,45.948c0,5.527,2.11,11.06,6.33,15.274l7.59,7.556\
-	c4.74,4.74,7.881,7.112,14.091,7.112s12.43-2.372,17.17-7.112L593.78,146.63c2.63-2.602,5.8-4.446,9.18-5.866\
-	c3.39-1.388,6.94-2.33,10.63-2.351l221.221,0.014c0.119-0.004,0.229-0.004,0.34,0c1.21-0.018,3.41-0.483,5.41-1.334\
-	c2.1-0.844,4.05-2.133,4.869-2.985L956.34,23.2");
-	
-	
-	
-	
-bb.tl.lines['DLR'] = { strings: [], color: "#00A99D", paths: [], tx: 1753, ty: 772, stations: [] };
-
-bb.tl.lines['DLR'].strings.push("M232.08-183.521\
-	v14.131c0,4.869-2.82,11.67-6.26,15.11L144.05-72.517c-3.45,3.442-6.26,8.588-6.26,13.516V583.53");
-	
-bb.tl.lines['DLR'].strings.push("M-70.64,110.688\
-		c-4.87,0-11.671,2.813-15.11,6.259c-4.7,4.688-27.36,27.354-27.36,27.354 M-265.16,85.708h152.5c4.87,0,11.68,2.826,15.12,6.265\
-		l12.45,12.452c3.439,3.439,10.25,6.263,15.12,6.263h465.76c4.87,0,11.67,2.813,15.11,6.259L598.57,304.62 M107.84,110.688\
-		c4.391,0,10.811,2.813,14.25,6.259l9.44,9.443c3.45,3.44,6.26,10.24,6.26,15.11 M334.49,110.694c4.87,0,11.67,2.814,15.12,6.254\
-		L664.17,431.52");
-		
-		
-		
-		
-bb.tl.lines['Jubilee'] = { strings: [], color: "#939BA0", paths: [], tx: 1196, ty: 445, stations: [] };
-
-bb.tl.lines['Jubilee'].strings.push("M785.42,133.284\
-	l45.1,45.109c3.45,3.452,6.271,10.252,6.271,15.121V475.6c0,4.87-2.82,11.67-6.271,15.12l-59.38,59.391\
-	c-3.45,3.439-10.239,6.26-15.109,6.26H282.45c-4.86,0-11.67,2.81-15.12,6.25");
-
-bb.tl.lines['Jubilee'].strings.push("M267.33,562.62\
-		l-77.44,77.46c-3.45,3.45-10.25,6.26-15.12,6.26H26.45c-11.7,0-21.18-9.479-21.18-21.18l-0.03-36.67c0-4.87-2.81-11.67-6.25-15.11\
-		l-161.63-160.805c-3.44-3.445-6.26-10.246-6.26-15.115V158.391c0-4.871-2.82-11.669-6.26-15.113l-254.237-254.24\
-		c-3.451-3.441-6.264-10.244-6.264-15.115v-122.848");
+bb.tl.lines['DLR'] = { strings: [], color: '#009CDB', paths: [], stations: [] }; 
+bb.tl.lines['DLR'].strings.push('M 1682.36 882.69 C 1677.49 882.69 1670.69 885.5 1667.25 888.95'); 
+bb.tl.lines['DLR'].strings.push('M 1667.25 888.95 C 1662.55 893.64 1639.89 916.3 1639.89 916.3'); 
+bb.tl.lines['DLR'].strings.push('M 1639.89 916.3'); 
+bb.tl.lines['DLR'].strings.push('M 1487.84 857.71 L 1640.34 857.71'); 
+bb.tl.lines['DLR'].strings.push('M 1640.34 857.71 C 1645.21 857.71 1652.02 860.54 1655.46 863.97'); 
+bb.tl.lines['DLR'].strings.push('M 1655.46 863.97 L 1667.91 876.42'); 
+bb.tl.lines['DLR'].strings.push('M 1667.91 876.42 C 1671.35 879.86 1678.16 882.68 1683.03 882.68'); 
+bb.tl.lines['DLR'].strings.push('M 1683.03 882.68 L 2148.79 882.68'); 
+bb.tl.lines['DLR'].strings.push('M 2148.79 882.68 C 2153.66 882.68 2160.46 885.49 2163.9 888.94'); 
+bb.tl.lines['DLR'].strings.push('M 2163.9 888.94 L 2351.57 1076.62'); 
+bb.tl.lines['DLR'].strings.push('M 2351.57 1076.62'); 
+bb.tl.lines['DLR'].strings.push('M 1860.84 882.69 C 1865.23 882.69 1871.65 885.5 1875.09 888.95'); 
+bb.tl.lines['DLR'].strings.push('M 1875.09 888.95 L 1884.53 898.39'); 
+bb.tl.lines['DLR'].strings.push('M 1884.53 898.39 C 1887.98 901.83 1890.79 908.63 1890.79 913.5'); 
+bb.tl.lines['DLR'].strings.push('M 1890.79 913.5'); 
+bb.tl.lines['DLR'].strings.push('M 2087.49 882.69 C 2092.36 882.69 2099.16 885.5 2102.61 888.94'); 
+bb.tl.lines['DLR'].strings.push('M 2102.61 888.94 L 2417.17 1203.52'); 
