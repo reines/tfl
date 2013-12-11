@@ -364,3 +364,28 @@ bb.tl.lines['EastLondon'].strings.push('M 1175.22 567.79 L 678.24 567.79');
 bb.tl.lines['EastLondon'].strings.push('M 678.24 567.79 C 674.72 567.84 670.35 566.08 667.82 563.47');
 bb.tl.lines['EastLondon'].strings.push('M 667.82 563.47 C 665.3 561.02 663.45 556.68 663.51 553.05');
 bb.tl.lines['EastLondon'].strings.push('M 663.51 553.05 L 663.51 20.31');
+
+bb.tl.lines['DLR'] = { strings: [], color: '#00A99D', paths: [], stations: [] };
+bb.tl.lines['DLR'].strings.push('M 1985.08 588.48 L 1985.08 602.61');
+bb.tl.lines['DLR'].strings.push('M 1985.08 602.61 C 1985.08 607.48 1982.26 614.28 1978.82 617.72');
+bb.tl.lines['DLR'].strings.push('M 1978.82 617.72 L 1897.05 699.48');
+bb.tl.lines['DLR'].strings.push('M 1897.05 699.48 C 1893.6 702.92 1890.79 708.07 1890.79 713');
+bb.tl.lines['DLR'].strings.push('M 1890.79 713 L 1890.79 1355.53');
+bb.tl.lines['DLR'].strings.push('M 1682.36 882.69 C 1677.49 882.69 1670.69 885.5 1667.25 888.95');
+bb.tl.lines['DLR'].strings.push('M 1667.25 888.95 C 1662.55 893.64 1639.89 916.3 1639.89 916.3');
+bb.tl.lines['DLR'].strings.push('M 1639.89 916.3');
+bb.tl.lines['DLR'].strings.push('M 1487.84 857.71 L 1640.34 857.71');
+bb.tl.lines['DLR'].strings.push('M 1640.34 857.71 C 1645.21 857.71 1652.02 860.54 1655.46 863.97');
+bb.tl.lines['DLR'].strings.push('M 1655.46 863.97 L 1667.91 876.42');
+bb.tl.lines['DLR'].strings.push('M 1667.91 876.42 C 1671.35 879.86 1678.16 882.68 1683.03 882.68');
+bb.tl.lines['DLR'].strings.push('M 1683.03 882.68 L 2148.79 882.68');
+bb.tl.lines['DLR'].strings.push('M 2148.79 882.68 C 2153.66 882.68 2160.46 885.49 2163.9 888.94');
+bb.tl.lines['DLR'].strings.push('M 2163.9 888.94 L 2351.57 1076.62');
+bb.tl.lines['DLR'].strings.push('M 2351.57 1076.62');
+bb.tl.lines['DLR'].strings.push('M 1860.84 882.69 C 1865.23 882.69 1871.65 885.5 1875.09 888.95');
+bb.tl.lines['DLR'].strings.push('M 1875.09 888.95 L 1884.53 898.39');
+bb.tl.lines['DLR'].strings.push('M 1884.53 898.39 C 1887.98 901.83 1890.79 908.63 1890.79 913.5');
+bb.tl.lines['DLR'].strings.push('M 1890.79 913.5');
+bb.tl.lines['DLR'].strings.push('M 2087.49 882.69 C 2092.36 882.69 2099.16 885.5 2102.61 888.94');
+bb.tl.lines['DLR'].strings.push('M 2102.61 888.94 L 2417.17 1203.52');
+
