@@ -98,19 +98,35 @@ function convertToAbsolute(path, xOffset, yOffset, decimalPlaces) {
 var decimalPlaces = 2;
 
 $(document).ready(function() {
+    var lines = {};
+
     $("path").each(function() {
         var name = $(this).data("name").trim();
+        var color = $(this).attr("stroke");
         var xOffset = $(this).data("x") || 0;
         var yOffset = $(this).data("y") || 0;
 
-        console.log("bb.tl.lines['" + name + "'] = { strings: [], color: '#009CDB', paths: [], stations: [] };");
+        if (!lines.hasOwnProperty(name)) {
+            lines[name] = {
+                strings: [],
+                color: color
+            };
+        }
 
         convertToAbsolute($(this)[0], xOffset, yOffset, decimalPlaces);
         var segList = $(this).attr("d").replace(/([a-zA-Z])/g, "\n$1").replace(/\n([^M])/g, "$1").trim().split("\n");
         for (var i = 0;i < segList.length;i++) {
             var seg = segList[i];
-            console.log("bb.tl.lines['" + name + "'].strings.push('" + seg.trim() + "');");
+            lines[name].strings.push(seg.trim());
         }
+    });
+
+    _.each(lines, function(line, name) {
+        console.log("bb.tl.lines['" + name + "'] = { strings: [], color: '" + line.color + "', paths: [], stations: [] };");
+
+        _.each(line.strings, function(string) {
+            console.log("bb.tl.lines['" + name + "'].strings.push('" + string + "');");
+        });
 
         console.log("");
     });
