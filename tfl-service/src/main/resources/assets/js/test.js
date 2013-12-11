@@ -121,13 +121,14 @@ $(document).ready(function() {
         }
     });
 
+    $output = $("#output");
     _.each(lines, function(line, name) {
-        console.log("bb.tl.lines['" + name + "'] = { strings: [], color: '" + line.color + "', paths: [], stations: [] };");
+        $output.append("bb.tl.lines['" + name + "'] = { strings: [], color: '" + line.color + "', paths: [], stations: [] };\n");
 
         _.each(line.strings, function(string) {
-            console.log("bb.tl.lines['" + name + "'].strings.push('" + string + "');");
+            $output.append("bb.tl.lines['" + name + "'].strings.push('" + string + "');\n");
         });
 
-        console.log("");
+        $output.append("\n");
     });
 });
