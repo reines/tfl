@@ -65,7 +65,7 @@ bb.tl.addTubeLines = function() {
 			}
 			else if (p == "Victoria") {
 				$(c.node).attr("class", line.classes[i]);
-				c.attr({"stroke-width": 1, stroke: line.color, opacity: 1, 'stroke-linecap':'round'});
+				c.attr({"stroke-width": 5, stroke: line.color, opacity: 1, 'stroke-linecap':'round'});
 			}
 			else {
 				c.attr({"stroke-width": 5, stroke: line.color, opacity: 1, 'stroke-linecap':'round'});
