@@ -62,9 +62,7 @@ bb.tl = bb.tl || {};
 bb.tl.vars = bb.tl.vars || {};
 
 bb.tl.init = function() {
-	$('#mask').width($(window).width()).height($(window).height());
-	
- 	bb.tl.vars.paper = Raphael('map', 2426, 1615);	
+ 	bb.tl.vars.paper = Raphael('mapold', 2426, 1615);
 	bb.tl.vars.properties = bb.tl.vars.paper.set();
 	
 	bb.tl.addTubeLines();
