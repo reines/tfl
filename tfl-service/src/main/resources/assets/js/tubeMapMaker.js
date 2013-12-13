@@ -2,13 +2,34 @@ var lines = {};
 var stations = {};
 var connections = {};
 
+var LINE_BAKERLOO = "Bakerloo";
+var LINE_CENTRAL = "Central";
+var LINE_CICLE = "Circle";
+var LINE_DISTRICT = "District";
+var LINE_HAMMERSMITH = "Hammersmith & City";
+var LINE_JUBILEE = "Jubilee";
+var LINE_METROPOLITAN = "Metropolitan";
+var LINE_NOTHERN = "Nothern";
+var LINE_PICADILLY = "Piccadilly";
 var LINE_VICTORIA = "Victoria";
-
-
-
+var LINE_WATERLOO = "Waterloo & City";
+var LINE_DLR = "DLR";
+var LINE_OVERGROUND = "London Overground";
 
 function addLines() {
-	addLine(LINE_VICTORIA, "#009cdb");
+	addLine(LINE_BAKERLOO, "#b36305");
+	addLine(LINE_CENTRAL, "#e32017");
+	addLine(LINE_CICLE, "#ffd300");
+	addLine(LINE_DISTRICT, "#00782a");
+	addLine(LINE_HAMMERSMITH, "#f3a9bb");
+	addLine(LINE_JUBILEE, "#a0a5a9");
+	addLine(LINE_METROPOLITAN, "#9b0056");
+	addLine(LINE_NOTHERN, "#000000");
+	addLine(LINE_PICADILLY, "#003688");
+	addLine(LINE_VICTORIA, "#0098d4");
+	addLine(LINE_WATERLOO, "#95cdba");
+	addLine(LINE_DLR, "#00a4a7");
+	addLine(LINE_OVERGROUND, "#ee7c0e");
 }
 
 function addStations() {
@@ -68,7 +89,7 @@ function joinStation(lineName, stationNameA, stationNameB, joinSvg) {
 }
 
 function getStationId(lineName, stationName) {
-	return toAlphanumericOnly(lineName) + "_" + toAlphanumericOnly(stationName);
+	return toAlphanumericOnly(lineName) + '_' + toAlphanumericOnly(stationName);
 }
 
 // Strip out non alphanumeric characters.
