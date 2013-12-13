@@ -8,9 +8,9 @@
         <link rel="stylesheet" href="lib/normalize.css" />
 
         <!-- jquery -->
-		<style type="text/css">@import "jquery.svg.css";</style> 
-        <script src="lib/jquery/jquery-2.0.3.min.js"></script>
-		<script type="text/javascript" src="jquery.svg.js"></script>
+        <script type="text/javascript" src="lib/jquery/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="lib/jquery/svg/jquery.svg.min.js"></script>
+		<style type="text/css" src="lib/jquery/svg/jquery.svg.css"></style> 
 
 		<!-- underscore -->
 		<script src="lib/underscore-min.js"></script>
@@ -25,11 +25,14 @@
 		<script src="js/paths.js"></script>
 		<script src="js/stations.js"></script>
 		<script src="js/tubeMapMaker.js"></script>
+		<script src="data/london_underground_station_names.js"></script>
     </head>
     <body>
+    	<div id="map"></div>
+    
     <div id="mask">
 		<div id="wrapper">
-			<div id="map"></div>
+			<div id="mapold"></div>
 		</div>
 	</div>
 	

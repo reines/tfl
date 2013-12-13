@@ -1,27 +1,53 @@
-//var svg;
-//
-//function svgloaded() {
-//	var svgEmbed = document.querySelector("#routes");
-//	svg = svgEmbed.getSVGDocument();
-////	setRouteColor("Victoria", "#FFFFFF");
-////	setRouteThickness("Victoria", "15");
-////	setRouteColor("Picadilly", "#00FFFF");
-//}
-//
-//function setRouteColor(route, colour) {
-//	$(svg).find("#" + route).find("path").attr("stroke", colour);
-//}
-//
-//function setRouteThickness(route, thickness) {
-//	$(svg).find("#" + route).find("path").attr("stroke-width", thickness);
-//}
-// 
-//
-//document.addEventListener("DOMContentLoaded", function(){
-//	var svgEmbed = document.querySelector("#routes");
-//	svgEmbed.addEventListener("load", svgloaded);
-// 
-//}, false);
+var map;
+
+$(document).ready(function() {
+	$('#map').svg({onLoad: drawMap});
+	bb.tl.init();
+});
+
+function drawMap(svg) { 
+	map = svg;
+	
+	addLines();
+	addStations();
+	addConnections();
+
+	// For each set of connections belonging to a line
+	_.each(connections, function(lineConnections, lineId) {
+		var line = lines[lineId];
+		var lineSvgGroup = map.group({id: line.name, stroke: line.colour, fill: "none", "stroke-width": 5, "stroke-linecap":"round"}); 
+
+		// For each connection in this line
+		for (i in lineConnections) {
+			var connection = lineConnections[i];
+			var stationA = connection.stationA;
+			var stationB = connection.stationB;
+			
+			if (connection.joinSvg  === undefined) {
+				var svgConnection = map.line(lineSvgGroup, stationA.x, stationA.y, stationB.x, stationB.y);
+			} else {
+				var svgConnection = map.path(lineSvgGroup, "M " + stationA.getCoords() + " L " + connection.joinSvg + " L " + stationB.getCoords());
+			}
+
+			var classes = stationA.lineName + " " + stationA.id + " " + stationB.id;
+			$(line).attr("class", classes);
+		}
+	});
+
+	//setRouteColor(VICTORIA, "#FFFFFF");
+	//setRouteThickness(VICTORIA, "15");
+}
+
+function setRouteColor(route, colour) {
+	$("#" + route).attr("stroke", colour);
+}
+
+function setRouteThickness(route, thickness) {
+	$("#" + route).attr("stroke-width", thickness);
+}
+
+
+///////////////////////
 
 document.onmousemove = function(e)
 {
@@ -44,9 +70,6 @@ bb.tl.init = function() {
 	bb.tl.addTubeLines();
 	bb.tl.addTubeStations();
 	bb.tl.setupListeners();
-	
-	//console.log(bb.tl.lines["Central"].paths[0].getSubpath(40,80).attr("stroke", "#000000"));
-	// bb.tl.vars.map.attr('opacity':0);
 };
 
 bb.tl.addTubeLines = function() {
@@ -103,6 +126,3 @@ bb.tl.setupListeners = function() {
 };
 
 
-$(document).ready(function() {
-	bb.tl.init();
-});
