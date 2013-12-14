@@ -222,23 +222,32 @@ bb.tl.lines['District'].strings.push('M 478.27 992 C 471.3 992 459 997 456.66 10
 bb.tl.lines['District'].strings.push('M 456.66 1017.89 L 456.66 1177.98');
 
 
+//done
 
 //earl's to west brompton
-bb.tl.lines['District'].strings.push('M 804.1 994 C 798.13 992 792.73 994.4 788.82 998.3');
-bb.tl.lines['District'].strings.push('M 788.82 998.3 S 782.49 1007.6 782.49 1005.6');
+bb.tl.lines['District'].strings.push('M 802.1 992 C 792.1 992 782.1 1002 782.1 1012');
+bb.tl.lines['District'].strings.push('M 782.1 1012 L 782.49 1343.07');
 
-//west brompton to wimbledon
-bb.tl.lines['District'].strings.push('M 782.49 1005.6 L 782.49 1343.07');
+// done
+//earls to kensington (left top)
+bb.tl.lines['District'].strings.push('M 802.1 992 C 792.1 992 782.1 982 782.1 972');
 
-//bb.tl.lines['District'].strings.push('M 804.1 996.39 C 798.13 996.39 792.73 993.97 788.82 990.06');
-//bb.tl.lines['District'].strings.push('M 788.82 990.06 C 784.91 986.15 782.49 980.74 782.49 974.78');
-//bb.tl.lines['District'].strings.push('M 782.49 974.78 C 782.49 968.97 782.49 909.04 782.49 909.04');
-//bb.tl.lines['District'].strings.push('M 804.69 996.39 C 810.65 996.39 816.52 993.5 819.97 990.06');
-//bb.tl.lines['District'].strings.push('M 819.97 990.06 C 823.42 986.6 826.3 980.74 826.3 974.78');
-//bb.tl.lines['District'].strings.push('M 826.3 974.78 L 826.3 689.76');
-//bb.tl.lines['District'].strings.push('M 826.3 689.76 C 826.3 682.21 829.24 675.11 834.58 669.78');
-//bb.tl.lines['District'].strings.push('M 834.58 669.78 C 839.92 664.44 847.02 661.5 854.56 661.5');
-//bb.tl.lines['District'].strings.push('M 854.56 661.5 L 910.87 661.5');
+
+
+//stright line up to kensington olypmpia
+bb.tl.lines['District'].strings.push('M 782.1 972 L 782.49 909.04');
+
+//hight street kensginton to earls court
+bb.tl.lines['District'].strings.push('M 824.1 972 C 824.1 982 814.1 992 804.1 992');
+
+//highstree kinggston to bays water
+bb.tl.lines['District'].strings.push('M 824.1 972 L 824.1 680');
+
+//edgware to bayswater
+bb.tl.lines['District'].strings.push('M 842.1 660 C 834.1 660 824.1 670 824.1 680');
+
+// to edgware (edgware = (same as circle edware x) 661.5)
+bb.tl.lines['District'].strings.push('M 842.1 660 L 910.8 660');
 
 bb.tl.lines['EastLondon'] = { strings: [], color: '#F7931E', paths: [], stations: [] };
 bb.tl.lines['EastLondon'].strings.push('M 663.47 539.51 L 663.47 20.27');

@@ -72,10 +72,10 @@ $(document).ready(function() {
 
 ///////////////////////
 
-//document.onmousemove = function(e)
-//{
-//    var x = e.pageX;
-//    var y = e.pageY;
-//    console.log(x +", " + y);
-//    // do what you want with x and y
-//};
+document.onmousemove = function(e)
+{
+    var x = e.pageX;
+    var y = e.pageY;
+    console.log(x +", " + y);
+    // do what you want with x and y
+};
