@@ -98,10 +98,10 @@ function addStations() {
     addStation(LINE_HAMMERSMITH, BOW_ROAD, "1916", "715.41");
     addStation(LINE_HAMMERSMITH, BROMLEY_BY_BOW, "1995", "715.41");
     addStation(LINE_HAMMERSMITH, WEST_HAM, "2033", "715.41");
-    addStation(LINE_HAMMERSMITH, PLAISTOW, "2087", "683");
-    addStation(LINE_HAMMERSMITH, UPTON_PARK, "2115", "657");
-    addStation(LINE_HAMMERSMITH, EAST_HAM, "2135", "636");
-    addStation(LINE_HAMMERSMITH, BARKING, "2171.34", "600.2");
+    addStation(LINE_HAMMERSMITH, PLAISTOW, "2088", "683.5");
+    addStation(LINE_HAMMERSMITH, UPTON_PARK, "2115", "656.5");
+    addStation(LINE_HAMMERSMITH, EAST_HAM, "2135", "636.6");
+    addStation(LINE_HAMMERSMITH, BARKING, "2171.34", "600.4");
 
     // Jubilee
     addStation(LINE_JUBILEE, STANMORE, "760.34", "196.08");

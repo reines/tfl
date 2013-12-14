@@ -162,12 +162,24 @@ bb.tl.lines['Northern'].strings.push('M 1265.2 504.21 L 1265.2 485.88');
 bb.tl.lines['Northern'].strings.push('M 1265.2 485.88 C 1265.2 481 1268.02 474.2 1271.46 470.76');
 
 bb.tl.lines['District'] = { strings: [], color: '#00843F', paths: [], stations: [] };
-bb.tl.lines['District'].strings.push('M 478.27 996.27 C 472.3 996.27 466.89 998.69 462.99 1002.6');
-bb.tl.lines['District'].strings.push('M 462.99 1002.6 C 459.08 1006.51 456.66 1011.91 456.66 1017.89');
+
+//earscourt to west brompton
+bb.tl.lines['District'].strings.push('M 478.27 996.27 C 471.3 994.27 459 1001.5 456.66 1017.89');
+
+//richmond = 456.66 1177.98
+//richmond to earscourt
 bb.tl.lines['District'].strings.push('M 456.66 1017.89 L 456.66 1177.98');
-bb.tl.lines['District'].strings.push('M 2408.41 377.53 L 2067.13 718.81');
-bb.tl.lines['District'].strings.push('M 2067.13 718.81 C 2063.69 722.26 2056.89 725.08 2052.02 725.08');
-bb.tl.lines['District'].strings.push('M 2052.02 725.08 L 1830.59 725.07');
+
+//upminster to plaistor
+bb.tl.lines['District'].strings.push('M 2408.41 371.53 L 2067.13 711.5');
+
+//plaistor to westham
+bb.tl.lines['District'].strings.push('M 2067.13 711.5 C 2063.69 715.5 2056.89 720 2052.02 720.08');
+
+//westham to mileend
+bb.tl.lines['District'].strings.push('M 2052.02 720.08 L 1830.59 720.07');
+
+// I AM HERE!
 bb.tl.lines['District'].strings.push('M 1830.59 725.07 C 1825.73 725.07 1818.92 727.88 1815.48 731.33');
 bb.tl.lines['District'].strings.push('M 1815.48 731.33 L 1661.38 885.44');
 bb.tl.lines['District'].strings.push('M 1661.38 885.44 C 1656.04 890.78 1648.94 893.72 1641.39 893.72');
