@@ -130,11 +130,11 @@ function addStations() {
     addStation(LINE_DISTRICT, KENSINGTON, "782.49", "909.04");
 
     // District - Earls Court to Edgware Road
-    joinStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, "828.95", "860");
-    joinStation(LINE_DISTRICT, NOTTING_HILL_GATE, "828.95", "792");
-    joinStation(LINE_DISTRICT, BAYSWATER, "828.95", "726");
-    joinStation(LINE_DISTRICT, PADDINGTON_1, "832.28", "671.48");
-    joinStation(LINE_DISTRICT, EDGWARE, "907.19", "665.15");
+    addStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, "828.95", "860");
+    addStation(LINE_DISTRICT, NOTTING_HILL_GATE, "828.95", "792");
+    addStation(LINE_DISTRICT, BAYSWATER, "828.95", "726");
+    addStation(LINE_DISTRICT, PADDINGTON_1, "832.28", "671.48");
+    addStation(LINE_DISTRICT, EDGWARE, "907.19", "665.15");
 
     // Hammersmith
     addStation(LINE_HAMMERSMITH, HAMMERSMITH, "660.29", "955.89");
