@@ -287,12 +287,12 @@ function joinStation(lineName, stationNameA, stationNameB, joinSvg) {
 }
 
 function getStationId(lineName, stationName) {
-	return toAlphanumericOnly(lineName) + '_' + toAlphanumericOnly(stationName);
+	return lineName.toAlphanumeric() + '_' + stationName.toAlphanumeric();
 }
 
 // Strip out non alphanumeric characters.
-function toAlphanumericOnly(string) {
-	return string.replace(/\W/g, '');
+String.prototype.toAlphanumeric = function() {
+	return this.replace(/\W/g, '');
 }
 
 function Line(name, colour) {
@@ -300,7 +300,7 @@ function Line(name, colour) {
 	this.colour = colour;
 
     this.getId = function() {
-        return toAlphanumericOnly(this.name);
+        return this.name.toAlphanumeric();
     }
 }
 
@@ -312,7 +312,7 @@ function Station(id, name, line, x, y) {
     this.y = y;
 
     this.getId = function() {
-        return toAlphanumericOnly(this.id);
+        return this.id.toAlphanumeric();
     }
 
     this.getCoords = function() {
