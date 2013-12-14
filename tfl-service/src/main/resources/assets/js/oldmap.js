@@ -41,7 +41,7 @@ bb.tl.addTubeLines = function() {
     }
 //	<path fill="none" stroke="#009cdb" d="M1773,341L1826,341" class="" stroke-width="1" opacity="1" stroke-linecap="round" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-width: 1px; opacity: 1; stroke-linecap: round;"></path>
     $(".Victoria_TottenhamHale.Victoria_BlackhorseRoad").attr("stroke-dasharray", "-");
-   // bb.tl.vars.map = bb.tl.vars.paper.image("img/map-artifacts.png", 0, 0, 2426, 1615).attr({"cursor": "move", opacity:1});
+   bb.tl.vars.map = bb.tl.vars.paper.image("img/map-artifacts.png", 0, 0, 2426, 1615).attr({"cursor": "move", opacity:1});
 };
 
 bb.tl.addTubeStations = function() {

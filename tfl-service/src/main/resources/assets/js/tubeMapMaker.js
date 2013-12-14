@@ -116,8 +116,19 @@ function addStations() {
     addStation(LINE_DISTRICT, KEW_GARDENS, "456.66", "1138");
     addStation(LINE_DISTRICT, RICHMOND, "456.66", "1177.98");
 
-    // TODO: District - Earls Court to Wimbledom
-    // TODO: District - Earls Court to Kensington
+    // District - Earls Court to Wimbledom
+    addStation(LINE_DISTRICT, WEST_BROMPTON, "782.49", "1062");
+    addStation(LINE_DISTRICT, FULHAM_BROADWAY, "782.49", "1130");
+    addStation(LINE_DISTRICT, PARSONS_GREEN, "782.49", "1165");
+    addStation(LINE_DISTRICT, PUTNEY_BRIDGE, "782.49", "1197");
+    addStation(LINE_DISTRICT, EAST_PUTNEY, "782.49", "1243");
+    addStation(LINE_DISTRICT, SOUTHFIELDS, "782.49", "1276");
+    addStation(LINE_DISTRICT, WIMBLEDON_PARK, "782.49", "1309");
+    addStation(LINE_DISTRICT, WIMBLEDON, "782.49", "1343.07");
+
+    // District - Earls Court to Kensington
+    addStation(LINE_DISTRICT, KENSINGTON, "782.49", "909.04");
+
     // TODO: District - Earls Court to Edgware Road
 
     // Hammersmith
@@ -181,34 +192,34 @@ function addStations() {
     addStation(LINE_JUBILEE, STRATFORD, "1981.42", "578.28");
 
     // Picadilly - Cockfosters to Uxbridge
-    addStation(LINE_PICADILLY, COCKFOSTERS, "", "");
-    addStation(LINE_PICADILLY, OAKWOOD, "", "");
-    addStation(LINE_PICADILLY, SOUTHGATE, "", "");
-    addStation(LINE_PICADILLY, ARNOS_GROVE, "", "");
-    addStation(LINE_PICADILLY, BOUNDS_GREEN, "", "");
-    addStation(LINE_PICADILLY, WOOD_GREEN, "", "");
-    addStation(LINE_PICADILLY, TURNPIKE_LANE, "", "");
-    addStation(LINE_PICADILLY, MANOR_HOUSE, "", "");
-    addStation(LINE_PICADILLY, FINSBURY_PARK, "", "");
-    addStation(LINE_PICADILLY, ARSENAL, "", "");
-    addStation(LINE_PICADILLY, HOLLOWAY_ROAD, "", "");
-    addStation(LINE_PICADILLY, CALEDONIAN_ROAD, "", "");
-    addStation(LINE_PICADILLY, KINGS_CROSS, "", "");
-    addStation(LINE_PICADILLY, RUSSELL_SQUARE, "", "");
-    addStation(LINE_PICADILLY, HOLBORN, "", "");
-    addStation(LINE_PICADILLY, COVENT_GARDEN, "", "");
-    addStation(LINE_PICADILLY, LEICESTER_SQUARE, "", "");
-    addStation(LINE_PICADILLY, PICCADILLY_CIRCUS, "", "");
-    addStation(LINE_PICADILLY, GREEN_PARK, "", "");
+    addStation(LINE_PICADILLY, COCKFOSTERS, "1633.34", "63.45");
+    addStation(LINE_PICADILLY, OAKWOOD, "1633.34", "96");
+    addStation(LINE_PICADILLY, SOUTHGATE, "1633.34", "131");
+    addStation(LINE_PICADILLY, ARNOS_GROVE, "1633.34", "163");
+    addStation(LINE_PICADILLY, BOUNDS_GREEN, "1633.34", "196");
+    addStation(LINE_PICADILLY, WOOD_GREEN, "1633.34", "229");
+    addStation(LINE_PICADILLY, TURNPIKE_LANE, "1633.34", "262");
+    addStation(LINE_PICADILLY, MANOR_HOUSE, "1633.34", "310");
+    addStation(LINE_PICADILLY, FINSBURY_PARK, "1602", "354");
+    addStation(LINE_PICADILLY, ARSENAL, "1551", "405");
+    addStation(LINE_PICADILLY, HOLLOWAY_ROAD, "1521", "434");
+    addStation(LINE_PICADILLY, CALEDONIAN_ROAD, "1489", "467");
+    addStation(LINE_PICADILLY, KINGS_CROSS, "1354", "602");
+    addStation(LINE_PICADILLY, RUSSELL_SQUARE, "1299.31", "728");
+    addStation(LINE_PICADILLY, HOLBORN, "1281", "792");
+    addStation(LINE_PICADILLY, COVENT_GARDEN, "1248", "825");
+    addStation(LINE_PICADILLY, LEICESTER_SQUARE, "1219", "853");
+    addStation(LINE_PICADILLY, PICCADILLY_CIRCUS, "1156", "872.15");
+    addStation(LINE_PICADILLY, GREEN_PARK, "1042.98", "872.15");
     addStation(LINE_PICADILLY, HYDE_PARK_CORNER, "", "");
     addStation(LINE_PICADILLY, KNIGHTSBRIDGE, "", "");
-    addStation(LINE_PICADILLY, SOUTH_KENSINGTON, "", "");
-    addStation(LINE_PICADILLY, GLOUCESTER_ROAD, "", "");
-    addStation(LINE_PICADILLY, EARLS_COURT, "", "");
-    addStation(LINE_PICADILLY, BARONS_COURT, "", "");
-    addStation(LINE_PICADILLY, HAMMERSMITH, "", "");
-    addStation(LINE_PICADILLY, TURNHAM_GREEN, "", "");
-    addStation(LINE_PICADILLY, ACTON_TOWN, "", "");
+    addStation(LINE_PICADILLY, SOUTH_KENSINGTON, "", "977.3");
+    addStation(LINE_PICADILLY, GLOUCESTER_ROAD, "", "977.3");
+    addStation(LINE_PICADILLY, EARLS_COURT, "", "977.3");
+    addStation(LINE_PICADILLY, BARONS_COURT, "", "977.3");
+    addStation(LINE_PICADILLY, HAMMERSMITH, "", "977.3");
+    addStation(LINE_PICADILLY, TURNHAM_GREEN, "", "977.3");
+    addStation(LINE_PICADILLY, ACTON_TOWN, "", "977.3");
     addStation(LINE_PICADILLY, EALING_COMMON, "", "");
     addStation(LINE_PICADILLY, NORTH_EALING, "", "");
     addStation(LINE_PICADILLY, PARK_ROYAL, "", "");
@@ -245,7 +256,7 @@ function addStations() {
 	addStation(LINE_VICTORIA, VAUXHALL,  "1069", "1238");
 	addStation(LINE_VICTORIA, PIMLICO, "1042.98", "1120.44");
 	addStation(LINE_VICTORIA, VICTORIA, "1042.98", "989");
-	addStation(LINE_VICTORIA, GREEN_PARK, "1042.98", "870");
+	addStation(LINE_VICTORIA, GREEN_PARK, "1042.98", "872.15");
 	addStation(LINE_VICTORIA, OXFORD_CIRCUS, "1100", "792");
 	addStation(LINE_VICTORIA, WARREN_STREET, "1218", "678");
 	addStation(LINE_VICTORIA, EUSTON, "1280", "614");
@@ -340,6 +351,19 @@ function addConnections() {
     joinStation(LINE_DISTRICT, GUNNERSBURY, KEW_GARDENS);
     joinStation(LINE_DISTRICT, KEW_GARDENS, RICHMOND);
 
+    // District - Earls Court to Wimbledom
+    joinStation(LINE_DISTRICT, EARLS_COURT, WEST_BROMPTON, "802.1 992 C 792.1 992 782.1 1002 782.1 1012");
+    joinStation(LINE_DISTRICT, WEST_BROMPTON, FULHAM_BROADWAY);
+    joinStation(LINE_DISTRICT, FULHAM_BROADWAY, PARSONS_GREEN);
+    joinStation(LINE_DISTRICT, PARSONS_GREEN, PUTNEY_BRIDGE);
+    joinStation(LINE_DISTRICT, PUTNEY_BRIDGE, EAST_PUTNEY);
+    joinStation(LINE_DISTRICT, EAST_PUTNEY, SOUTHFIELDS);
+    joinStation(LINE_DISTRICT, SOUTHFIELDS, WIMBLEDON_PARK);
+    joinStation(LINE_DISTRICT, WIMBLEDON_PARK, WIMBLEDON);
+
+    // District - Earls Court to Kensington
+    joinStation(LINE_DISTRICT, EARLS_COURT, KENSINGTON, "802.1 992 C 792.1 992 782.1 982 782.1 972");
+
     // TODO: missing branches for district
 
     // Hammersmith
@@ -408,16 +432,16 @@ function addConnections() {
 	joinStation(LINE_PICADILLY, BOUNDS_GREEN, WOOD_GREEN);
 	joinStation(LINE_PICADILLY, WOOD_GREEN, TURNPIKE_LANE);
 	joinStation(LINE_PICADILLY, TURNPIKE_LANE, MANOR_HOUSE);
-	joinStation(LINE_PICADILLY, MANOR_HOUSE, FINSBURY_PARK);
+	joinStation(LINE_PICADILLY, MANOR_HOUSE, FINSBURY_PARK, "1633.34 314.15 C 1633.34 319.02 1630.53 325.82 1627.08 329.27");
 	joinStation(LINE_PICADILLY, FINSBURY_PARK, ARSENAL);
 	joinStation(LINE_PICADILLY, ARSENAL, HOLLOWAY_ROAD);
 	joinStation(LINE_PICADILLY, HOLLOWAY_ROAD, CALEDONIAN_ROAD);
 	joinStation(LINE_PICADILLY, CALEDONIAN_ROAD, KINGS_CROSS);
-	joinStation(LINE_PICADILLY, KINGS_CROSS, RUSSELL_SQUARE);
-	joinStation(LINE_PICADILLY, RUSSELL_SQUARE, HOLBORN);
+	joinStation(LINE_PICADILLY, KINGS_CROSS, RUSSELL_SQUARE, "1305.58 650.78 C 1302.13 654.22 1299.31 661.02 1299.31 665.89");
+	joinStation(LINE_PICADILLY, RUSSELL_SQUARE, HOLBORN, "1299.31 764.63 C 1299.31 769.5 1296.49 776.3 1293.05 779.74");
 	joinStation(LINE_PICADILLY, HOLBORN, COVENT_GARDEN);
 	joinStation(LINE_PICADILLY, COVENT_GARDEN, LEICESTER_SQUARE);
-	joinStation(LINE_PICADILLY, LEICESTER_SQUARE, PICCADILLY_CIRCUS);
+	joinStation(LINE_PICADILLY, LEICESTER_SQUARE, PICCADILLY_CIRCUS, "1206.9 865.89 C 1203.46 869.33 1196.66 872.15 1191.78 872.15");
 	joinStation(LINE_PICADILLY, PICCADILLY_CIRCUS, GREEN_PARK);
 	joinStation(LINE_PICADILLY, GREEN_PARK, HYDE_PARK_CORNER);
 	joinStation(LINE_PICADILLY, HYDE_PARK_CORNER, KNIGHTSBRIDGE);
