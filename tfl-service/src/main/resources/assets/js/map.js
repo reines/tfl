@@ -86,6 +86,6 @@ document.onmousemove = function(e)
     var x = e.pageX;
     var y = e.pageY;
 //    console.clear();
-//    console.log(x +", " + y);
+    console.log(x +", " + y);
     // do what you want with x and y
 };

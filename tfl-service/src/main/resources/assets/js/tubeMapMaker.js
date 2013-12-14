@@ -130,11 +130,11 @@ function addStations() {
     addStation(LINE_DISTRICT, KENSINGTON, "782.49", "909.04");
 
     // District - Earls Court to Edgware Road
-    addStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, "828.95", "860");
-    addStation(LINE_DISTRICT, NOTTING_HILL_GATE, "828.95", "792");
-    addStation(LINE_DISTRICT, BAYSWATER, "828.95", "726");
-    addStation(LINE_DISTRICT, PADDINGTON_1, "832.28", "671.48");
-    addStation(LINE_DISTRICT, EDGWARE, "907.19", "665.15");
+    addStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, "824.1", "860");
+    addStation(LINE_DISTRICT, NOTTING_HILL_GATE, "824.1", "792");
+    addStation(LINE_DISTRICT, BAYSWATER, "824.1", "726");
+    addStation(LINE_DISTRICT, PADDINGTON_1, "828", "668");
+    addStation(LINE_DISTRICT, EDGWARE_ROAD_1, "907.19", "660");
 
     // Hammersmith
     addStation(LINE_HAMMERSMITH, HAMMERSMITH, "660.29", "955.89");
@@ -375,9 +375,9 @@ function addConnections() {
     joinStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, EARLS_COURT, "824.1 972 C 824.1 982 814.1 992 804.1 992");
     joinStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, NOTTING_HILL_GATE);
     joinStation(LINE_DISTRICT, NOTTING_HILL_GATE, BAYSWATER);
-    joinStation(LINE_DISTRICT, EDGWARE, BAYSWATER, "842.1 660 C 834.1 660 824.1 670 824.1 680");
-    //edgware = (same as circle edware x) 661.5
-    
+    joinStation(LINE_DISTRICT, BAYSWATER, PADDINGTON_1, "823.95 682.76 C 823.95 672.79 825 671.39 828.28 667.48");
+    joinStation(LINE_DISTRICT, PADDINGTON_1, EDGWARE_ROAD_1, "828.28 667.48 C 831 660.56 838.6 660.15 846.56 660.15");
+    //828", "668
 
     // Hammersmith
     joinStation(LINE_HAMMERSMITH, HAMMERSMITH, GOLDHAWK_ROAD);
