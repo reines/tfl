@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 function drawMap(svg) { 
 	map = svg;
-	
+
 	addLines();
 	addStations();
 	addConnections();
@@ -15,23 +15,23 @@ function drawMap(svg) {
 	// For each set of connections belonging to a line
 	_.each(connections, function(lineConnections, lineId) {
 		var line = lines[lineId];
-		var lineSvgGroup = map.group({id: line.name, stroke: line.colour, fill: "none", "stroke-width": 5, "stroke-linecap":"round"}); 
+		var lineSvgGroup = map.group({id: line.getId(), stroke: line.colour, fill: "none", "stroke-width": 5, "stroke-linecap": "round"});
 
 		// For each connection in this line
-		for (i in lineConnections) {
-			var connection = lineConnections[i];
+        _.each(lineConnections, function(connection) {
 			var stationA = connection.stationA;
 			var stationB = connection.stationB;
 			
 			if (connection.joinSvg  === undefined) {
 				var svgConnection = map.line(lineSvgGroup, stationA.x, stationA.y, stationB.x, stationB.y);
-			} else {
+			}
+            else {
 				var svgConnection = map.path(lineSvgGroup, "M " + stationA.getCoords() + " L " + connection.joinSvg + " L " + stationB.getCoords());
 			}
 
-			var classes = stationA.lineName + " " + stationA.id + " " + stationB.id;
-			$(line).attr("class", classes);
-		}
+			var classes = stationA.line.getId() + " " + stationA.getId() + " " + stationB.getId();
+			$(svgConnection).attr("class", classes);
+		});
 	});
 
 	//setRouteColor(VICTORIA, "#FFFFFF");

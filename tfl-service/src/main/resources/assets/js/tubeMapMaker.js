@@ -272,7 +272,8 @@ function addLine(name, color) {
 
 function addStation(lineName, stationName, x, y) {
 	var id = getStationId(lineName, stationName);
-	stations[id] = new Station(id, stationName, lineName, x, y);
+    var line = lines[lineName];
+	stations[id] = new Station(id, stationName, line, x, y);
 }
 
 function joinStation(lineName, stationNameA, stationNameB, joinSvg) {
@@ -297,15 +298,23 @@ function toAlphanumericOnly(string) {
 function Line(name, colour) {
 	this.name = name;
 	this.colour = colour;
+
+    this.getId = function() {
+        return toAlphanumericOnly(this.name);
+    }
 }
 
-function Station(id, name, lineName, x, y) {
+function Station(id, name, line, x, y) {
     this.id = id;
     this.name = name;
-    this.lineName = lineName;
+    this.line = line;
     this.x = x;
     this.y = y;
-    
+
+    this.getId = function() {
+        return toAlphanumericOnly(this.id);
+    }
+
     this.getCoords = function() {
         return this.x + " " + this.y;
     };
