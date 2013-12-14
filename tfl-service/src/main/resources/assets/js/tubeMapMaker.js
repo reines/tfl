@@ -55,9 +55,9 @@ function addStations() {
     addStation(LINE_CIRCLE, ALDGATE, "1649.6", "835");
     addStation(LINE_CIRCLE, TOWER_HILL, "1615", "884.07");
     addStation(LINE_CIRCLE, MONUMENT, "1511", "884.07");
-    addStation(LINE_CIRCLE, CANNON_STREET, "1439", "907");
-    addStation(LINE_CIRCLE, MANSION_HOUSE, "1412", "934");
-    addStation(LINE_CIRCLE, BLACKFRIARS, "1386", "960");
+    addStation(LINE_CIRCLE, CANNON_STREET, "1440.2", "907");
+    addStation(LINE_CIRCLE, MANSION_HOUSE, "1413.2", "934");
+    addStation(LINE_CIRCLE, BLACKFRIARS, "1387.2", "960");
     addStation(LINE_CIRCLE, TEMPLE, "1299", "986.62");
     addStation(LINE_CIRCLE, EMBANKMENT, "1218", "986.62");
     addStation(LINE_CIRCLE, WESTMINSTER, "1163", "986.62");

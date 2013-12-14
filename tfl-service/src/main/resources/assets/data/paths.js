@@ -163,13 +163,7 @@ bb.tl.lines['Northern'].strings.push('M 1265.2 485.88 C 1265.2 481 1268.02 474.2
 
 bb.tl.lines['District'] = { strings: [], color: '#00843F', paths: [], stations: [] };
 
-//earscourt to west brompton
-bb.tl.lines['District'].strings.push('M 478.27 996.27 C 471.3 994.27 459 1001.5 456.66 1017.89');
-
-//richmond = 456.66 1177.98
-//richmond to earscourt
-bb.tl.lines['District'].strings.push('M 456.66 1017.89 L 456.66 1177.98');
-
+// done
 //upminster to plaistor
 bb.tl.lines['District'].strings.push('M 2408.41 371.53 L 2067.13 711.5');
 
@@ -179,36 +173,72 @@ bb.tl.lines['District'].strings.push('M 2067.13 711.5 C 2063.69 715.5 2056.89 72
 //westham to mileend
 bb.tl.lines['District'].strings.push('M 2052.02 720.08 L 1830.59 720.07');
 
-// I AM HERE!
-bb.tl.lines['District'].strings.push('M 1830.59 725.07 C 1825.73 725.07 1818.92 727.88 1815.48 731.33');
-bb.tl.lines['District'].strings.push('M 1815.48 731.33 L 1661.38 885.44');
-bb.tl.lines['District'].strings.push('M 1661.38 885.44 C 1656.04 890.78 1648.94 893.72 1641.39 893.72');
-bb.tl.lines['District'].strings.push('M 1641.39 893.72 L 1476.08 893.72');
-bb.tl.lines['District'].strings.push('M 1476.08 893.72 C 1472.09 893.72 1468.33 895.27 1465.5 898.1');
-bb.tl.lines['District'].strings.push('M 1465.5 898.1 L 1373.67 989.93');
-bb.tl.lines['District'].strings.push('M 1373.67 989.93 C 1369.76 993.84 1364.36 996.26 1358.39 996.26');
-bb.tl.lines['District'].strings.push('M 1358.39 996.26 L 409.21 996.26');
-bb.tl.lines['District'].strings.push('M 409.21 996.26 C 403.24 996.26 397.84 993.84 393.93 989.93');
-bb.tl.lines['District'].strings.push('M 393.93 989.93 L 372.4 968.41');
-bb.tl.lines['District'].strings.push('M 372.4 968.41 C 368.49 964.51 366.07 959.1 366.07 953.13');
-bb.tl.lines['District'].strings.push('M 366.07 953.13 L 366.07 822.13');
-bb.tl.lines['District'].strings.push('M 366.07 822.13 C 366.07 816.16 363.65 810.76 359.74 806.85');
-bb.tl.lines['District'].strings.push('M 359.74 806.85 C 355.83 802.94 350.43 800.52 344.46 800.52');
-bb.tl.lines['District'].strings.push('M 344.46 800.52 C 339 800.52 327.16 800.52 327.16 800.52');
-bb.tl.lines['District'].strings.push('M 327.16 800.52');
-bb.tl.lines['District'].strings.push('M 804.1 996.39 C 798.13 996.39 792.73 998.81 788.82 1002.72');
-bb.tl.lines['District'].strings.push('M 788.82 1002.72 S 782.49 1012.03 782.49 1018.01');
-bb.tl.lines['District'].strings.push('M 782.49 1018.01 C 782.49 1023.81 782.49 1343.07 782.49 1343.07');
-bb.tl.lines['District'].strings.push('M 782.49 1343.07');
-bb.tl.lines['District'].strings.push('M 804.1 996.39 C 798.13 996.39 792.73 993.97 788.82 990.06');
-bb.tl.lines['District'].strings.push('M 788.82 990.06 C 784.91 986.15 782.49 980.74 782.49 974.78');
-bb.tl.lines['District'].strings.push('M 782.49 974.78 C 782.49 968.97 782.49 909.04 782.49 909.04');
-bb.tl.lines['District'].strings.push('M 804.69 996.39 C 810.65 996.39 816.52 993.5 819.97 990.06');
-bb.tl.lines['District'].strings.push('M 819.97 990.06 C 823.42 986.6 826.3 980.74 826.3 974.78');
-bb.tl.lines['District'].strings.push('M 826.3 974.78 L 826.3 689.76');
-bb.tl.lines['District'].strings.push('M 826.3 689.76 C 826.3 682.21 829.24 675.11 834.58 669.78');
-bb.tl.lines['District'].strings.push('M 834.58 669.78 C 839.92 664.44 847.02 661.5 854.56 661.5');
-bb.tl.lines['District'].strings.push('M 854.56 661.5 L 910.87 661.5');
+// mile to stepney
+bb.tl.lines['District'].strings.push('M 1830.59 720.07 C 1821.73 720.07 1814.92 723.88 1811.48 727.33');
+
+//stepney to adgate east
+bb.tl.lines['District'].strings.push('M 1811.48 727.33 L 1657.38 881.44');
+
+//aldgate east to towerhill
+bb.tl.lines['District'].strings.push('M 1657.38 881.44 C 1652.04 886.78 1644.94 889 1637.39 889');
+
+//tower to monument
+bb.tl.lines['District'].strings.push('M 1637.39 889 L 1472.08 889');
+
+//monument to cannon	
+bb.tl.lines['District'].strings.push('M 1472.08 889 C 1467.5 889 1463 891.27 1460.5 894.1');
+
+//cannon to blackfriars
+bb.tl.lines['District'].strings.push('M 1460.5 894.1 L 1368.67 985.93');
+
+//blackfriars to temple
+bb.tl.lines['District'].strings.push('M 1368.67 985.93 C 1364.76 989.84 1359.36 991.5 1353.39 991.5');
+
+//temple to chiswick park
+bb.tl.lines['District'].strings.push('M 1353.39 991.5 L 404.21 992');
+
+//chiswick to acton
+bb.tl.lines['District'].strings.push('M 404.21 992 C 400 991.5 393.84 989 390 986');
+
+//acton to ealing common
+bb.tl.lines['District'].strings.push('M 371.4 969.41 C 367.49 965.51 361.07 960.1 361.07 953.13');
+
+//ealing common straigh
+bb.tl.lines['District'].strings.push('M 361.07 953.13 L 361.07 822.13');
+
+//ealing common to ealing broadway
+bb.tl.lines['District'].strings.push('M 361.07 822.13 C 361.07 806.16 346.65 797.76 333.16 796.52');
+//ealing broadway = 318.5 796.52
+
+
+
+/// done
+
+//turnham to gunners
+bb.tl.lines['District'].strings.push('M 478.27 992 C 471.3 992 459 997 456.66 1013');
+
+//richmond = 456.66 1177.98
+//gunner to richmond
+bb.tl.lines['District'].strings.push('M 456.66 1017.89 L 456.66 1177.98');
+
+
+
+//earl's to west brompton
+bb.tl.lines['District'].strings.push('M 804.1 994 C 798.13 992 792.73 994.4 788.82 998.3');
+bb.tl.lines['District'].strings.push('M 788.82 998.3 S 782.49 1007.6 782.49 1005.6');
+
+//west brompton to wimbledon
+bb.tl.lines['District'].strings.push('M 782.49 1005.6 L 782.49 1343.07');
+
+//bb.tl.lines['District'].strings.push('M 804.1 996.39 C 798.13 996.39 792.73 993.97 788.82 990.06');
+//bb.tl.lines['District'].strings.push('M 788.82 990.06 C 784.91 986.15 782.49 980.74 782.49 974.78');
+//bb.tl.lines['District'].strings.push('M 782.49 974.78 C 782.49 968.97 782.49 909.04 782.49 909.04');
+//bb.tl.lines['District'].strings.push('M 804.69 996.39 C 810.65 996.39 816.52 993.5 819.97 990.06');
+//bb.tl.lines['District'].strings.push('M 819.97 990.06 C 823.42 986.6 826.3 980.74 826.3 974.78');
+//bb.tl.lines['District'].strings.push('M 826.3 974.78 L 826.3 689.76');
+//bb.tl.lines['District'].strings.push('M 826.3 689.76 C 826.3 682.21 829.24 675.11 834.58 669.78');
+//bb.tl.lines['District'].strings.push('M 834.58 669.78 C 839.92 664.44 847.02 661.5 854.56 661.5');
+//bb.tl.lines['District'].strings.push('M 854.56 661.5 L 910.87 661.5');
 
 bb.tl.lines['EastLondon'] = { strings: [], color: '#F7931E', paths: [], stations: [] };
 bb.tl.lines['EastLondon'].strings.push('M 663.47 539.51 L 663.47 20.27');
