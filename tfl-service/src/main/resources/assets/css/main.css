@@ -11,3 +11,8 @@ body {
 #mapold {
     opacity: 0.05;
 }
+
+path, line {
+    fill: none;
+    stroke-linecap: round;
+}

@@ -1,27 +1,26 @@
-var map;
-
 $(document).ready(function() {
-	$('#map').svg({onLoad: drawMap});
-	bb.tl.init();
+    addLines();
+    addStations();
+    addConnections();
+
+	$('#map').svg({
+        onLoad: drawMap
+    });
+
+	bb.tl.init(); // draw the old map
 });
 
-function drawMap(svg) { 
-	map = svg;
-
-	addLines();
-	addStations();
-	addConnections();
-
+function drawMap(map) {
 	// For each set of connections belonging to a line
 	_.each(connections, function(lineConnections, lineId) {
 		var line = lines[lineId];
-		var lineSvgGroup = map.group({id: line.getId(), stroke: line.colour, fill: "none", "stroke-width": 5, "stroke-linecap": "round"});
+		var lineSvgGroup = map.group({ id: line.getId(), stroke: line.colour, "stroke-width": "5px" });
 
 		// For each connection in this line
         _.each(lineConnections, function(connection) {
 			var stationA = connection.stationA;
 			var stationB = connection.stationB;
-			
+
 			if (connection.joinSvg  === undefined) {
 				var svgConnection = map.line(lineSvgGroup, stationA.x, stationA.y, stationB.x, stationB.y);
 			}
@@ -34,16 +33,20 @@ function drawMap(svg) {
 		});
 	});
 
-	//setRouteColor(VICTORIA, "#FFFFFF");
-	//setRouteThickness(VICTORIA, "15");
+//	setRouteColor(VICTORIA, "red");
+//	setRouteThickness(VICTORIA, "15");
+}
+
+function getRoute(name) {
+    return $('#' + toAlphanumericOnly(name));
 }
 
 function setRouteColor(route, colour) {
-	$("#" + route).attr("stroke", colour);
+	getRoute(route).attr("stroke", colour);
 }
 
 function setRouteThickness(route, thickness) {
-	$("#" + route).attr("stroke-width", thickness);
+    getRoute(route).attr("stroke-width", thickness);
 }
 
 
