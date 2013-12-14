@@ -26,13 +26,15 @@ function drawMap(map) {
 				var svgConnection = map.path(lineSvgGroup, "M " + stationA.getCoords() + " L " + connection.joinSvg + " L " + stationB.getCoords());
 			}
 
-			var classes = stationA.line.getId() + " " + stationA.getId() + " " + stationB.getId();
-			$(svgConnection).attr("class", classes);
+			$(svgConnection)
+                .addClass(stationA.line.getId())
+                .addClass(stationA.getId())
+                .addClass(stationB.getId());
 		});
 	});
 
 //	setRouteColor(VICTORIA, "red");
-//	setRouteThickness(VICTORIA, "15");
+//	setRouteThickness(VICTORIA, "15px");
 }
 
 function getRoute(name) {
