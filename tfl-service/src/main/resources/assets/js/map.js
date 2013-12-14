@@ -3,59 +3,79 @@ $(document).ready(function() {
     addStations();
     addConnections();
 
-	$('#map').svg({
-        onLoad: drawMap
-    });
+	var map = $('#map')
+        .drawLondonUnderground(lines, connections);
+
+    map.route(VICTORIA)
+        .attr("stroke", "red");
+
+    map.segment(VICTORIA, FINSBURY_PARK, HIGHBURY_AND_ISLINGTON)
+        .attr("stroke-width", "21px");
 });
 
-function drawMap(map) {
-	// For each set of connections belonging to a line
-	_.each(connections, function(lineConnections, lineId) {
-		var line = lines[lineId];
-		var lineSvgGroup = map.group({ id: line.getId(), stroke: line.colour, "stroke-width": "5px" });
+(function($) {
+    $.fn.drawLondonUnderground = function(lines, connections, options) {
+        options = $.extend({}, {
+            lineWidth: 5
+        }, options);
 
-		// For each connection in this line
-        _.each(lineConnections, function(connection) {
-			var stationA = connection.stationA;
-			var stationB = connection.stationB;
+        return this.each(function() {
+            var $element = $(this);
 
-			if (connection.joinSvg  === undefined) {
-				var svgConnection = map.line(lineSvgGroup, stationA.x, stationA.y, stationB.x, stationB.y);
-			}
-            else {
-				var svgConnection = map.path(lineSvgGroup, "M " + stationA.getCoords() + " L " + connection.joinSvg + " L " + stationB.getCoords());
-			}
+            $element.svg({
+                onLoad: function(map) {
+                    // For each set of connections belonging to a line
+                    _.each(connections, function(lineConnections, lineId) {
+                        var line = lines[lineId];
+                        var lineSvgGroup = map.group({ id: line.getId() });
 
-			$(svgConnection)
-                .addClass(stationA.line.getId())
-                .addClass(stationA.getId())
-                .addClass(stationB.getId());
-		});
-	});
+                        // For each connection in this line
+                        _.each(lineConnections, function(connection) {
+                            var stationA = connection.stationA;
+                            var stationB = connection.stationB;
 
-//	setRouteColor(VICTORIA, "red");
-//	setRouteThickness(VICTORIA, "15px");
-}
+                            if (connection.joinSvg  === undefined) {
+                                var svgConnection = map.line(lineSvgGroup, stationA.x, stationA.y, stationB.x, stationB.y);
+                            }
+                            else {
+                                var svgConnection = map.path(lineSvgGroup, "M " + stationA.getCoords() + " L " + connection.joinSvg + " L " + stationB.getCoords());
+                            }
 
-function getRoute(name) {
-    return $('#' + name.toAlphanumeric());
-}
+                            $(svgConnection)
+                                .addClass("segment")
+                                .addClass("line-" + stationA.line.getId())
+                                .addClass("station-" + stationA.getId())
+                                .addClass("station-" + stationB.getId());
+                        });
+                    });
 
-function setRouteColor(route, colour) {
-	getRoute(route).attr("stroke", colour);
-}
+                    _.each(lines, function(line) {
+                        $element.route(line.name)
+                            .attr("stroke", line.colour)
+                            .attr("stroke-width", options.lineWidth + "px");
+                    });
+                }
+            });
+        });
+    };
 
-function setRouteThickness(route, thickness) {
-    getRoute(route).attr("stroke-width", thickness);
-}
+    $.fn.route = function(name) {
+        return this.find(".segment.line-" + getLineId(name));
+    };
 
+    $.fn.segment = function(line, stationNameA, stationNameB) {
+        var stationA = getStationId(line, stationNameA);
+        var stationB = getStationId(line, stationNameB);
+        return this.route(line).filter(".station-" + stationA + ".station-" + stationB);
+    };
+}(jQuery));
 
 ///////////////////////
 
-document.onmousemove = function(e)
-{
-    var x = e.pageX;
-    var y = e.pageY;
-    console.log(x +", " + y);
-    // do what you want with x and y
-};
+//document.onmousemove = function(e)
+//{
+//    var x = e.pageX;
+//    var y = e.pageY;
+//    console.log(x +", " + y);
+//    // do what you want with x and y
+//};

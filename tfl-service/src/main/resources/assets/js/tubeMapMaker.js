@@ -267,53 +267,61 @@ function addConnections() {
 }
 
 function addLine(name, color) {
-	lines[name] = new Line(name, color);
+    var id = getLineId(name);
+	lines[id] = new Line(name, color);
 }
 
 function addStation(lineName, stationName, x, y) {
 	var id = getStationId(lineName, stationName);
-    var line = lines[lineName];
-	stations[id] = new Station(id, stationName, line, x, y);
+
+    var line = lines[getLineId(lineName)];
+	stations[id] = new Station(stationName, line, x, y);
 }
 
 function joinStation(lineName, stationNameA, stationNameB, joinSvg) {
-	if (connections[lineName] === undefined) {
-		connections[lineName] = [];
+    var id = getLineId(lineName);
+
+	if (connections[id] === undefined) {
+		connections[id] = [];
 	}
 	
 	var stationA = stations[getStationId(lineName, stationNameA)];
 	var stationB = stations[getStationId(lineName, stationNameB)];
-	connections[lineName].push(new Connection(stationA, stationB, joinSvg));
+
+	connections[id].push(new Connection(stationA, stationB, joinSvg));
+}
+
+function getLineId(lineName) {
+    return lineName.toAlphanumeric().toLowerCase();
 }
 
 function getStationId(lineName, stationName) {
-	return lineName.toAlphanumeric() + '_' + stationName.toAlphanumeric();
+	return (lineName.toAlphanumeric() + '-' + stationName.toAlphanumeric()).toLowerCase();
 }
 
 // Strip out non alphanumeric characters.
 String.prototype.toAlphanumeric = function() {
 	return this.replace(/\W/g, '');
-}
+};
 
 function Line(name, colour) {
 	this.name = name;
 	this.colour = colour;
 
     this.getId = function() {
-        return this.name.toAlphanumeric();
-    }
+        return getLineId(this.name);
+    };
 }
 
-function Station(id, name, line, x, y) {
-    this.id = id;
+function Station(name, line, x, y) {
     this.name = name;
     this.line = line;
     this.x = x;
     this.y = y;
 
     this.getId = function() {
-        return this.id.toAlphanumeric();
-    }
+        return getStationId(line.name, name);
+    };
 
     this.getCoords = function() {
         return this.x + " " + this.y;
