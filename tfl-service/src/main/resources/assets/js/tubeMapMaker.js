@@ -129,7 +129,12 @@ function addStations() {
     // District - Earls Court to Kensington
     addStation(LINE_DISTRICT, KENSINGTON, "782.49", "909.04");
 
-    // TODO: District - Earls Court to Edgware Road
+    // District - Earls Court to Edgware Road
+    joinStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, "828.95", "860");
+//    joinStation(LINE_DISTRICT, NOTTING_HILL_GATE, "828.95", "792");
+//    joinStation(LINE_DISTRICT, BAYSWATER, "828.95", "726");
+//    joinStation(LINE_DISTRICT, PADDINGTON_1, "832.28", "671.48");
+//    joinStation(LINE_DISTRICT, EDGWARE, "907.19", "665.15");
 
     // Hammersmith
     addStation(LINE_HAMMERSMITH, HAMMERSMITH, "660.29", "955.89");
@@ -366,7 +371,13 @@ function addConnections() {
     // District - Earls Court to Kensington
     joinStation(LINE_DISTRICT, EARLS_COURT, KENSINGTON, "802.1 992 C 792.1 992 782.1 982 782.1 972");
 
-    // TODO: missing branches for district
+    // District - Earls Court to Edgware
+//    joinStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, EARLS_COURT, "824.1 972 C 824.1 982 814.1 992 804.1 992");
+//    joinStation(LINE_DISTRICT, HIGH_STREET_KENSINGTON, NOTTING_HILL_GATE);
+//    joinStation(LINE_DISTRICT, NOTTING_HILL_GATE, BAYSWATER);
+//    joinStation(LINE_DISTRICT, EDGWARE, BAYSWATER, "842.1 660 C 834.1 660 824.1 670 824.1 680");
+    //edgware = (same as circle edware x) 661.5
+    
 
     // Hammersmith
     joinStation(LINE_HAMMERSMITH, HAMMERSMITH, GOLDHAWK_ROAD);
