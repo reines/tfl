@@ -6,11 +6,11 @@ $(document).ready(function() {
 	var map = $('#map')
         .drawLondonUnderground(lines, connections);
 
-    map.route(VICTORIA)
-        .attr("stroke", "red");
+//    map.route(VICTORIA)
+//        .attr("stroke", "red");
 
-    map.segment(VICTORIA, FINSBURY_PARK, HIGHBURY_AND_ISLINGTON)
-        .attr("stroke-width", "21px");
+//    map.segment(VICTORIA, FINSBURY_PARK, HIGHBURY_AND_ISLINGTON)
+//        .attr("stroke-width", "21px");
 });
 
 (function($) {

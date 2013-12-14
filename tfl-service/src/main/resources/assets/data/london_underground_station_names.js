@@ -113,6 +113,7 @@ var HARROW_ON_THE_HILL = "Harrow-on-the-Hill";
 var HATTON_CROSS = "Hatton Cross";
 var HEATHROW_TERMINALS_123 = "Heathrow Terminals 1-2-3";
 var HEATHROW_TERMINAL_4 = "Heathrow Terminal 4";
+var HEATHROW_TERMINAL_5 = "Heathrow Terminal 5";
 var HENDON_CENTRAL = "Hendon Central";
 var HIGH_BARNET = "High Barnet";
 var HIGH_STREET_KENSINGTON = "High Street Kensington";
