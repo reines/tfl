@@ -47,8 +47,8 @@ bb.tl.lines['Picadilly'] = { strings: [], color: '#1C3E93', paths: [], stations:
 //bb.tl.lines['Picadilly'].strings.push('M 30.17 1294.13 L 340.73 983.57');
 
 // south ealing to acton town
-bb.tl.lines['Picadilly'].strings.push('M 340.73 983.57 C 344.17 980.12 350.97 977.31 355.84 977.31');
-bb.tl.lines['Picadilly'].strings.push('M 355.84 977.31 L 487.85 977.31');
+//bb.tl.lines['Picadilly'].strings.push('M 340.73 983.57 C 344.17 980.12 350.97 977.31 355.84 977.31');
+//bb.tl.lines['Picadilly'].strings.push('M 355.84 977.31 L 487.85 977.31');
 
 // cockfosters to manor house
 bb.tl.lines['Picadilly'].strings.push('M 1633.34 63.45 L 1633.34 314.15');

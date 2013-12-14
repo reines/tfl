@@ -119,8 +119,7 @@
                         'pluginspage="http://www.adobe.com/svg/viewer/install/main.html"/>';
                 }
                 else {
-                    container.innerHTML = '<p class="svg_error">' +
-                        this.local.notSupportedText + '</p>';
+                    throw e;
                 }
             }
         },
