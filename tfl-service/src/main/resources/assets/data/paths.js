@@ -35,40 +35,67 @@ bb.tl.lines['Circle'] = { strings: [], color: '#FFD200', paths: [], stations: []
 
 
 bb.tl.lines['Picadilly'] = { strings: [], color: '#1C3E93', paths: [], stations: [] };
-bb.tl.lines['Picadilly'].strings.push('M 131.33 1192.97 C 126.67 1197.63 124.34 1203.73 124.34 1209.85');
-bb.tl.lines['Picadilly'].strings.push('M 124.34 1209.85 L 124.34 1257.6');
-bb.tl.lines['Picadilly'].strings.push('M 124.34 1257.6 C 124.34 1263.71 122.01 1269.82 117.35 1274.48');
-bb.tl.lines['Picadilly'].strings.push('M 117.35 1274.48 C 117.12 1274.72 117.35 1274.48 117.35 1274.48');
-bb.tl.lines['Picadilly'].strings.push('M 117.35 1274.48 C 113.03 1278.79 107.06 1281.47 100.48 1281.47');
-bb.tl.lines['Picadilly'].strings.push('M 100.48 1281.47 C 94.37 1281.47 88.26 1279.13 83.61 1274.48');
-bb.tl.lines['Picadilly'].strings.push('M 83.61 1274.48 C 79.29 1270.14 76.63 1264.18 76.63 1257.6');
-bb.tl.lines['Picadilly'].strings.push('M 76.63 1257.6 C 76.63 1251 79.3 1245.02 83.64 1240.7');
-bb.tl.lines['Picadilly'].strings.push('M 83.64 1240.7 L 131.47 1192.87');
-bb.tl.lines['Picadilly'].strings.push('M 131.47 1192.87');
-bb.tl.lines['Picadilly'].strings.push('M 30.17 1294.13 L 340.73 983.57');
+
+// hatton cross to heathrow 4... kinda
+//bb.tl.lines['Picadilly'].strings.push('M 131.33 1192.97 C 126.67 1197.63 124.34 1203.73 124.34 1209.85');
+//bb.tl.lines['Picadilly'].strings.push('M 124.34 1209.85 L 124.34 1257.6');
+
+// heathrow 4 to 123
+//bb.tl.lines['Picadilly'].strings.push('M 124.34 1257.6 C 124.34 1263.71 122.01 1269.82 117.35 1274.48 M 117.35 1274.48 C 117.12 1274.72 117.35 1274.48 117.35 1274.48 M 117.35 1274.48 C 113.03 1278.79 107.06 1281.47 100.48 1281.47 M 100.48 1281.47 C 94.37 1281.47 88.26 1279.13 83.61 1274.48 M 83.61 1274.48 C 79.29 1270.14 76.63 1264.18 76.63 1257.6 M 76.63 1257.6 C 76.63 1251 79.3 1245.02 83.64 1240.7');
+
+// south ealign to heathrow 5
+//bb.tl.lines['Picadilly'].strings.push('M 30.17 1294.13 L 340.73 983.57');
+
+// south ealing to acton town
 bb.tl.lines['Picadilly'].strings.push('M 340.73 983.57 C 344.17 980.12 350.97 977.31 355.84 977.31');
 bb.tl.lines['Picadilly'].strings.push('M 355.84 977.31 L 487.85 977.31');
+
+// cockfosters to manor house
 bb.tl.lines['Picadilly'].strings.push('M 1633.34 63.45 L 1633.34 314.15');
+
+// manor house to finsbury park
 bb.tl.lines['Picadilly'].strings.push('M 1633.34 314.15 C 1633.34 319.02 1630.53 325.82 1627.08 329.27');
+
+// finsbury park to euston square
 bb.tl.lines['Picadilly'].strings.push('M 1627.08 329.27 L 1305.58 650.78');
+
+// kings cross euston square
 bb.tl.lines['Picadilly'].strings.push('M 1305.58 650.78 C 1302.13 654.22 1299.31 661.02 1299.31 665.89');
+
+// russel square
 bb.tl.lines['Picadilly'].strings.push('M 1299.31 665.89 L 1299.31 764.63');
+
+// russel square to holborn
 bb.tl.lines['Picadilly'].strings.push('M 1299.31 764.63 C 1299.31 769.5 1296.49 776.3 1293.05 779.74');
+
+// covent garden
 bb.tl.lines['Picadilly'].strings.push('M 1293.05 779.74 L 1206.9 865.89');
+
+// leicster square to picadilly circuis
 bb.tl.lines['Picadilly'].strings.push('M 1206.9 865.89 C 1203.46 869.33 1196.66 872.15 1191.78 872.15');
+
+// picadilly circuis & green park
 bb.tl.lines['Picadilly'].strings.push('M 1191.78 872.15 L 1034.83 872.15');
+
+// green park to hyde park corner
 bb.tl.lines['Picadilly'].strings.push('M 1034.83 872.15 C 1029.96 872.15 1023.16 874.97 1019.71 878.41');
+
+// hyde park to south kensington
 bb.tl.lines['Picadilly'].strings.push('M 1019.71 878.41 L 927.08 971.03');
 bb.tl.lines['Picadilly'].strings.push('M 927.08 971.03 C 923.64 974.47 916.83 977.3 911.96 977.3');
+
+
 bb.tl.lines['Picadilly'].strings.push('M 911.96 977.3 L 387.08 977.3');
-bb.tl.lines['Picadilly'].strings.push('M 397.68 977.31 C 390.18 977.29 382.81 974.48 377.08 968.77');
-bb.tl.lines['Picadilly'].strings.push('M 377.08 968.77 L 370.11 961.81');
-bb.tl.lines['Picadilly'].strings.push('M 370.11 961.81 C 367.39 959.08 365.73 955.39 365.73 951.23');
+
+//bb.tl.lines['Picadilly'].strings.push('M 397.68 977.31 C 390.18 977.29 382.81 974.48 377.08 968.77');
+//bb.tl.lines['Picadilly'].strings.push('M 377.08 968.77 L 370.11 961.81');
+//bb.tl.lines['Picadilly'].strings.push('M 370.11 961.81 C 367.39 959.08 365.73 955.39 365.73 951.23');
+
 bb.tl.lines['Picadilly'].strings.push('M 365.73 951.23 L 365.73 318.19');
-bb.tl.lines['Picadilly'].strings.push('M 365.73 318.19 C 365.73 313.32 362.9 306.53 359.46 303.09');
-bb.tl.lines['Picadilly'].strings.push('M 359.46 303.09 C 359.46 303.09 291.05 235.02 288.15 232.12');
-bb.tl.lines['Picadilly'].strings.push('M 288.15 232.12 C 285.35 229.32 279.81 226.3 275.25 226.3');
-bb.tl.lines['Picadilly'].strings.push('M 275.25 226.3 C 269.68 226.3 27.14 226.3 27.14 226.3');
+//bb.tl.lines['Picadilly'].strings.push('M 365.73 318.19 C 365.73 313.32 362.9 306.53 359.46 303.09');
+//bb.tl.lines['Picadilly'].strings.push('M 359.46 303.09 C 359.46 303.09 291.05 235.02 288.15 232.12');
+//bb.tl.lines['Picadilly'].strings.push('M 288.15 232.12 C 285.35 229.32 279.81 226.3 275.25 226.3');
+//bb.tl.lines['Picadilly'].strings.push('M 275.25 226.3 C 269.68 226.3 27.14 226.3 27.14 226.3');
 
 bb.tl.lines['Metropolitan'] = { strings: [], color: '#96005E', paths: [], stations: [] };
 bb.tl.lines['Metropolitan'].strings.push('M 325.95 134.83 C 322.5 131.38 319.69 124.58 319.69 119.72');

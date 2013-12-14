@@ -4,17 +4,17 @@ $(document).ready(function() {
     addConnections();
 
 	var map = $('#map')
-        .drawLondonUnderground(lines, connections);
+        .drawLondonUnderground(lines, stations, connections);
 
-    map.route(VICTORIA)
-        .attr("stroke", "red");
+//    map.route(VICTORIA)
+//        .attr("stroke", "red");
 
-    map.segment(VICTORIA, FINSBURY_PARK, HIGHBURY_AND_ISLINGTON)
-        .attr("stroke-width", "21px");
+//    map.segment(VICTORIA, FINSBURY_PARK, HIGHBURY_AND_ISLINGTON)
+//        .attr("stroke-width", "21px");
 });
 
 (function($) {
-    $.fn.drawLondonUnderground = function(lines, connections, options) {
+    $.fn.drawLondonUnderground = function(lines, stations, connections, options) {
         options = $.extend({}, {
             lineWidth: 5
         }, options);
@@ -54,6 +54,15 @@ $(document).ready(function() {
                             .attr("stroke", line.colour)
                             .attr("stroke-width", options.lineWidth + "px");
                     });
+
+                    // For each station draw a dot
+                    _.each(stations, function(station) {
+                        var svgStation = map.circle(station.x, station.y, 5, { fill: station.line.colour });
+                        $(svgStation)
+                            .addClass("station")
+                            .addClass("line-" + station.line.getId())
+                            .addClass("station-" + station.getId());
+                    });
                 }
             });
         });
@@ -76,6 +85,7 @@ document.onmousemove = function(e)
 {
     var x = e.pageX;
     var y = e.pageY;
+    console.clear();
     console.log(x +", " + y);
     // do what you want with x and y
 };
