@@ -1,6 +1,5 @@
 body {
     background: #e5e5e5;
-    color: #e5e5e5;
 }
 
 #map, #mapold {
@@ -11,4 +10,9 @@ body {
 
 #mapold {
     opacity: 0.05;
+}
+
+path, line {
+    fill: none;
+    stroke-linecap: round;
 }
