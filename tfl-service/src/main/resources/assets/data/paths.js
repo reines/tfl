@@ -4,58 +4,9 @@ bb.tl.lines = bb.tl.lines || {};
 
 // TUBE PATH DATA
 bb.tl.lines['Picadilly'] = { strings: [], color: '#1C3E93', paths: [], stations: [] };
-
 bb.tl.lines['Picadilly'].strings.push('M 397.68 977.31 C 390.18 977.29 382.81 974.48 377.08 968.77');
 bb.tl.lines['Picadilly'].strings.push('M 377.08 968.77 L 370.11 961.81');
 bb.tl.lines['Picadilly'].strings.push('M 370.11 961.81 C 367.39 959.08 365.73 955.39 365.73 951.23');
-
-bb.tl.lines['Metropolitan'] = { strings: [], color: '#96005E', paths: [], stations: [] };
-
-// Metropolitan - Moor Park to Watford
-//moor to croxley curve
-bb.tl.lines['Metropolitan'].strings.push('M 325.95 134.83 C 322.5 131.38 319.69 124.58 319.69 119.72');
-bb.tl.lines['Metropolitan'].strings.push('M 319.69 119.72 L 319.69 64.47');
-
-// Metropolitan - Chalfont & Latimer to Chesham
-//Chalfont & Latimer to Chesham curve
-bb.tl.lines['Metropolitan'].strings.push('M 124.99 65.81 C 120.12 65.81 113.32 62.99 109.88 59.55');
-bb.tl.lines['Metropolitan'].strings.push('M 109.88 59.55 L 78 27.67');
-
-// Metropolitan - Uxbridge to Harrow-on-the-Hill
-bb.tl.lines['Metropolitan'].strings.push('M 25.3 221.2 L 272.25 221.2');
-//Ruislip to Ruislip manor curve
-bb.tl.lines['Metropolitan'].strings.push('M 272.25 221.2 C 278.22 220.66 285.54 224.12 290.76 228.34');
-bb.tl.lines['Metropolitan'].strings.push('M 290.76 228.34 L 369.52 307.1');
-//raynors layne to west harrow
-bb.tl.lines['Metropolitan'].strings.push('M 369.52 307.1 C 372.96 310.55 379.76 313.36 384.63 313.36');
-bb.tl.lines['Metropolitan'].strings.push('M 384.63 313.36 L 539.01 313.36');
-
-// Metropolitan - Amersham to Harrow-on-the-Hill
-bb.tl.lines['Metropolitan'].strings.push('M 21.9 65.81 L 248.06 65.81');
-// Chalfont &Latimer to Chorleywood
-bb.tl.lines['Metropolitan'].strings.push('M 248.06 65.81 C 252.93 65.81 259.73 68.62 263.18 72.07');
-bb.tl.lines['Metropolitan'].strings.push('M 263.18 72.07 L 498.11 307.09');
-// North Harrow to  Harrow-on-the-Hill
-bb.tl.lines['Metropolitan'].strings.push('M 498.11 307.09 C 501.55 310.54 508.35 313.35 513.22 313.35');
-
-// Metropolitan - Harrow-on-the-Hill to ?
-bb.tl.lines['Metropolitan'].strings.push('M 513.22 313.35 L 708.42 313.36');
-// preston road to wembley park
-bb.tl.lines['Metropolitan'].strings.push('M 708.42 313.36 C 713.29 313.36 720.09 316.18 723.54 319.62');
-bb.tl.lines['Metropolitan'].strings.push('M 723.54 319.62 L 1053.92 650.01');
-//baker street to GreatPortland 
-// BAKER = 1050 647
-bb.tl.lines['Metropolitan'].strings.push('M 1050 647 C 1053.37 650.45 1060.16 652.28 1065.03 652.5');
-bb.tl.lines['Metropolitan'].strings.push('M 1065.03 652.5 L 1370 652.5');
-//kings to faringdon
-bb.tl.lines['Metropolitan'].strings.push('M 1370 652.5 C 1375.43 652.5 1377.19 653.86 1380.01 656.69');
-bb.tl.lines['Metropolitan'].strings.push('M 1380.01 656.69 L 1460.27 736.5');
-//baribican to moorgate
-bb.tl.lines['Metropolitan'].strings.push('M 1460.27 736.5 C 1465.62 741.78 1472.71 743.5 1480.26 743.5');
-bb.tl.lines['Metropolitan'].strings.push('M 1480.26 743.5 L 1630.01 743.5');
-// liverpool to aldgate
-bb.tl.lines['Metropolitan'].strings.push('M 1630.01 743.5 C 1634 743.5 1637.77 745 1640.59 748 M 1640.59 748 C 1643.41 751 1644.97 755 1644.97 759');
-bb.tl.lines['Metropolitan'].strings.push('M 1644.97 762.18 L 1644.97 835.48');
 
 bb.tl.lines['Northern'] = { strings: [], color: '#231F20', paths: [], stations: [] };
 bb.tl.lines['Northern'].strings.push('M 1340.95 188.45 C 1340.95 183.58 1338.14 176.78 1334.69 173.34');
