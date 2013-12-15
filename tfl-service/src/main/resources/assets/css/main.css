@@ -1,18 +1,8 @@
 body {
     background: #e5e5e5;
-    line-height: 50%;
 }
 
-#map, #mapold {
+#map {
     width: 2426px;
     height: 1615px;
-    position: absolute;
-}
-
-#mapold {
-    opacity: 0;
-}
-
-path, line {
-    fill: none;
 }
