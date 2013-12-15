@@ -39,7 +39,9 @@ function highlightStation(map, percent, line, stationName) {
     $.fn.drawLondonUnderground = function(lines, stations, connections, options) {
         options = $.extend({}, {
             lineWidth: 5,
-            opacity: 1
+            lineOpacity: 0.1,
+            stationOpacity: 0,
+            stationSize: 5
         }, options);
 
         return this.each(function() {
@@ -54,6 +56,7 @@ function highlightStation(map, percent, line, stationName) {
 
                         // For each connection in this line
                         _.each(lineConnections, function(connection) {
+                            var line = connection.stationA.line;
                             var stationA = connection.stationA;
                             var stationB = connection.stationB;
 
@@ -68,24 +71,22 @@ function highlightStation(map, percent, line, stationName) {
                                 .addClass("segment")
                                 .addClass("line-" + stationA.line.getId())
                                 .addClass("station-" + stationA.getId())
-                                .addClass("station-" + stationB.getId());
+                                .addClass("station-" + stationB.getId())
+                                .attr("stroke", line.colour)
+                                .attr("opacity", options.lineOpacity)
+                                .attr("stroke-width", options.lineWidth + "px");
                         });
-                    });
-
-                    _.each(lines, function(line) {
-                        $element.route(line.name)
-                            .attr("stroke", line.colour)
-                            .attr("opacity", options.opacity)
-                            .attr("stroke-width", options.lineWidth + "px");
                     });
 
                     // For each station draw a dot
                     _.each(stations, function(station) {
-                        var svgStation = map.circle(station.x, station.y, 5, { fill: station.line.colour, opacity: 1});
+                        var svgStation = map.circle(station.x, station.y, options.stationSize);
                         $(svgStation)
                             .addClass("station")
                             .addClass("line-" + station.line.getId())
-                            .addClass("station-" + station.getId());
+                            .addClass("station-" + station.getId())
+                            .attr("fill", station.line.colour)
+                            .attr("opacity", options.stationOpacity);
                     });
                 }
             });
