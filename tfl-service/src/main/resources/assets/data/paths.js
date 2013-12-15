@@ -57,28 +57,6 @@ bb.tl.lines['Metropolitan'].strings.push('M 1480.26 743.5 L 1630.01 743.5');
 bb.tl.lines['Metropolitan'].strings.push('M 1630.01 743.5 C 1634 743.5 1637.77 745 1640.59 748 M 1640.59 748 C 1643.41 751 1644.97 755 1644.97 759');
 bb.tl.lines['Metropolitan'].strings.push('M 1644.97 762.18 L 1644.97 835.48');
 
-
-bb.tl.lines['Bakerloo'] = { strings: [], color: '#AF6010', paths: [], stations: [] };
-bb.tl.lines['Bakerloo'].strings.push('M 663.12 567.01 C 659.3 563.18 656.86 557.45 656.86 551.89');
-bb.tl.lines['Bakerloo'].strings.push('M 656.86 551.89');
-bb.tl.lines['Bakerloo'].strings.push('M 1268.69 1235.05 L 1244.88 1211.23');
-bb.tl.lines['Bakerloo'].strings.push('M 1244.88 1211.23 C 1241.44 1207.78 1238.62 1200.98 1238.62 1196.11');
-bb.tl.lines['Bakerloo'].strings.push('M 1238.62 1196.11 L 1238.62 962.8');
-bb.tl.lines['Bakerloo'].strings.push('M 1238.62 962.8 C 1238.62 957.94 1235.8 951.13 1232.35 947.69');
-bb.tl.lines['Bakerloo'].strings.push('M 1232.35 947.69 L 1107.59 822.92');
-bb.tl.lines['Bakerloo'].strings.push('M 1107.59 822.92 C 1104.15 819.48 1101.33 812.68 1101.33 807.81');
-bb.tl.lines['Bakerloo'].strings.push('M 1101.33 807.81 L 1101.33 759.25');
-bb.tl.lines['Bakerloo'].strings.push('M 1101.33 759.25 C 1101.33 754.38 1098.52 747.58 1095.07 744.14');
-bb.tl.lines['Bakerloo'].strings.push('M 1095.07 744.14 L 979.87 628.94');
-bb.tl.lines['Bakerloo'].strings.push('M 979.87 628.94 C 976.43 625.5 969.63 622.68 964.76 622.68');
-bb.tl.lines['Bakerloo'].strings.push('M 964.76 622.68 L 727.64 622.67');
-bb.tl.lines['Bakerloo'].strings.push('M 727.64 622.67 C 722.77 622.67 715.96 619.85 712.53 616.41');
-bb.tl.lines['Bakerloo'].strings.push('M 712.53 616.41 L 663.12 567.01');
-bb.tl.lines['Bakerloo'].strings.push('M 663.12 567.01 C 659.3 563.18 656.86 557.45 656.86 551.89');
-bb.tl.lines['Bakerloo'].strings.push('M 656.86 551.89 L 656.86 545.38');
-bb.tl.lines['Bakerloo'].strings.push('M 656.86 545.38 C 656.86 540.51 656.86 532.54 656.86 527.67');
-bb.tl.lines['Bakerloo'].strings.push('M 656.86 527.67 L 656.86 221.34');
-
 bb.tl.lines['Northern'] = { strings: [], color: '#231F20', paths: [], stations: [] };
 bb.tl.lines['Northern'].strings.push('M 1340.95 188.45 C 1340.95 183.58 1338.14 176.78 1334.69 173.34');
 bb.tl.lines['Northern'].strings.push('M 1334.69 173.34 C 1332.33 170.98 1332.45 171.09 1295.9 134.54');

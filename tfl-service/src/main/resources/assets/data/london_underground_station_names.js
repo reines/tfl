@@ -89,6 +89,7 @@ var EAST_HAM = "East Ham";
 var EAST_PUTNEY = "East Putney";
 var EASTCOTE = "Eastcote";
 var EDGWARE = "Edgware";
+var EDGWARE_ROAD = "Edgware Road";
 var EDGWARE_ROAD_1 = "Edgware Road (1)";
 var EDGWARE_ROAD_2 = "Edgware Road (2)";
 var ELEPHANT_AND_CASTLE = "Elephant & Castle";
