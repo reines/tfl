@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     bb.tl.addTubeLines();
     bb.tl.addTubeStations();
-    bb.tl.setupListeners();
+    //bb.tl.setupListeners();
 });
 
 bb.tl.addTubeLines = function() {

@@ -692,8 +692,12 @@ function getLineId(lineName) {
     return lineName.toAlphanumeric().toLowerCase();
 }
 
+function getJustStationId(stationName) {
+	return stationName.toAlphanumeric().toLowerCase();
+}
+
 function getStationId(lineName, stationName) {
-	return (lineName.toAlphanumeric() + '-' + stationName.toAlphanumeric()).toLowerCase();
+	return getLineId(lineName) + '-' + getJustStationId(stationName);
 }
 
 // Strip out non alphanumeric characters.
