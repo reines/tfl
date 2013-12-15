@@ -2,12 +2,6 @@ var bb = bb || {};
 bb.tl = bb.tl || {};
 bb.tl.lines = bb.tl.lines || {};
 
-// TUBE PATH DATA
-bb.tl.lines['Picadilly'] = { strings: [], color: '#1C3E93', paths: [], stations: [] };
-bb.tl.lines['Picadilly'].strings.push('M 397.68 977.31 C 390.18 977.29 382.81 974.48 377.08 968.77');
-bb.tl.lines['Picadilly'].strings.push('M 377.08 968.77 L 370.11 961.81');
-bb.tl.lines['Picadilly'].strings.push('M 370.11 961.81 C 367.39 959.08 365.73 955.39 365.73 951.23');
-
 bb.tl.lines['EastLondon'] = { strings: [], color: '#F7931E', paths: [], stations: [] };
 bb.tl.lines['EastLondon'].strings.push('M 663.47 539.51 L 663.47 20.27');
 bb.tl.lines['EastLondon'].strings.push('M 663.47 20.27');
