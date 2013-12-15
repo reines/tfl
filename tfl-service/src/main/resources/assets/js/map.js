@@ -45,7 +45,9 @@ function highlightStation(map, percent, line, stationName) {
             lineWidth: 5,
             lineOpacity: 0.1,
             stationOpacity: 0,
-            stationSize: 5
+            stationSize: 5,
+            textSize: 12.5,
+            textColour: "#1c3f94"
         }, options);
 
         return this.each(function() {
@@ -99,8 +101,8 @@ function highlightStation(map, percent, line, stationName) {
                         $(svgLabel)
                             .addClass("label")
                             .attr("font", "Myriad")
-                            .attr("font-size", 12.5)
-                            .attr("fill", "#1c3f94");
+                            .attr("font-size", options.textSize)
+                            .attr("fill", options.textColour);
                     });
                 }
             });
