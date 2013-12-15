@@ -4,6 +4,8 @@ addStationName = addStationName || {};
 
 var stationNames = {};
 function addStationName(id, label, x, y) {
+    x -= 100;
+    y -= 110;
 	stationNames[getJustStationId(id)] = new StationLabel(id, label, x, y);
 }
 

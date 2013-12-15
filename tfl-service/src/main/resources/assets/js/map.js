@@ -24,14 +24,14 @@ function highlightRoute(map, percent, line, stops) {
 function highlightStation(map, percent, line, stationName) {
 	// Add Text
 	//console.log(stationNames);
-	var stationLabel = stationNames[getJustStationId(stationName)];
-	console.log(stationLabel);
-	map.svg({
-        onLoad: function(s) {
-        	console.log(s);
-        	s.text(stationLabel.x, stationLabel.y, stationLabel.label, { fill: red}); 
-        }
-        });
+//	var stationLabel = stationNames[getJustStationId(stationName)];
+//	console.log(stationLabel);
+//	map.svg({
+//        onLoad: function(s) {
+//        	console.log(s);
+//        	s.text(stationLabel.x, stationLabel.y, stationLabel.label, { fill: red});
+//        }
+//        });
 
 	// Add Circle
 	map.station(line, stationName)
@@ -91,6 +91,13 @@ function highlightStation(map, percent, line, stationName) {
                             .addClass("station-" + station.getId())
                             .attr("fill", station.line.colour)
                             .attr("opacity", options.stationOpacity);
+
+                        var label = map.text(station.x + 10, station.y - 5, station.getName());
+                        $(label)
+                            .addClass("label")
+                            .attr("font", "Myriad")
+                            .attr("font-size", 12.5)
+                            .attr("fill", "#1c3f94");
                     });
                 }
             });
@@ -127,10 +134,7 @@ function highlightStation(map, percent, line, stationName) {
 
 ///////////////////////
 
-document.onmousemove = function(e)
-{
-    var x = e.pageX;
-    var y = e.pageY;
-    console.clear();
-    console.log(x +", " + y);
-};
+//document.onmousemove = function(e) {
+//    console.clear();
+//    console.log(e.pageX + ", " + e.pageY);
+//};
