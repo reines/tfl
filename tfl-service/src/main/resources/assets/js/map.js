@@ -93,7 +93,7 @@ function highlightStation(map, percent, line, stationName) {
     };
 
     $.fn.station = function(line, name) {
-    	return this.find(".station.line-" + getLineId(line) + ".station-" + getStationId(line, name));
+        return this.find(".station.station-" + getStationId(line, name));
     };
 
     $.fn.route = function(name) {
@@ -109,13 +109,13 @@ function highlightStation(map, percent, line, stationName) {
     $.fn.segments = function(line, stationNames) {
     	var domElement = this;
     	var segments = [];
+
         _.each(stationNames, function(stationAName, index) {
     		if (index + 1 == stationNames.length) return;
-    		
-    		var stationA = getStationId(line, stationAName);
-    		var stationB = getStationId(line, stationNames[index+1]);
-    		segments.push(domElement.route(line).filter(".station-" + stationA + ".station-" + stationB));
+
+            segments.push(domElement.segment(line, stationAName, stationNames[index+1]));
     	});
+
     	return $(segments);
     };
 }(jQuery));
@@ -128,5 +128,4 @@ document.onmousemove = function(e)
     var y = e.pageY;
     //console.clear();
     //console.log(x +", " + y);
-    // do what you want with x and y
 };
