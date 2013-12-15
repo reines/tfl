@@ -6,11 +6,10 @@ $(document).ready(function() {
 	var map = $('#map')
         .drawLondonUnderground(lines, stations, connections);
 
-	//highlightRoute(map, 0.05, LINE_CENTRAL, [HOLBORN, TOTTENHAM_COURT_ROAD, OXFORD_CIRCUS]);
-	//highlightRoute(map, 0.05, LINE_PICADILLY, [KINGS_CROSS, RUSSELL_SQUARE, HOLBORN]);
-	//highlightRoute(map, 0.1, LINE_PICADILLY, [ARSENAL, HOLLOWAY_ROAD, CALEDONIAN_ROAD, KINGS_CROSS]);
-	highlightRoute(map, 0.8, LINE_VICTORIA, [FINSBURY_PARK, HIGHBURY_AND_ISLINGTON, KINGS_CROSS, EUSTON, WARREN_STREET, OXFORD_CIRCUS, GREEN_PARK, VICTORIA]);
-	
+	highlightRoute(map, 0.05, LINE_CENTRAL, [HOLBORN, TOTTENHAM_COURT_ROAD, OXFORD_CIRCUS]);
+	highlightRoute(map, 0.05, LINE_PICADILLY, [KINGS_CROSS, RUSSELL_SQUARE, HOLBORN]);
+	highlightRoute(map, 0.1, LINE_PICADILLY, [ARSENAL, HOLLOWAY_ROAD, CALEDONIAN_ROAD, KINGS_CROSS]);
+	highlightRoute(map, 0.8, LINE_VICTORIA, [FINSBURY_PARK, HIGHBURY_AND_ISLINGTON, KINGS_CROSS, EUSTON_2, WARREN_STREET, OXFORD_CIRCUS, GREEN_PARK, VICTORIA]);
 });
 
 function highlightRoute(map, percent, line, stops) {
@@ -44,7 +43,9 @@ function highlightStation(map, percent, line, stationName) {
     $.fn.drawLondonUnderground = function(lines, stations, connections, options) {
         options = $.extend({}, {
             lineWidth: 5,
-            opacity: 1
+            lineOpacity: 0.1,
+            stationOpacity: 0,
+            stationSize: 5
         }, options);
 
         return this.each(function() {
@@ -59,6 +60,7 @@ function highlightStation(map, percent, line, stationName) {
 
                         // For each connection in this line
                         _.each(lineConnections, function(connection) {
+                            var line = connection.stationA.line;
                             var stationA = connection.stationA;
                             var stationB = connection.stationB;
 
@@ -73,24 +75,22 @@ function highlightStation(map, percent, line, stationName) {
                                 .addClass("segment")
                                 .addClass("line-" + stationA.line.getId())
                                 .addClass("station-" + stationA.getId())
-                                .addClass("station-" + stationB.getId());
+                                .addClass("station-" + stationB.getId())
+                                .attr("stroke", line.colour)
+                                .attr("opacity", options.lineOpacity)
+                                .attr("stroke-width", options.lineWidth + "px");
                         });
-                    });
-
-                    _.each(lines, function(line) {
-                        $element.route(line.name)
-                            .attr("stroke", line.colour)
-                            .attr("opacity", options.opacity)
-                            .attr("stroke-width", options.lineWidth + "px");
                     });
 
                     // For each station draw a dot
                     _.each(stations, function(station) {
-                        var svgStation = map.circle(station.x, station.y, 5, { fill: station.line.colour, opacity: 0});
+                        var svgStation = map.circle(station.x, station.y, options.stationSize);
                         $(svgStation)
                             .addClass("station")
                             .addClass("line-" + station.line.getId())
-                            .addClass("station-" + station.getId());
+                            .addClass("station-" + station.getId())
+                            .attr("fill", station.line.colour)
+                            .attr("opacity", options.stationOpacity);
                     });
                 }
             });
@@ -98,7 +98,7 @@ function highlightStation(map, percent, line, stationName) {
     };
 
     $.fn.station = function(line, name) {
-    	return this.find(".station.line-" + getLineId(line) + ".station-" + getStationId(line, name));
+        return this.find(".station.station-" + getStationId(line, name));
     };
 
     $.fn.route = function(name) {
@@ -114,13 +114,13 @@ function highlightStation(map, percent, line, stationName) {
     $.fn.segments = function(line, stationNames) {
     	var domElement = this;
     	var segments = [];
+
         _.each(stationNames, function(stationAName, index) {
     		if (index + 1 == stationNames.length) return;
-    		
-    		var stationA = getStationId(line, stationAName);
-    		var stationB = getStationId(line, stationNames[index+1]);
-    		segments.push(domElement.route(line).filter(".station-" + stationA + ".station-" + stationB));
+
+            segments.push(domElement.segment(line, stationAName, stationNames[index+1]));
     	});
+
     	return $(segments);
     };
 }(jQuery));
@@ -131,7 +131,6 @@ document.onmousemove = function(e)
 {
     var x = e.pageX;
     var y = e.pageY;
-    //console.clear();
-    //console.log(x +", " + y);
-    // do what you want with x and y
+    console.clear();
+    console.log(x +", " + y);
 };
