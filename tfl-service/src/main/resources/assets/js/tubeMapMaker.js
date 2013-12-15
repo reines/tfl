@@ -273,9 +273,9 @@ function addStations() {
     addStation(LINE_PICADILLY, SUDBURY_TOWN, "366", "467");
     addStation(LINE_PICADILLY, SUDBURY_HILL, "366", "413");
     addStation(LINE_PICADILLY, SOUTH_HARROW, "366", "359");
-    addStation(LINE_PICADILLY, RAYNERS_LANE, "353", "295");
-    addStation(LINE_PICADILLY, EASTCOTE, "327", "270");
-    addStation(LINE_PICADILLY, RUISLIP_MANOR, "294", "237");
+    addStation(LINE_PICADILLY, RAYNERS_LANE, "350", "294");
+    addStation(LINE_PICADILLY, EASTCOTE, "326", "270.5");
+    addStation(LINE_PICADILLY, RUISLIP_MANOR, "293.5", "238");
     addStation(LINE_PICADILLY, RUISLIP, "255", "226.3");
     addStation(LINE_PICADILLY, ICKENHAM, "169", "226.3");
     addStation(LINE_PICADILLY, HILLINGDON, "112", "226.3");
