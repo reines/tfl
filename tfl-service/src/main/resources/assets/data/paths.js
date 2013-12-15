@@ -3,37 +3,6 @@ bb.tl = bb.tl || {};
 bb.tl.lines = bb.tl.lines || {};
 
 // TUBE PATH DATA
-bb.tl.lines['Central'] = { strings: [], color: '#ED3024', paths: [], stations: [] };
-bb.tl.lines['Central'].strings.push('M 222.76 174.79 L 222.76 513.22');
-bb.tl.lines['Central'].strings.push('M 222.76 513.22 C 222.76 518.09 225.58 524.9 229.02 528.34');
-bb.tl.lines['Central'].strings.push('M 229.02 528.34 L 486.28 785.59');
-bb.tl.lines['Central'].strings.push('M 486.28 785.59 C 489.72 789.04 496.53 791.85 501.39 791.85');
-bb.tl.lines['Central'].strings.push('M 501.39 791.85');
-bb.tl.lines['Central'].strings.push('M 2034.1 394.45 C 2034.1 386.84 2040.26 380.68 2047.87 380.68');
-bb.tl.lines['Central'].strings.push('M 2047.87 380.68 L 2174.94 380.68');
-bb.tl.lines['Central'].strings.push('M 2174.94 380.68 C 2182.54 380.68 2188.71 374.51 2188.71 366.9');
-bb.tl.lines['Central'].strings.push('M 2188.71 366.9 L 2188.71 211.99');
-bb.tl.lines['Central'].strings.push('M 2188.71 211.99 C 2188.71 204.39 2182.54 198.22 2174.94 198.22');
-bb.tl.lines['Central'].strings.push('M 2174.94 198.22 L 2047.87 198.22');
-bb.tl.lines['Central'].strings.push('M 2047.87 198.22 C 2040.26 198.22 2034.1 204.39 2034.1 211.99');
-bb.tl.lines['Central'].strings.push('M 2034.1 211.99');
-bb.tl.lines['Central'].strings.push('M 2034.1 12.35 L 2034.1 529.16');
-bb.tl.lines['Central'].strings.push('M 2034.1 529.16 C 2034.1 531.97 2031.28 538.79 2027.84 542.22');
-bb.tl.lines['Central'].strings.push('M 2027.84 542.22 L 1880.1 689.97');
-bb.tl.lines['Central'].strings.push('M 1880.1 689.97 C 1876.66 693.41 1869.86 696.23 1864.99 696.23');
-bb.tl.lines['Central'].strings.push('M 1864.98 696.22 L 1664.97 696.22');
-bb.tl.lines['Central'].strings.push('M 1664.97 696.22 C 1660.1 696.22 1653.3 699.04 1649.85 702.49');
-bb.tl.lines['Central'].strings.push('M 1649.85 702.49 L 1520.99 831.36');
-bb.tl.lines['Central'].strings.push('M 1520.99 831.36 C 1517.54 834.8 1510.74 837.62 1505.87 837.62');
-bb.tl.lines['Central'].strings.push('M 1505.87 837.62 L 1426.38 837.62');
-bb.tl.lines['Central'].strings.push('M 1426.38 837.62 C 1421.51 837.62 1414.72 834.8 1411.27 831.36');
-bb.tl.lines['Central'].strings.push('M 1411.27 831.36 L 1378.03 798.12');
-bb.tl.lines['Central'].strings.push('M 1378.03 798.12 C 1374.59 794.67 1367.79 791.86 1362.92 791.86');
-bb.tl.lines['Central'].strings.push('M 1362.92 791.86 L 318.04 791.86');
-
-bb.tl.lines['Circle'] = { strings: [], color: '#FFD200', paths: [], stations: [] };
-
-
 bb.tl.lines['Picadilly'] = { strings: [], color: '#1C3E93', paths: [], stations: [] };
 
 bb.tl.lines['Picadilly'].strings.push('M 397.68 977.31 C 390.18 977.29 382.81 974.48 377.08 968.77');

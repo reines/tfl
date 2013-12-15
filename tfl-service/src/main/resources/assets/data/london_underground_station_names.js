@@ -1,3 +1,17 @@
+var LINE_BAKERLOO = "Bakerloo";
+var LINE_CENTRAL = "Central";
+var LINE_CIRCLE = "Circle";
+var LINE_DISTRICT = "District";
+var LINE_HAMMERSMITH = "Hammersmith & City";
+var LINE_JUBILEE = "Jubilee";
+var LINE_METROPOLITAN = "Metropolitan";
+var LINE_NOTHERN = "Nothern";
+var LINE_PICADILLY = "Piccadilly";
+var LINE_VICTORIA = "Victoria";
+var LINE_WATERLOO = "Waterloo & City";
+var LINE_DLR = "DLR";
+var LINE_OVERGROUND = "London Overground";
+
 var ACTON_TOWN = "Acton Town";
 var ACTON_CENTRAL = "Acton Central";
 var ALDGATE = "Aldgate";
