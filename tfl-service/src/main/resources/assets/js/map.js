@@ -46,6 +46,8 @@ function highlightStation(map, percent, line, stationName) {
 
         return this.each(function() {
             $(this).svg(function(map) {
+                // TODO: Window resize
+
                 // For each set of connections belonging to a line
                 _.each(connections, function(lineConnections, lineId) {
                     var line = lines[lineId];

@@ -1,8 +1,5 @@
-body {
-    background: #e5e5e5;
-}
-
 #map {
+    background: #e5e5e5;
     width: 2426px;
     height: 1615px;
 }
