@@ -56,7 +56,7 @@ function highlightStation(map, percent, line, stationName) {
                     // For each set of connections belonging to a line
                     _.each(connections, function(lineConnections, lineId) {
                         var line = lines[lineId];
-                        var lineSvgGroup = map.group({ id: line.getId() });
+                        var svgLineGroup = map.group({ id: line.getId() });
 
                         // For each connection in this line
                         _.each(lineConnections, function(connection) {
@@ -64,11 +64,12 @@ function highlightStation(map, percent, line, stationName) {
                             var stationA = connection.stationA;
                             var stationB = connection.stationB;
 
-                            if (connection.joinSvg  === undefined) {
-                                var svgConnection = map.line(lineSvgGroup, stationA.x, stationA.y, stationB.x, stationB.y);
+                            var svgConnection;
+                            if (connection.joinSvg === undefined) {
+                                svgConnection = map.line(svgLineGroup, stationA.x, stationA.y, stationB.x, stationB.y);
                             }
                             else {
-                                var svgConnection = map.path(lineSvgGroup, "M " + stationA.getCoords() + " L " + connection.joinSvg + " L " + stationB.getCoords());
+                                svgConnection = map.path(svgLineGroup, "M " + stationA.getCoords() + " L " + connection.joinSvg + " L " + stationB.getCoords());
                             }
 
                             $(svgConnection)
@@ -78,13 +79,15 @@ function highlightStation(map, percent, line, stationName) {
                                 .addClass("station-" + stationB.getId())
                                 .attr("stroke", line.colour)
                                 .attr("opacity", options.lineOpacity)
-                                .attr("stroke-width", options.lineWidth + "px");
+                                .attr("stroke-width", options.lineWidth);
                         });
                     });
 
                     // For each station draw a dot
                     _.each(stations, function(station) {
-                        var svgStation = map.circle(station.x, station.y, options.stationSize);
+                        var svgLineGroup = $("#" + station.line.getId())[0];
+
+                        var svgStation = map.circle(svgLineGroup, station.x, station.y, options.stationSize);
                         $(svgStation)
                             .addClass("station")
                             .addClass("line-" + station.line.getId())
@@ -92,8 +95,8 @@ function highlightStation(map, percent, line, stationName) {
                             .attr("fill", station.line.colour)
                             .attr("opacity", options.stationOpacity);
 
-                        var label = map.text(station.x + 10, station.y - 5, station.getName());
-                        $(label)
+                        var svgLabel = map.text(svgLineGroup, station.x + 10, station.y - 5, station.getName());
+                        $(svgLabel)
                             .addClass("label")
                             .attr("font", "Myriad")
                             .attr("font-size", 12.5)
