@@ -39,7 +39,7 @@ function highlightStation(map, percent, line, stationName) {
     $.fn.drawLondonUnderground = function(lines, stations, connections, options) {
         options = $.extend({}, {
             lineWidth: 5,
-            opacity: 0.1
+            opacity: 1
         }, options);
 
         return this.each(function() {
