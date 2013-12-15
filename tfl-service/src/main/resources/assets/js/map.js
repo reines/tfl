@@ -6,10 +6,10 @@ $(document).ready(function() {
 	var map = $('#map')
         .drawLondonUnderground(lines, stations, connections);
 
+	//highlightRoute(map, 0.05, LINE_CENTRAL, [HOLBORN, TOTTENHAM_COURT_ROAD, OXFORD_CIRCUS]);
+	//highlightRoute(map, 0.05, LINE_PICADILLY, [KINGS_CROSS, RUSSELL_SQUARE, HOLBORN]);
+	//highlightRoute(map, 0.1, LINE_PICADILLY, [ARSENAL, HOLLOWAY_ROAD, CALEDONIAN_ROAD, KINGS_CROSS]);
 	highlightRoute(map, 0.8, LINE_VICTORIA, [FINSBURY_PARK, HIGHBURY_AND_ISLINGTON, KINGS_CROSS, EUSTON, WARREN_STREET, OXFORD_CIRCUS, GREEN_PARK, VICTORIA]);
-	highlightRoute(map, 0.05, LINE_CENTRAL, [HOLBORN, TOTTENHAM_COURT_ROAD, OXFORD_CIRCUS]);
-	highlightRoute(map, 0.05, LINE_PICADILLY, [KINGS_CROSS, RUSSELL_SQUARE, HOLBORN]);
-	highlightRoute(map, 0.1, LINE_PICADILLY, [ARSENAL, HOLLOWAY_ROAD, CALEDONIAN_ROAD, KINGS_CROSS]);
 	
 });
 
@@ -24,10 +24,15 @@ function highlightRoute(map, percent, line, stops) {
 
 function highlightStation(map, percent, line, stationName) {
 	// Add Text
-	//console.log(stationName);
 	//console.log(stationNames);
-	//var stationName = stationNames[getJustStationId(stationName)];
-	//map.text(stationName.x, stationName.y, stationName.label); 
+	var stationLabel = stationNames[getJustStationId(stationName)];
+	console.log(stationLabel);
+	map.svg({
+        onLoad: function(s) {
+        	console.log(s);
+        	s.text(stationLabel.x, stationLabel.y, stationLabel.label, { fill: red}); 
+        }
+        });
 
 	// Add Circle
 	map.station(line, stationName)
