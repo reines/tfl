@@ -1,6 +1,7 @@
 var bb = bb || {};
 bb.tl = bb.tl || {};
 bb.tl.vars = bb.tl.vars || {};
+bb.tl.lines = bb.tl.lines || {};
 
 $(document).ready(function() {
     bb.tl.vars.paper = new Raphael('mapold', 2426, 1615);
