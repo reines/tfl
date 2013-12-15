@@ -6,7 +6,7 @@ $(document).ready(function() {
 	var map = $('#map')
         .drawLondonUnderground(lines, stations, connections);
 
-	highlightRoute(map, 0.8, LINE_VICTORIA, [FINSBURY_PARK, HIGHBURY_AND_ISLINGTON, KINGS_CROSS, EUSTON, WARREN_STREET, OXFORD_CIRCUS, GREEN_PARK, VICTORIA]);
+	highlightRoute(map, 0.8, LINE_VICTORIA, [FINSBURY_PARK, HIGHBURY_AND_ISLINGTON, KINGS_CROSS, EUSTON_2, WARREN_STREET, OXFORD_CIRCUS, GREEN_PARK, VICTORIA]);
 	highlightRoute(map, 0.05, LINE_CENTRAL, [HOLBORN, TOTTENHAM_COURT_ROAD, OXFORD_CIRCUS]);
 	highlightRoute(map, 0.05, LINE_PICADILLY, [KINGS_CROSS, RUSSELL_SQUARE, HOLBORN]);
 	highlightRoute(map, 0.1, LINE_PICADILLY, [ARSENAL, HOLLOWAY_ROAD, CALEDONIAN_ROAD, KINGS_CROSS]);
@@ -81,7 +81,7 @@ function highlightStation(map, percent, line, stationName) {
 
                     // For each station draw a dot
                     _.each(stations, function(station) {
-                        var svgStation = map.circle(station.x, station.y, 5, { fill: station.line.colour, opacity: 0});
+                        var svgStation = map.circle(station.x, station.y, 5, { fill: station.line.colour, opacity: 1});
                         $(svgStation)
                             .addClass("station")
                             .addClass("line-" + station.line.getId())
@@ -126,6 +126,6 @@ document.onmousemove = function(e)
 {
     var x = e.pageX;
     var y = e.pageY;
-    //console.clear();
-    //console.log(x +", " + y);
+    console.clear();
+    console.log(x +", " + y);
 };
