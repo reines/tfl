@@ -1,13 +1,18 @@
 package com.furnaghan.tfl.service.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.joda.time.DateTime;
 
-public class Destination {
+public class Destination implements Comparable<Destination> {
 
     private final DateTime time;
     private final Station station;
 
-    public Destination(DateTime time, Station station) {
+    @JsonCreator
+    public Destination(
+            @JsonProperty("time") DateTime time,
+            @JsonProperty("station") Station station) {
         this.time = time;
         this.station = station;
     }
@@ -38,6 +43,11 @@ public class Destination {
         int result = time != null ? time.hashCode() : 0;
         result = 31 * result + (station != null ? station.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Destination o) {
+        return time.compareTo(o.time);
     }
 
     @Override

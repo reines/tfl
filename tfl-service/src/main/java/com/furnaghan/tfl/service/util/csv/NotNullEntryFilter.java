@@ -1,4 +1,4 @@
-package com.furnaghan.tfl.service.csv;
+package com.furnaghan.tfl.service.util.csv;
 
 import com.googlecode.jcsv.reader.CSVEntryFilter;
 

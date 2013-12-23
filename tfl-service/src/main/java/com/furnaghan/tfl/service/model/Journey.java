@@ -1,15 +1,22 @@
 package com.furnaghan.tfl.service.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.joda.money.Money;
 
-public class Journey {
+public class Journey implements Comparable<Journey> {
 
     private final Destination start;
     private final Destination end;
     private final Money charge;
     private final String note;
 
-    public Journey(Destination start, Destination end, Money charge, String note) {
+    @JsonCreator
+    public Journey(
+            @JsonProperty("start") Destination start,
+            @JsonProperty("end") Destination end,
+            @JsonProperty("charge") Money charge,
+            @JsonProperty("note") String note) {
         this.start = start;
         this.end = end;
         this.charge = charge;
@@ -54,6 +61,11 @@ public class Journey {
         result = 31 * result + (charge != null ? charge.hashCode() : 0);
         result = 31 * result + (note != null ? note.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Journey o) {
+        return start.compareTo(o.start);
     }
 
     @Override

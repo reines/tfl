@@ -3,6 +3,10 @@ $(document).ready(function() {
     addStations();
     addConnections();
 
+//    console.log(JSON.stringify(lines));
+//    console.log(JSON.stringify(stations));
+    console.log(JSON.stringify(connections));
+
 	var map = $('#map')
         .drawLondonUnderground(lines, stations, connections);
 
@@ -70,7 +74,7 @@ function highlightStation(map, percent, line, stationName) {
 
                         $svgConnection
                             .addClass("segment")
-                            .addClass("line-" + stationA.line.getId())
+                            .addClass("line-" + line.getId())
                             .addClass("station-" + stationA.getId())
                             .addClass("station-" + stationB.getId())
                             .attr("fill", "none")
