@@ -38,6 +38,14 @@ public class Station {
         return y;
     }
 
+    public float distanceTo(Station o) {
+        return (float) Math.sqrt(Math.pow(x - o.x, 2) + Math.pow(y - o.y, 2));
+    }
+
+    public boolean isOnLine(Line line) {
+        return this.line.equals(line);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,11 +68,6 @@ public class Station {
 
     @Override
     public String toString() {
-        return "Station{" +
-                "name='" + name + '\'' +
-                ", line=" + line +
-                ", x=" + x +
-                ", y=" + y +
-                '}';
+        return name;
     }
 }

@@ -1,11 +1,12 @@
 package com.furnaghan.tfl.service.store;
 
 import com.furnaghan.tfl.service.model.Journey;
+import com.google.common.collect.SortedSetMultimap;
+import com.google.common.collect.TreeMultimap;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.SortedSet;
-import java.util.TreeSet;
 
 public class JourneyStore {
 
@@ -13,17 +14,17 @@ public class JourneyStore {
         return new JourneyStore();
     }
 
-    private final SortedSet<Journey> journeys;
+    private final SortedSetMultimap<Long, Journey> journeys;
 
     private JourneyStore() {
-        journeys = new TreeSet<Journey>();
+        journeys = TreeMultimap.create();
     }
 
-    public boolean addAll(Collection<Journey> journeys) {
-        return this.journeys.addAll(journeys);
+    public boolean addAll(long key, Collection<Journey> values) {
+        return journeys.putAll(key, values);
     }
 
-    public SortedSet<Journey> list() {
-        return Collections.unmodifiableSortedSet(journeys);
+    public SortedSet<Journey> list(long key) {
+        return Collections.unmodifiableSortedSet(journeys.get(key));
     }
 }

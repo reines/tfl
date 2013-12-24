@@ -1,6 +1,6 @@
 package com.furnaghan.tfl.service.csv;
 
-import com.furnaghan.tfl.service.store.ConnectionStore;
+import com.furnaghan.tfl.service.finder.RouteFinder;
 import com.furnaghan.tfl.service.model.Journey;
 import com.furnaghan.tfl.service.util.csv.NotNullEntryFilter;
 import com.furnaghan.tfl.service.util.io.TrimingInputStream;
@@ -19,10 +19,10 @@ public class JourneyReader implements AutoCloseable {
 
     private final CSVReader<Journey> csvReader;
 
-    public JourneyReader(InputStream in, ConnectionStore connectionStore) throws IOException {
+    public JourneyReader(InputStream in, RouteFinder routeFinder) throws IOException {
         csvReader = new CSVReaderBuilder<Journey>(new InputStreamReader(new TrimingInputStream(in)))
                 .strategy(TFL_CSV_STRATEGY)
-                .entryParser(new JourneyEntryParser(connectionStore))
+                .entryParser(new JourneyEntryParser(routeFinder))
                 .entryFilter(new NotNullEntryFilter<Journey>())
                 .build();
     }

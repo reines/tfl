@@ -43,9 +43,6 @@ public class Line {
 
     @Override
     public String toString() {
-        return "Line{" +
-                "name='" + name + '\'' +
-                ", colour='" + colour + '\'' +
-                '}';
+        return name;
     }
 }

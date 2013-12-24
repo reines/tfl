@@ -1,9 +1,9 @@
 package com.furnaghan.tfl.service.csv;
 
-import com.furnaghan.tfl.service.store.ConnectionStore;
-import com.furnaghan.tfl.service.model.Destination;
+import com.furnaghan.tfl.service.finder.RouteFinder;
 import com.furnaghan.tfl.service.model.Journey;
 import com.furnaghan.tfl.service.model.Station;
+import com.furnaghan.tfl.service.util.path.Path;
 import com.google.common.base.Optional;
 import com.googlecode.jcsv.reader.CSVEntryParser;
 import org.joda.money.CurrencyUnit;
@@ -33,7 +33,8 @@ public class JourneyEntryParser implements CSVEntryParser<Journey> {
     private static final CurrencyUnit CURRENCY = CurrencyUnit.GBP;
 
     private static final Logger LOG = LoggerFactory.getLogger(JourneyEntryParser.class);
-    private final ConnectionStore connectionStore;
+
+    private final RouteFinder routeFinder;
 
     private static DateTime parseDateTime(String date, String time) {
         return DateTime.parse(String.format("%s %s", date, time), DATE_FORMATTER);
@@ -43,8 +44,8 @@ public class JourneyEntryParser implements CSVEntryParser<Journey> {
         return Money.parse(String.format("%s %s", CURRENCY, price));
     }
 
-    public JourneyEntryParser(ConnectionStore connectionStore) {
-        this.connectionStore = connectionStore;
+    public JourneyEntryParser(RouteFinder routeFinder) {
+        this.routeFinder = routeFinder;
     }
 
     @Override
@@ -55,32 +56,26 @@ public class JourneyEntryParser implements CSVEntryParser<Journey> {
             return null;
         }
 
-        final Optional<Station> startStation = connectionStore.getStation(matcher.group(1));
-        if (!startStation.isPresent()) {
-            LOG.debug("Unable to find start station: {}", matcher.group(1));
-            return null;
-        }
+        final String startName = matcher.group(1);
+        final String endName = matcher.group(2);
 
         final DateTime startTime = parseDateTime(data[FIELD_DATE], data[FIELD_START_TIME]);
 
-        // Read the end time, and if it's before the start then presumably we went past midnight so increase the date
-        final Optional<Station> endStation = connectionStore.getStation(matcher.group(2));
-        if (!endStation.isPresent()) {
-            LOG.debug("Unable to find end station: {}", matcher.group(2));
-            return null;
-        }
-
         DateTime endTime = parseDateTime(data[FIELD_DATE], data[FIELD_END_TIME]);
+        // If the end times before the start then presumably we went past midnight so increase the date
         if (endTime.isBefore(startTime)) {
             endTime = endTime.plusDays(1);
         }
 
-        final Destination start = new Destination(startTime, startStation.get());
-        final Destination end = new Destination(endTime, endStation.get());
-
         final Money charge = parseMoney(data[FIELD_CHARGE]);
         final String note = data[FIELD_NOTE];
 
-        return new Journey(start, end, charge, note);
+        final Optional<Path<Station>> path = routeFinder.findPath(startName, endName);
+        if (!path.isPresent()) {
+            LOG.warn("Unable to find route from {} to {}", startName, endName);
+            return null;
+        }
+
+        return new Journey(startTime, endTime, path.get(), charge, note);
     }
 }

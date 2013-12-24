@@ -17,6 +17,11 @@
             <version>${dropwizard.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.yammer.dropwizard</groupId>
+            <artifactId>dropwizard-auth</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.joda</groupId>
             <artifactId>joda-money</artifactId>
             <version>${joda-money.version}</version>

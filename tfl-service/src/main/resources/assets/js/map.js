@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 //    console.log(JSON.stringify(lines));
 //    console.log(JSON.stringify(stations));
-    console.log(JSON.stringify(connections));
+//    console.log(JSON.stringify(connections));
 
 	var map = $('#map')
         .drawLondonUnderground(lines, stations, connections);
@@ -38,14 +38,14 @@ function highlightStation(map, percent, line, stationName) {
     $.fn.drawLondonUnderground = function(lines, stations, connections, options) {
         options = $.extend({}, {
             lineWidth: 5,
-            lineOpacity: 0.3,
+            lineOpacity: 1,
 
-            stationSize: 20,
-            stationOpacity: 0,
+            stationSize: 5,
+            stationOpacity: 1,
 
-            textSize: 12.5,
+            textSize: 12,
             textColour: "#1c3f94",
-            textOpacity: 0
+            textOpacity: 1
         }, options);
 
         return this.each(function() {

@@ -4,13 +4,15 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.furnaghan.tfl.service.model.Connection;
 import com.furnaghan.tfl.service.model.Station;
-import com.google.common.base.Optional;
-import com.google.common.collect.*;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.LinkedListMultimap;
+import com.google.common.collect.SetMultimap;
 import com.yammer.dropwizard.json.ObjectMapperFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.Set;
 
 public class ConnectionStore {
 
@@ -23,37 +25,46 @@ public class ConnectionStore {
     }
 
     private final LinkedListMultimap<String, Connection> connections;
+    private final SetMultimap<Station, Station> stationConnections;
     private final SetMultimap<String, Station> stations;
 
     private ConnectionStore(LinkedListMultimap<String, Connection> connections) {
         this.connections = connections;
 
+        stationConnections = LinkedHashMultimap.create();
         stations = LinkedHashMultimap.create();
+
         extractStations();
     }
 
-    private synchronized void extractStations() {
+    private void extractStations() {
         stations.clear();
 
         for (Connection connection : connections.values()) {
             handleStation(connection.getStationA());
             handleStation(connection.getStationB());
+
+            // TODO: Not all connections are bi-directional, are they?
+            handleConnection(connection.getStationA(), connection.getStationB());
+            handleConnection(connection.getStationB(), connection.getStationA());
         }
     }
 
-    private synchronized void handleStation(Station station) {
+    private void handleConnection(Station stationA, Station stationB) {
+        stationConnections.put(stationA, stationB);
+    }
+
+    private void handleStation(Station station) {
         if (!stations.containsValue(station)) {
             stations.put(station.getName(), station);
         }
     }
 
-    public Optional<Station> getStation(String name) {
-        final Collection<Station> results = stations.get(name);
-        if (results.isEmpty()) {
-            return Optional.absent();
-        }
+    public Set<Station> getStations(String name) {
+        return Collections.unmodifiableSet(stations.get(name));
+    }
 
-        // TODO: Choose the right station
-        return Optional.fromNullable(results.iterator().next());
+    public Set<Station> getConnectedStations(Station source) {
+        return Collections.unmodifiableSet(stationConnections.get(source));
     }
 }

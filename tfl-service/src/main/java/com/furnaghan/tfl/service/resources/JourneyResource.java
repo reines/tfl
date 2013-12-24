@@ -1,9 +1,11 @@
 package com.furnaghan.tfl.service.resources;
 
+import com.furnaghan.tfl.service.auth.Principal;
 import com.furnaghan.tfl.service.csv.JourneyReader;
-import com.furnaghan.tfl.service.store.ConnectionStore;
-import com.furnaghan.tfl.service.store.JourneyStore;
+import com.furnaghan.tfl.service.finder.RouteFinder;
 import com.furnaghan.tfl.service.model.Journey;
+import com.furnaghan.tfl.service.store.JourneyStore;
+import com.yammer.dropwizard.auth.Auth;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,28 +21,27 @@ public class JourneyResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(JourneyResource.class);
 
-    private final ConnectionStore connectionStore;
     private final JourneyStore journeyStore;
+    private final RouteFinder routeFinder;
 
-    public JourneyResource(ConnectionStore connectionStore, JourneyStore journeyStore) {
-        this.connectionStore = connectionStore;
+    public JourneyResource(JourneyStore journeyStore, RouteFinder routeFinder) {
         this.journeyStore = journeyStore;
+        this.routeFinder = routeFinder;
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Collection<Journey> list() {
-        return journeyStore.list();
+    public Collection<Journey> list(@Auth Principal principal) {
+        return journeyStore.list(principal.getId());
     }
 
     @POST
-    @Consumes("text/csv")
-    public void injest(InputStream in) {
-        try (final JourneyReader reader = new JourneyReader(in, connectionStore)) {
-            journeyStore.addAll(reader.readAll());
+    public void ingest(@Auth Principal principal, InputStream in) {
+        try (final JourneyReader reader = new JourneyReader(in, routeFinder)) {
+            journeyStore.addAll(principal.getId(), reader.readAll());
         }
         catch (IOException e) {
-            LOG.warn("Failed to injest csv", e);
+            LOG.warn("Failed to ingest csv", e);
             throw new WebApplicationException(e, Response.Status.INTERNAL_SERVER_ERROR);
         }
     }
