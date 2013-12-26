@@ -5,10 +5,10 @@ $(document).ready(function() {
 
 	var map = $('#map')
         .drawLondonUnderground(lines, stations, connections, {
-            lineWidth: 2.5,
+            lineWidth: 3,
             lineOpacity: 0.2,
 
-            stationSize: 2.5,
+            stationSize: 3,
             stationOpacity: 0,
 
             textOpacity: 0
@@ -21,17 +21,26 @@ $(document).ready(function() {
         success: function(journeys) {
             _.each(journeys, function(journey) {
                 var stops = journey.path.stops;
+
+                // Highlight the start station
+                var start = journey.path.stops[0];
+                highlightStation(map, start.line.name, start.name);
+
                 for (var i = 0;i < stops.length - 1; i++) {
                     var stationA = stops[i];
                     var stationB = stops[i+1];
                     var line = stationB.line;
 
+                    // Highlight any changes
+                    if (stationA.line.name != stationB.line.name) {
+                        highlightStation(map, stationA.line.name, stationA.name);
+                    }
+
+                    // Highlight each line segment
                     highlightSegment(map, line.name, stationA.name, stationB.name);
                 }
 
-                var start = journey.path.stops[0];
-                highlightStation(map, start.line.name, start.name);
-
+                // Highlight the end station
                 var end = journey.path.stops[journey.path.stops.length - 1];
                 highlightStation(map, end.line.name, end.name);
             });
@@ -43,7 +52,7 @@ function highlightSegment(map, line, stationNameA, stationNameB) {
     var segment = map.segment(line, stationNameA, stationNameB)
         .attr("opacity", 1);
 
-    var strokeWidth = (parseFloat(segment.attr("stroke-width")) || 0) + 1;
+    var strokeWidth = (parseFloat(segment.attr("stroke-width")) || 0) + 0.5;
     segment.attr("stroke-width", strokeWidth);
 }
 
@@ -169,10 +178,3 @@ function highlightStation(map, line, stationName) {
     	return $(segments);
     };
 }(jQuery));
-
-///////////////////////
-
-//document.onmousemove = function(e) {
-//    console.clear();
-//    console.log(e.pageX + ", " + e.pageY);
-//};
