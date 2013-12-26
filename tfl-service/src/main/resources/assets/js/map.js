@@ -23,7 +23,7 @@ $(document).ready(function() {
                 var stops = journey.path.stops;
 
                 // Highlight the start station
-                var start = journey.path.stops[0];
+                var start = journey.path.stops.getFirst();
                 highlightStation(map, start.line.name, start.name);
 
                 for (var i = 0;i < stops.length - 1; i++) {
@@ -41,7 +41,7 @@ $(document).ready(function() {
                 }
 
                 // Highlight the end station
-                var end = journey.path.stops[journey.path.stops.length - 1];
+                var end = journey.path.stops.getLast();
                 highlightStation(map, end.line.name, end.name);
             });
         }

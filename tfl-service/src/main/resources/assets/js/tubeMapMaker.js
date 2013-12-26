@@ -1658,3 +1658,11 @@ function Label(text, gravity, x, y) {
 String.prototype.toAlphanumeric = function() {
     return this.replace(/\W/g, '');
 };
+
+Array.prototype.getFirst = function() {
+    return this[0];
+};
+
+Array.prototype.getLast = function() {
+    return this[this.length - 1];
+};
