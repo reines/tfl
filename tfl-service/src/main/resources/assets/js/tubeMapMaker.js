@@ -380,7 +380,6 @@ var UPPER_HOLLOWAY = "Upper Holloway";
 
 var lines = {};
 var stations = {};
-var stationLabels = {};
 var connections = {};
 
 function addLines() {
@@ -1532,32 +1531,11 @@ function addLine(name, color, multiplier) {
 	lines[id] = new Line(name, color, multiplier);
 }
 
-function addStation(lineName, stationName, x, y, gravity) {
+function addStation(lineName, stationName, x, y) {
 	var id = getLineAndStationId(lineName, stationName);
 
     var line = lines[getLineId(lineName)];
 	stations[id] = new Station(stationName, line, x, y);
-
-    _addStationLabel(stationName, x, y, gravity);
-}
-
-function _addStationLabel(stationName, x, y, gravity) {
-    gravity = gravity || "east";
-
-    var id = getStationId(stationName);
-
-    if (id in stationLabels) {
-        var label = stationLabels[id];
-        switch (gravity) {
-            case "east": { label.x = Math.max(label.x, x); break; }
-            case "north": { label.y = Math.min(label.y, y); break; }
-            case "south": { label.y = Math.max(label.y, y); break; }
-            case "west": { label.x = Math.min(label.x, x); break; }
-        }
-    }
-    else {
-        stationLabels[id] = new Label(stationName, gravity, x, y);
-    }
 }
 
 function joinStation(lineName, stationNameA, stationNameB, joinSvg) {
@@ -1589,10 +1567,6 @@ function Line(name, colour, multiplier) {
 	this.name = name;
 	this.colour = colour;
     this.multiplier = multiplier;
-
-    this.getId = function() {
-        return getLineId(this.name);
-    };
 }
 
 function Station(name, line, x, y) {
@@ -1600,14 +1574,6 @@ function Station(name, line, x, y) {
     this.line = line;
     this.x = x;
     this.y = y;
-
-    this.getId = function() {
-        return getLineAndStationId(line.name, name);
-    };
-
-    this.getCoords = function() {
-        return this.x + " " + this.y;
-    };
 }
 
 function Connection(stationA, stationB, joinSvg) {
@@ -1616,53 +1582,11 @@ function Connection(stationA, stationB, joinSvg) {
 	this.joinSvg = joinSvg;
 }
 
-function Label(text, gravity, x, y) {
-    this.text = text;
-    this.gravity = gravity;
-    this.x = x;
-    this.y = y;
-
-    this.getAnchor = function() {
-        switch (this.gravity) {
-            case "north": return "middle";
-            case "south": return "middle";
-            case "west": return "end";
-        }
-        return "start";
-    };
-
-    this.getX = function() {
-        switch(this.gravity) {
-            case "east": return this.x + 10;
-            case "west": return this.x - 10;
-        }
-        return this.x;
-    };
-
-    this.getY = function() {
-        switch (this.gravity) {
-            case "east": return this.y - 6;
-            case "north": return this.y - 12;
-            case "south": return this.y + 20;
-            case "west": return this.y + 14;
-        }
-        return this.y;
-    };
-
-    this.getId = function() {
-        return this.text.toAlphanumeric().toLowerCase();
-    };
-}
-
 // Strip out non alphanumeric characters.
 String.prototype.toAlphanumeric = function() {
     return this.replace(/\W/g, '');
 };
 
-Array.prototype.getFirst = function() {
-    return this[0];
-};
-
-Array.prototype.getLast = function() {
-    return this[this.length - 1];
-};
+addLines();
+addStations();
+addConnections();

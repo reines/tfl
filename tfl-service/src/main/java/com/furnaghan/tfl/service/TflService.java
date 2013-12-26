@@ -30,7 +30,7 @@ public class TflService extends Service<ServiceConfiguration> {
     }
 
     private ConnectionStore loadConnectionStore() throws IOException {
-        try (final InputStream in = TflService.class.getResourceAsStream("/connections.json")) {
+        try (final InputStream in = TflService.class.getResourceAsStream("/assets/connections.json")) {
             return ConnectionStore.load(in);
         }
     }

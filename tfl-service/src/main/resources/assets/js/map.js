@@ -1,48 +1,62 @@
+// Strip out non alphanumeric characters.
+String.prototype.toAlphanumeric = function() {
+    return this.replace(/\W/g, '');
+};
+
+Array.prototype.getFirst = function() {
+    return this[0];
+};
+
+Array.prototype.getLast = function() {
+    return this[this.length - 1];
+};
+
 $(document).ready(function() {
-    addLines();
-    addStations();
-    addConnections();
+    $.ajax('/connections.json', {
+        dataType: 'json',
+        success: function(connections) {
+            var map = $('#map').drawLondonUnderground(connections, {
+                lineWidth: 3,
+                lineOpacity: 0.2,
 
-	var map = $('#map')
-        .drawLondonUnderground(lines, stations, connections, {
-            lineWidth: 3,
-            lineOpacity: 0.2,
+                stationSize: 3,
+                stationOpacity: 0,
 
-            stationSize: 3,
-            stationOpacity: 0,
+                textOpacity: 0
+            });
 
-            textOpacity: 0
-        });
+            $.ajax('/api/journey', {
+                headers: {
+                    'Authorization': 'Token test'
+                },
+                dataType: 'json',
+                success: function(journeys) {
+                    _.each(journeys, function(journey) {
+                        var stops = journey.path.stops;
 
-    $.ajax('http://localhost:8080/api/journey', {
-        headers: {
-            'Authorization': 'Token test'
-        },
-        success: function(journeys) {
-            _.each(journeys, function(journey) {
-                var stops = journey.path.stops;
+                        // Highlight the start station
+                        var start = stops.getFirst();
+                        highlightStation(map, start.line.name, start.name);
 
-                // Highlight the start station
-                var start = journey.path.stops.getFirst();
-                highlightStation(map, start.line.name, start.name);
+                        for (var i = 0;i < stops.length - 1; i++) {
+                            var stationA = stops[i];
+                            var stationB = stops[i+1];
+                            var line = stationB.line;
 
-                for (var i = 0;i < stops.length - 1; i++) {
-                    var stationA = stops[i];
-                    var stationB = stops[i+1];
-                    var line = stationB.line;
+                            // Highlight any changes
+                            if (stationA.line.name != stationB.line.name) {
+                                highlightStation(map, stationA.line.name, stationA.name);
+                            }
 
-                    // Highlight any changes
-                    if (stationA.line.name != stationB.line.name) {
-                        highlightStation(map, stationA.line.name, stationA.name);
-                    }
+                            // Highlight each line segment
+                            highlightSegment(map, line.name, stationA.name, stationB.name);
+                        }
 
-                    // Highlight each line segment
-                    highlightSegment(map, line.name, stationA.name, stationB.name);
+                        // Highlight the end station
+                        var end = stops.getLast();
+                        highlightStation(map, end.line.name, end.name);
+                    });
                 }
-
-                // Highlight the end station
-                var end = journey.path.stops.getLast();
-                highlightStation(map, end.line.name, end.name);
             });
         }
     });
@@ -67,8 +81,17 @@ function highlightStation(map, line, stationName) {
         .attr("opacity", 1);
 }
 
+function getLineAndStationId(line, station) {
+    return getId(line) + '-' + getId(station);
+}
+
+function getId(item) {
+    var name = (typeof item == 'object') ? item.name : item;
+    return name.toAlphanumeric().toLowerCase();
+}
+
 (function($) {
-    $.fn.drawLondonUnderground = function(lines, stations, connections, options) {
+    $.fn.drawLondonUnderground = function(connections, options) {
         options = $.extend({}, {
             lineWidth: 5,
             lineOpacity: 1,
@@ -81,15 +104,50 @@ function highlightStation(map, line, stationName) {
             textOpacity: 1
         }, options);
 
+        var stations = {};
+        var stationLabels = {};
+
+        _.each(connections, function(lineConnections) {
+            _.each(lineConnections, function(connection) {
+                var stationA = connection.stationA;
+                var stationIdA = getLineAndStationId(stationA.line.name, stationA.name);
+                stations[stationIdA] = stationA;
+
+                var stationB = connection.stationB;
+                var stationIdB = getLineAndStationId(stationB.line.name, stationB.name);
+                stations[stationIdB] = stationB;
+            });
+        });
+
+        _.each(stations, function(station) {
+            var gravity = "east";
+
+            var id = getId(station);
+            var x = station.x;
+            var y = station.y;
+
+            if (id in stationLabels) {
+                var label = stationLabels[id];
+                switch (gravity) {
+                    case "east": { label.x = Math.max(label.x, x); break; }
+                    case "north": { label.y = Math.min(label.y, y); break; }
+                    case "south": { label.y = Math.max(label.y, y); break; }
+                    case "west": { label.x = Math.min(label.x, x); break; }
+                }
+            }
+            else {
+                stationLabels[id] = new Label(station.name, gravity, x, y);
+            }
+        });
+
         return this.each(function() {
             $(this).svg(function(map) {
                 // TODO: Window resize
 
                 // For each set of connections belonging to a line
                 _.each(connections, function(lineConnections, lineId) {
-                    var line = lines[lineId];
                     var $svgLineGroup = $(map.group())
-                        .attr("id", line.getId());
+                        .attr("id", lineId);
 
                     // For each connection in this line
                     _.each(lineConnections, function(connection) {
@@ -102,14 +160,14 @@ function highlightStation(map, line, stationName) {
                             $svgConnection = $(map.line($svgLineGroup, stationA.x, stationA.y, stationB.x, stationB.y));
                         }
                         else {
-                            $svgConnection = $(map.path($svgLineGroup, "M " + stationA.getCoords() + " L " + connection.joinSvg + " L " + stationB.getCoords()));
+                            $svgConnection = $(map.path($svgLineGroup, "M " + stationA.x + " " + stationA.y + " L " + connection.joinSvg + " L " + stationB.x + " " + stationB.y));
                         }
 
                         $svgConnection
                             .addClass("segment")
-                            .addClass("line-" + line.getId())
-                            .addClass("station-" + stationA.getId())
-                            .addClass("station-" + stationB.getId())
+                            .addClass("line-" + getId(line))
+                            .addClass("station-" + getId(line) + "-" + getId(stationA))
+                            .addClass("station-" + getId(line) + "-" + getId(stationB))
                             .attr("fill", "none")
                             .attr("stroke", line.colour)
                             .attr("opacity", options.lineOpacity)
@@ -119,13 +177,14 @@ function highlightStation(map, line, stationName) {
 
                 // For each station draw a dot
                 _.each(stations, function(station) {
-                    var $svgLineGroup = $("#" + station.line.getId());
+                    var line = station.line;
+                    var $svgLineGroup = $("#" + getId(line));
 
                     $(map.circle($svgLineGroup, station.x, station.y, options.stationSize))
                         .addClass("station")
-                        .addClass("line-" + station.line.getId())
-                        .addClass("station-" + station.getId())
-                        .attr("fill", station.line.colour)
+                        .addClass("line-" + getId(line))
+                        .addClass("station-" + getId(line) + "-" + getId(station))
+                        .attr("fill", line.colour)
                         .attr("opacity", options.stationOpacity);
                 });
 
@@ -152,11 +211,11 @@ function highlightStation(map, line, stationName) {
     };
 
     $.fn.label = function(name) {
-        return this.find(".label.label-" + getStationId(name));
+        return this.find(".label.label-" + getId(name));
     };
 
     $.fn.route = function(name) {
-        return this.find(".segment.line-" + getLineId(name));
+        return this.find(".segment.line-" + getId(name));
     };
 
     $.fn.segment = function(line, stationNameA, stationNameB) {
@@ -165,3 +224,41 @@ function highlightStation(map, line, stationName) {
         return this.route(line).filter(".station-" + stationA + ".station-" + stationB);
     };
 }(jQuery));
+
+function Label(text, gravity, x, y) {
+    this.text = text;
+    this.gravity = gravity;
+    this.x = x;
+    this.y = y;
+
+    this.getAnchor = function() {
+        switch (this.gravity) {
+            case "north": return "middle";
+            case "south": return "middle";
+            case "west": return "end";
+        }
+        return "start";
+    };
+
+    this.getX = function() {
+        switch(this.gravity) {
+            case "east": return this.x + 10;
+            case "west": return this.x - 10;
+        }
+        return this.x;
+    };
+
+    this.getY = function() {
+        switch (this.gravity) {
+            case "east": return this.y - 6;
+            case "north": return this.y - 12;
+            case "south": return this.y + 20;
+            case "west": return this.y + 14;
+        }
+        return this.y;
+    };
+
+    this.getId = function() {
+        return getId(this.text);
+    };
+}
