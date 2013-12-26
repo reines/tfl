@@ -1533,7 +1533,7 @@ function addLine(name, color, multiplier) {
 }
 
 function addStation(lineName, stationName, x, y, gravity) {
-	var id = getStationId(lineName, stationName);
+	var id = getLineAndStationId(lineName, stationName);
 
     var line = lines[getLineId(lineName)];
 	stations[id] = new Station(stationName, line, x, y);
@@ -1544,7 +1544,7 @@ function addStation(lineName, stationName, x, y, gravity) {
 function _addStationLabel(stationName, x, y, gravity) {
     gravity = gravity || "east";
 
-    var id = getJustStationId(stationName);
+    var id = getStationId(stationName);
 
     if (id in stationLabels) {
         var label = stationLabels[id];
@@ -1567,8 +1567,8 @@ function joinStation(lineName, stationNameA, stationNameB, joinSvg) {
 		connections[id] = [];
 	}
 	
-	var stationA = stations[getStationId(lineName, stationNameA)];
-	var stationB = stations[getStationId(lineName, stationNameB)];
+	var stationA = stations[getLineAndStationId(lineName, stationNameA)];
+	var stationB = stations[getLineAndStationId(lineName, stationNameB)];
 
 	connections[id].push(new Connection(stationA, stationB, joinSvg));
 }
@@ -1577,12 +1577,12 @@ function getLineId(lineName) {
     return lineName.toAlphanumeric().toLowerCase();
 }
 
-function getJustStationId(stationName) {
+function getStationId(stationName) {
 	return stationName.toAlphanumeric().toLowerCase();
 }
 
-function getStationId(lineName, stationName) {
-	return getLineId(lineName) + '-' + getJustStationId(stationName);
+function getLineAndStationId(lineName, stationName) {
+	return getLineId(lineName) + '-' + getStationId(stationName);
 }
 
 function Line(name, colour, multiplier) {
@@ -1602,7 +1602,7 @@ function Station(name, line, x, y) {
     this.y = y;
 
     this.getId = function() {
-        return getStationId(line.name, name);
+        return getLineAndStationId(line.name, name);
     };
 
     this.getCoords = function() {
@@ -1650,7 +1650,7 @@ function Label(text, gravity, x, y) {
     };
 
     this.getId = function() {
-        return getJustStationId(this.text);
+        return this.text.toAlphanumeric().toLowerCase();
     };
 }
 

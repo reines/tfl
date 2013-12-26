@@ -148,11 +148,11 @@ function highlightStation(map, line, stationName) {
     };
 
     $.fn.station = function(line, name) {
-        return this.find(".station.station-" + getStationId(line, name));
+        return this.find(".station.station-" + getLineAndStationId(line, name));
     };
 
     $.fn.label = function(name) {
-        return this.find(".label.label-" + getJustStationId(name));
+        return this.find(".label.label-" + getStationId(name));
     };
 
     $.fn.route = function(name) {
@@ -160,21 +160,8 @@ function highlightStation(map, line, stationName) {
     };
 
     $.fn.segment = function(line, stationNameA, stationNameB) {
-        var stationA = getStationId(line, stationNameA);
-        var stationB = getStationId(line, stationNameB);
+        var stationA = getLineAndStationId(line, stationNameA);
+        var stationB = getLineAndStationId(line, stationNameB);
         return this.route(line).filter(".station-" + stationA + ".station-" + stationB);
-    };
-
-    $.fn.segments = function(line, stationNames) {
-    	var $element = $(this);
-    	var segments = [];
-
-        _.each(stationNames, function(stationAName, index) {
-    		if (index + 1 == stationNames.length) return;
-
-            segments.push($element.segment(line, stationAName, stationNames[index + 1]));
-    	});
-
-    	return $(segments);
     };
 }(jQuery));
