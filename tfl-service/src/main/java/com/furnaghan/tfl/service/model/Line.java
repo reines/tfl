@@ -7,13 +7,16 @@ public class Line {
 
     private final String name;
     private final String colour;
+    private final float multiplier;
 
     @JsonCreator
     public Line(
             @JsonProperty("name") String name,
-            @JsonProperty("colour") String colour) {
+            @JsonProperty("colour") String colour,
+            @JsonProperty("multiplier") float multiplier) {
         this.name = name;
         this.colour = colour;
+        this.multiplier = multiplier;
     }
 
     public String getName() {
@@ -22,6 +25,10 @@ public class Line {
 
     public String getColour() {
         return colour;
+    }
+
+    public float getMultiplier() {
+        return multiplier;
     }
 
     @Override

@@ -1,25 +1,24 @@
-package com.furnaghan.tfl.service.util.path.astar;
+package com.furnaghan.tfl.service.path.astar;
 
-import com.furnaghan.tfl.service.util.path.Graph;
-import com.furnaghan.tfl.service.util.path.Path;
+import com.furnaghan.tfl.service.path.Graph;
+import com.furnaghan.tfl.service.path.Path;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.Callable;
 
 public class AStarPathFinder<T> implements Callable<Optional<Path<T>>> {
+
+    private static final int OPEN_SET_INITIAL_CAPACITY = 11;
 
     private final T goal;
     private final Graph<T> graph;
 
     private final Set<T> closedSet;
-    private final Set<T> openSet;
+    private final PriorityQueue<T> openSet;
     private final Map<T, T> cameFromMap;
     private final Map<T, Float> gScoreMap;
     private final Map<T, Float> fScoreMap;
@@ -29,7 +28,18 @@ public class AStarPathFinder<T> implements Callable<Optional<Path<T>>> {
         this.graph = graph;
 
         closedSet = Sets.newHashSet();
-        openSet = Sets.newHashSet(start);
+
+        openSet = new PriorityQueue<T>(OPEN_SET_INITIAL_CAPACITY, new Comparator<T>() {
+            @Override
+            public int compare(T o1, T o2) {
+                final float score1 = Optional.fromNullable(fScoreMap.get(o1)).or(0F);
+                final float score2 = Optional.fromNullable(fScoreMap.get(o2)).or(0F);
+
+                return Float.compare(score1, score2);
+            }
+        });
+        openSet.add(start);
+
         cameFromMap = Maps.newHashMap();
 
         gScoreMap = Maps.newHashMap();
@@ -37,21 +47,6 @@ public class AStarPathFinder<T> implements Callable<Optional<Path<T>>> {
 
         fScoreMap = Maps.newHashMap();
         fScoreMap.put(start, graph.costEstimate(start, goal));
-    }
-
-    private T findBestOpenNode() {
-        float lowestScore = Float.MAX_VALUE;
-        T result = null;
-
-        for (T node : openSet) {
-            final float score = Optional.fromNullable(fScoreMap.get(node)).or(0F);
-            if (score < lowestScore) {
-                lowestScore = score;
-                result = node;
-            }
-        }
-
-        return result;
     }
 
     private Path<T> reconstructPath(T current) {
@@ -76,19 +71,14 @@ public class AStarPathFinder<T> implements Callable<Optional<Path<T>>> {
             throw new IllegalStateException("Attempted to re-call " + this.getClass().getSimpleName());
         }
 
-        while (true) {
-            final T current = findBestOpenNode();
-            // No more open nodes
-            if (current == null) {
-                break;
-            }
+        while (!openSet.isEmpty()) {
+            final T current = openSet.poll();
 
             // If we've found the goal
             if (goal.equals(current)) {
                 return Optional.of(reconstructPath(goal));
             }
 
-            openSet.remove(current);
             closedSet.add(current);
 
             // The score for getting from the start to this node

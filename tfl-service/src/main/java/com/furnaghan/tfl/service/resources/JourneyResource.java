@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 
-@Path("/api/journey")
+@Path("/journey")
 public class JourneyResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(JourneyResource.class);

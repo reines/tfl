@@ -2,8 +2,8 @@ package com.furnaghan.tfl.service.finder;
 
 import com.furnaghan.tfl.service.model.Station;
 import com.furnaghan.tfl.service.store.ConnectionStore;
-import com.furnaghan.tfl.service.util.path.Path;
-import com.furnaghan.tfl.service.util.path.astar.AStarPathFinder;
+import com.furnaghan.tfl.service.path.Path;
+import com.furnaghan.tfl.service.path.astar.AStarPathFinder;
 import com.google.common.base.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

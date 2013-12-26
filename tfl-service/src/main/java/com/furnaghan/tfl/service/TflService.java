@@ -9,9 +9,11 @@ import com.furnaghan.tfl.service.resources.JourneyResource;
 import com.furnaghan.tfl.service.store.ConnectionStore;
 import com.furnaghan.tfl.service.store.JourneyStore;
 import com.yammer.dropwizard.Service;
+import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -24,6 +26,7 @@ public class TflService extends Service<ServiceConfiguration> {
     @Override
     public void initialize(Bootstrap<ServiceConfiguration> bootstrap) {
         bootstrap.setName("tfl");
+        bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
     }
 
     private ConnectionStore loadConnectionStore() throws IOException {
@@ -46,6 +49,6 @@ public class TflService extends Service<ServiceConfiguration> {
         environment.addResource(journeyResource);
 
         // TODO: Remove this once we have persistence
-        journeyResource.ingest(new Principal(1L), TflService.class.getResourceAsStream("/journeys.csv"));
+        journeyResource.ingest(new Principal(1L), new FileInputStream("data/191013-081213.csv"));
     }
 }

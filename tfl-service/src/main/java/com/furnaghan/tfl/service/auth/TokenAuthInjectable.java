@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 
 public class TokenAuthInjectable<T> extends AbstractHttpContextInjectable<T> {
@@ -33,7 +34,7 @@ public class TokenAuthInjectable<T> extends AbstractHttpContextInjectable<T> {
 
     @Override
     public T getValue(HttpContext c) {
-        final String header = "Token test"; // c.getRequest().getHeaderValue(HttpHeaders.AUTHORIZATION);
+        final String header = c.getRequest().getHeaderValue(HttpHeaders.AUTHORIZATION);
 
         try {
             final Optional<T> result = this.getAuthenticateResult(header);

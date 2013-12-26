@@ -384,19 +384,19 @@ var stationLabels = {};
 var connections = {};
 
 function addLines() {
-	addLine(LINE_BAKERLOO, "#b36305");
-	addLine(LINE_CENTRAL, "#e32017");
-	addLine(LINE_CIRCLE, "#ffd300");
-	addLine(LINE_DISTRICT, "#00782a");
-	addLine(LINE_HAMMERSMITH, "#f3a9bb");
-	addLine(LINE_JUBILEE, "#a0a5a9");
-	addLine(LINE_METROPOLITAN, "#9b0056");
-	addLine(LINE_NOTHERN, "#000000");
-	addLine(LINE_PICADILLY, "#003688");
-	addLine(LINE_VICTORIA, "#0098d4");
-	addLine(LINE_WATERLOO, "#95cdba");
-	addLine(LINE_DLR, "#00a4a7");
-	addLine(LINE_OVERGROUND, "#ee7c0e");
+	addLine(LINE_BAKERLOO, "#b36305", 1.0);
+	addLine(LINE_CENTRAL, "#e32017", 1.0);
+	addLine(LINE_CIRCLE, "#ffd300", 1.0);
+	addLine(LINE_DISTRICT, "#00782a", 1.0);
+	addLine(LINE_HAMMERSMITH, "#f3a9bb", 1.0);
+	addLine(LINE_JUBILEE, "#a0a5a9", 1.0);
+	addLine(LINE_METROPOLITAN, "#9b0056", 1.0);
+	addLine(LINE_NOTHERN, "#000000", 1.0);
+	addLine(LINE_PICADILLY, "#003688", 1.0);
+	addLine(LINE_VICTORIA, "#0098d4", 1.1);
+	addLine(LINE_WATERLOO, "#95cdba", 1.0);
+	addLine(LINE_DLR, "#00a4a7", 1.0);
+	addLine(LINE_OVERGROUND, "#ee7c0e", 0.9);
 }
 
 function addStations() {
@@ -1527,9 +1527,9 @@ function addConnections() {
 
 }
 
-function addLine(name, color) {
+function addLine(name, color, multiplier) {
     var id = getLineId(name);
-	lines[id] = new Line(name, color);
+	lines[id] = new Line(name, color, multiplier);
 }
 
 function addStation(lineName, stationName, x, y, gravity) {
@@ -1548,8 +1548,12 @@ function _addStationLabel(stationName, x, y, gravity) {
 
     if (id in stationLabels) {
         var label = stationLabels[id];
-        label.x = (label.x + x) / 2;
-        label.y = (label.y + y) / 2;
+        switch (gravity) {
+            case "east": { label.x = Math.max(label.x, x); break; }
+            case "north": { label.y = Math.min(label.y, y); break; }
+            case "south": { label.y = Math.max(label.y, y); break; }
+            case "west": { label.x = Math.min(label.x, x); break; }
+        }
     }
     else {
         stationLabels[id] = new Label(stationName, gravity, x, y);
@@ -1581,9 +1585,10 @@ function getStationId(lineName, stationName) {
 	return getLineId(lineName) + '-' + getJustStationId(stationName);
 }
 
-function Line(name, colour) {
+function Line(name, colour, multiplier) {
 	this.name = name;
 	this.colour = colour;
+    this.multiplier = multiplier;
 
     this.getId = function() {
         return getLineId(this.name);

@@ -24,20 +24,17 @@ public class ConnectionStore {
         return new ConnectionStore(connections);
     }
 
-    private final LinkedListMultimap<String, Connection> connections;
     private final SetMultimap<Station, Station> stationConnections;
     private final SetMultimap<String, Station> stations;
 
     private ConnectionStore(LinkedListMultimap<String, Connection> connections) {
-        this.connections = connections;
-
         stationConnections = LinkedHashMultimap.create();
         stations = LinkedHashMultimap.create();
 
-        extractStations();
+        extractStations(connections);
     }
 
-    private void extractStations() {
+    private void extractStations(LinkedListMultimap<String, Connection> connections) {
         stations.clear();
 
         for (Connection connection : connections.values()) {

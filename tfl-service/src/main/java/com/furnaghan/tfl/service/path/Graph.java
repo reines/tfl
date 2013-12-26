@@ -1,4 +1,4 @@
-package com.furnaghan.tfl.service.util.path;
+package com.furnaghan.tfl.service.path;
 
 import java.util.Collection;
 

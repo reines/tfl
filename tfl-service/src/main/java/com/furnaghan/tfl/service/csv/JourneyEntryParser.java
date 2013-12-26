@@ -3,7 +3,7 @@ package com.furnaghan.tfl.service.csv;
 import com.furnaghan.tfl.service.finder.RouteFinder;
 import com.furnaghan.tfl.service.model.Journey;
 import com.furnaghan.tfl.service.model.Station;
-import com.furnaghan.tfl.service.util.path.Path;
+import com.furnaghan.tfl.service.path.Path;
 import com.google.common.base.Optional;
 import com.googlecode.jcsv.reader.CSVEntryParser;
 import org.joda.money.CurrencyUnit;

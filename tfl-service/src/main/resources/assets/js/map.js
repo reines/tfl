@@ -3,35 +3,59 @@ $(document).ready(function() {
     addStations();
     addConnections();
 
-//    console.log(JSON.stringify(lines));
-//    console.log(JSON.stringify(stations));
-//    console.log(JSON.stringify(connections));
-
 	var map = $('#map')
-        .drawLondonUnderground(lines, stations, connections);
+        .drawLondonUnderground(lines, stations, connections, {
+            lineWidth: 2.5,
+            lineOpacity: 0.2,
 
-	highlightRoute(map, 0.05, LINE_CENTRAL, [HOLBORN, TOTTENHAM_COURT_ROAD, OXFORD_CIRCUS]);
-	highlightRoute(map, 0.05, LINE_PICADILLY, [KINGS_CROSS, RUSSELL_SQUARE, HOLBORN]);
-	highlightRoute(map, 0.1, LINE_PICADILLY, [ARSENAL, HOLLOWAY_ROAD, CALEDONIAN_ROAD, KINGS_CROSS]);
-	highlightRoute(map, 0.8, LINE_VICTORIA, [FINSBURY_PARK, HIGHBURY_AND_ISLINGTON, KINGS_CROSS, EUSTON_2, WARREN_STREET, OXFORD_CIRCUS, GREEN_PARK, VICTORIA]);
+            stationSize: 2.5,
+            stationOpacity: 0,
+
+            textOpacity: 0
+        });
+
+    $.ajax('http://localhost:8080/api/journey', {
+        headers: {
+            'Authorization': 'Token test'
+        },
+        success: function(journeys) {
+            _.each(journeys, function(journey) {
+                var stops = journey.path.stops;
+                for (var i = 0;i < stops.length - 1; i++) {
+                    var stationA = stops[i];
+                    var stationB = stops[i+1];
+                    var line = stationB.line;
+
+                    highlightSegment(map, line.name, stationA.name, stationB.name);
+                }
+
+                var start = journey.path.stops[0];
+                highlightStation(map, start.line.name, start.name);
+
+                var end = journey.path.stops[journey.path.stops.length - 1];
+                highlightStation(map, end.line.name, end.name);
+            });
+        }
+    });
 });
 
-function highlightRoute(map, percent, line, stops) {
-	map.segments(line, stops)
-		.attr("stroke-width", (percent * 3) + 5)
-		.attr("opacity", "1");
-	
-	highlightStation(map, percent, line, stops[0]);
-	highlightStation(map, percent, line, stops[stops.length-1]);
+function highlightSegment(map, line, stationNameA, stationNameB) {
+    var segment = map.segment(line, stationNameA, stationNameB)
+        .attr("opacity", 1);
+
+    var strokeWidth = (parseFloat(segment.attr("stroke-width")) || 0) + 1;
+    segment.attr("stroke-width", strokeWidth);
 }
 
-function highlightStation(map, percent, line, stationName) {
-	map.station(line, stationName)
-		.attr("r", (percent * 5) + 5)
-		.attr("opacity", "1");
+function highlightStation(map, line, stationName) {
+	var station = map.station(line, stationName)
+        .attr("opacity", 1);
+
+    var r = (parseFloat(station.attr("r")) || 0) + 0.5;
+    station.attr("r", r);
 
     map.label(stationName)
-        .attr("opacity", "1");
+        .attr("opacity", 1);
 }
 
 (function($) {
@@ -85,16 +109,16 @@ function highlightStation(map, percent, line, stationName) {
                 });
 
                 // For each station draw a dot
-                    _.each(stations, function(station) {
-                        var $svgLineGroup = $("#" + station.line.getId());
+                _.each(stations, function(station) {
+                    var $svgLineGroup = $("#" + station.line.getId());
 
-                        $(map.circle($svgLineGroup, station.x, station.y, options.stationSize))
-                            .addClass("station")
-                            .addClass("line-" + station.line.getId())
-                            .addClass("station-" + station.getId())
-                            .attr("fill", station.line.colour)
-                            .attr("opacity", options.stationOpacity);
-                    });
+                    $(map.circle($svgLineGroup, station.x, station.y, options.stationSize))
+                        .addClass("station")
+                        .addClass("line-" + station.line.getId())
+                        .addClass("station-" + station.getId())
+                        .attr("fill", station.line.colour)
+                        .attr("opacity", options.stationOpacity);
+                });
 
                 var $svgLabelGroup = $(map.group())
                     .attr("id", "labels");

@@ -2,7 +2,7 @@ package com.furnaghan.tfl.service.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.furnaghan.tfl.service.util.path.Path;
+import com.furnaghan.tfl.service.path.Path;
 import org.joda.money.Money;
 import org.joda.time.DateTime;
 

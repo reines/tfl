@@ -1,9 +1,10 @@
 http:
   port: 8080
   adminPort: 8081
+  rootPath: /api/*
 
 logging:
   level: INFO
 
   loggers:
-    "com.furnaghan": TRACE
+    "com.furnaghan": DEBUG

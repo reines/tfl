@@ -18,15 +18,14 @@ public class TrimingInputStream extends InputStream {
     @Override
     public int read() throws IOException {
         final int value = delegate.read();
-        if (started) {
-            return value;
+        if (!started) {
+            if (value == ' ' || value == '\n' || value == '\r') {
+                return read();
+            }
+
+            started = true;
         }
 
-        if (value == ' ' || value == '\n' || value == '\r') {
-            return read();
-        }
-
-        started = true;
         return value;
     }
 

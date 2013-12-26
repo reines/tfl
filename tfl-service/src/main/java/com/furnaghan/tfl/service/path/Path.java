@@ -1,4 +1,4 @@
-package com.furnaghan.tfl.service.util.path;
+package com.furnaghan.tfl.service.path;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
