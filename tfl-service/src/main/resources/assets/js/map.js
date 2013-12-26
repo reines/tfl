@@ -206,16 +206,16 @@ function getId(item) {
         });
     };
 
-    $.fn.station = function(line, name) {
-        return this.find(".station.station-" + getLineAndStationId(line, name));
+    $.fn.station = function(line, station) {
+        return this.find(".station.station-" + getLineAndStationId(line, station));
     };
 
-    $.fn.label = function(name) {
-        return this.find(".label.label-" + getId(name));
+    $.fn.label = function(station) {
+        return this.find(".label.label-" + getId(station));
     };
 
-    $.fn.route = function(name) {
-        return this.find(".segment.line-" + getId(name));
+    $.fn.route = function(line) {
+        return this.find(".segment.line-" + getId(line));
     };
 
     $.fn.segment = function(line, stationNameA, stationNameB) {

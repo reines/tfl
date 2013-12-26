@@ -1590,3 +1590,5 @@ String.prototype.toAlphanumeric = function() {
 addLines();
 addStations();
 addConnections();
+
+console.log(JSON.stringify(connections));
